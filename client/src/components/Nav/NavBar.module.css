@@ -1,0 +1,33 @@
+.container {
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  height: var(--navBarHeight);
+  width: 100%;
+}
+
+.logo {
+  margin: 1rem;
+  border: 1px solid black;
+}
+
+.buttons {
+  margin: 1rem;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.navButton {
+  margin: 1rem;
+  border: none;
+  background-color: white;
+  border-radius: 0;
+}
+
+.navButton:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,15 @@
+.centralSectionContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.centralSection {
+  display: flex;
+  flex-grow: 1;
+  max-width: var(--centralSpanWidth);
+  min-width: 0;
+  box-sizing: border-box;
+}
