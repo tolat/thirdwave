@@ -2,7 +2,7 @@ import styles from "./BlackFade.module.css";
 
 const BlackFade = (props) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={props.containerStyle}>
       <div
         className={styles.backgroundContainer}
         style={{

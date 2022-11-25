@@ -13,6 +13,11 @@ code {
 }
 
 :root {
-  --navBarHeight: 6rem;
-  --centralSpanWidth: 100rem;
+  --navBarHeight: 5rem;
+  --centralSpanWidth: 85rem;
+}
+
+.invertFilter {
+  filter: invert(1);
+  -webkit-filter: invert(1);
 }
