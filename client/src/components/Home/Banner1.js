@@ -19,8 +19,11 @@ const Banner1 = (props) => {
   const [contentOpacity, setContentOpacity] = useState("0");
   const heroZoom = selectTSML(w, "0.65");
   const heroMarginTop = selectTSML(w, "25rem");
+  const heroBorderBottom = selectTSML(w, "1px solid white");
+  const header2BorderBottom = selectTSML(w, "none");
   const iconsContainerWidth = selectTSML(w, "unset");
   const iconsContainerZoom = selectTSML(w, "0.8");
+  const servicesDisplay = selectTSML(w, "none");
 
   const onExpand = () => {
     let offsetPosition = document
@@ -49,7 +52,11 @@ const Banner1 = (props) => {
             style={{ opacity: contentOpacity }}>
             <div
               className={styles.heroContainer}
-              style={{ zoom: heroZoom, marginTop: heroMarginTop }}>
+              style={{
+                zoom: heroZoom,
+                marginTop: heroMarginTop,
+                borderBottom: heroBorderBottom,
+              }}>
               <img
                 className={styles.canadianOwnedImg}
                 src={maple_leaf}
@@ -57,8 +64,15 @@ const Banner1 = (props) => {
               />
               <div className={styles.headerContainer}>
                 <div className={styles.header1}>Locally owned and operated</div>
-                <div className={styles.header2}> Since 1987</div>
-                <div className={styles.headerServices}>
+                <div
+                  className={styles.header2}
+                  style={{ borderBottom: header2BorderBottom }}>
+                  {" "}
+                  Since 1987
+                </div>
+                <div
+                  className={styles.headerServices}
+                  style={{ display: servicesDisplay }}>
                   <div className={styles.servicesItem}>Route Contracts</div>
                   <div className={styles.servicesDot}>.</div>
                   <div className={styles.servicesItem}>Rentals</div>

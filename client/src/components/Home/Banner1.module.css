@@ -12,12 +12,14 @@
 .heroContainer {
   display: flex;
   margin-top: 15rem;
+  max-width: 80%;
 }
 
 .headerContainer {
   display: flex;
   flex-direction: column;
   margin-top: -5rem;
+  max-width: 50vw;
 }
 
 .header1 {
@@ -31,12 +33,12 @@
   color: white;
   font-weight: bold;
   text-align: left;
-  height: 5rem;
   border-bottom: 2px solid white;
+  padding-bottom: 1rem;
 }
 
 .canadianOwnedImg {
-  width: 8rem;
+  max-width: 8rem;
   height: 8rem;
   margin-top: -5rem;
   margin-right: 1rem;

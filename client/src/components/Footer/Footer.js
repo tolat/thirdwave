@@ -61,7 +61,7 @@ const Footer = (props) => {
           </div>
           <div className={styles.footerLogo}>
             <img
-              style={{ width: "20rem", alignSelf: "center" }}
+              style={{ maxWidth: "20rem", alignSelf: "center" }}
               src={logo}
               alt="company logo"
             />
