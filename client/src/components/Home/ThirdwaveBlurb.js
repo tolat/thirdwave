@@ -18,6 +18,9 @@ const ThirdwaveBlurb = (props) => {
   const textContainerMargin = selectTSML(w, "0", "", "", "");
   const textImageContainerMargin = selectTSML(w, "0 0 3rem 0", "", "", "");
   const textImageContainerJustifyContent = selectTSML(w, "center", "", "", "");
+  const textFontSize = selectTSML(w, "1.1rem");
+  const textLineHeight = selectTSML(w, "1.4rem");
+  const textAlign = selectTSML(w);
 
   return (
     <CentralSection backgroundColor={"white"}>
@@ -43,7 +46,13 @@ const ThirdwaveBlurb = (props) => {
               alt="bus-under-grouse"
             />
           </div>
-          <div className={styles.text}>
+          <div
+            className={styles.text}
+            style={{
+              fontSize: textFontSize,
+              lineHeight: textLineHeight,
+              textAlign: textAlign,
+            }}>
             <div>
               Thirdwave Bus Services is a full service student transportation
               provider, committed to getting students to school safe, on time,
