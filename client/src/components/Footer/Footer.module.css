@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.outerContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socialIconsContainer {
+  display: flex;
+  height: 3rem;
+  width: 13rem;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.socialIcon {
+  height: 1.8rem;
+}
+
+.socialIcon:hover {
+  cursor: pointer;
+}
+
+.socialIconContainer {
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footerContactContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  width: 20rem;
+}
+
+.footerContactHeader {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.footerContactText {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.footerLogo {
+  padding: 3rem;
+  width: 20rem;
+}
+
+.footerCopyright {
+  width: 100%;
+  font-size: 0.9rem;
+  display: "flex";
+  justify-content: center;
+  color: rgb(121, 121, 121);
+  margin: 7rem 0 2rem 0;
+  text-align: center;
+}

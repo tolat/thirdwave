@@ -11,19 +11,8 @@ const imageLinks = [fraser, northvan, surrey, richmond];
 
 const Partners = (props) => {
   return (
-    <CentralSection
-      style={{ flexDirection: "column", borderBottom: "1px solid grey" }}>
-      <div
-        style={{
-          width: "100%",
-          textAlign: "center",
-          fontSize: "1.9rem",
-          marginTop: "3rem",
-          textTransform: "uppercase",
-        }}>
-        Our Partners
-      </div>
-      <div style={{ margin: "4rem 0rem 5rem 0rem" }}>
+    <CentralSection style={{ flexDirection: "column" }} backgroundColor="white">
+      <div style={{ margin: "4rem 0rem 6rem 0rem" }}>
         <Carousel />
       </div>
     </CentralSection>

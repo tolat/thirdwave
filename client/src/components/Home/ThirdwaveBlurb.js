@@ -5,8 +5,8 @@ import img from "../../images/under_grouse.jpeg";
 
 const ThirdwaveBlurb = (props) => {
   return (
-    <CentralSection backgroundColor={"rgb(250, 252, 252)"}>
-      <div className={styles.container}>
+    <CentralSection backgroundColor={"white"}>
+      <div id="ThirdwaveBlurb" className={styles.container}>
         <div className={styles.header}>
           Custom Schoolbus Services For the lower mainland and beyond.{" "}
         </div>
@@ -31,7 +31,7 @@ const ThirdwaveBlurb = (props) => {
             We provide custom tailored transportation services including daily
             school routes, special needs, and field trip transportation, as well
             as summer and charter trips for districts and organizations in the
-            Vancouver and Lower mainland areas of British Columbia . We are
+            Vancouver and Lower mainland areas of British Columbia. We are
             available to discuss your transportation needs and can be reached
             through the contact information listed on the contact us tab.
           </div>
