@@ -20,3 +20,11 @@ code {
   filter: invert(1);
   -webkit-filter: invert(1);
 }
+
+.alice-carousel__next-btn:hover {
+  filter: grayscale(1) contrast(0);
+}
+
+.alice-carousel__prev-btn:hover {
+  filter: grayscale(1) contrast(0);
+}

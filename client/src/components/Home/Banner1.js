@@ -15,8 +15,12 @@ import heroBackground from "../../images/bus1.jpeg";
 
 const Banner1 = (props) => {
   const w = props.viewportWidth;
-  const containerHeight = selectTSML(w, "45rem", "45rem", "45rem", "45rem");
+  const containerHeight = selectTSML(w, "40rem", "45rem", "45rem", "45rem");
   const [contentOpacity, setContentOpacity] = useState("0");
+  const heroZoom = selectTSML(w, "0.65");
+  const heroMarginTop = selectTSML(w, "25rem");
+  const iconsContainerWidth = selectTSML(w, "unset");
+  const iconsContainerZoom = selectTSML(w, "0.8");
 
   const onExpand = () => {
     let offsetPosition = document
@@ -43,7 +47,9 @@ const Banner1 = (props) => {
           <div
             className={styles.centralContainer}
             style={{ opacity: contentOpacity }}>
-            <div className={styles.heroContainer}>
+            <div
+              className={styles.heroContainer}
+              style={{ zoom: heroZoom, marginTop: heroMarginTop }}>
               <img
                 className={styles.canadianOwnedImg}
                 src={maple_leaf}
@@ -62,7 +68,12 @@ const Banner1 = (props) => {
               </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column" }}>
-              <div className={styles.iconsContainer}>
+              <div
+                className={styles.iconsContainer}
+                style={{
+                  width: iconsContainerWidth,
+                  zoom: iconsContainerZoom,
+                }}>
                 <StatIcon text="School Routes" imgUrl={family} />
                 <StatIcon text="Charters" imgUrl={bus} />
                 <StatIcon text="Shop Rental" imgUrl={wrench} />

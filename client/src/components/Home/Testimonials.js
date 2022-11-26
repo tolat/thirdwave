@@ -3,6 +3,7 @@ import styles from "./Testimonials.module.css";
 import AliceCarousel from "react-alice-carousel";
 import BlackFade from "../UI/BlackFade";
 import { useEffect } from "react";
+import { selectTSML } from "../../utils";
 
 import background from "../../images/bus3_medium.jpeg";
 
@@ -18,6 +19,7 @@ const testimonials = [
 ];
 
 const Testimonials = (props) => {
+  const w = props.viewportWidth;
   useEffect(() => {
     let prevArrow = document.getElementsByClassName(
       "alice-carousel__prev-btn"
@@ -28,7 +30,6 @@ const Testimonials = (props) => {
 
     prevArrow.style.zoom = "2";
     prevArrow.classList.add("invertFilter");
-    prevArrow.classList.add("makeWhite");
 
     nextArrow.style.zoom = "2";
     nextArrow.classList.add("invertFilter");
@@ -41,25 +42,45 @@ const Testimonials = (props) => {
       backgroundAttachment="fixed"
       backgroundSize="cover">
       <CentralSection>
-        <Carousel></Carousel>
+        <Carousel viewportWidth={w}></Carousel>
       </CentralSection>
     </BlackFade>
   );
 };
 
 const Carousel = (props) => {
+  const w = props.viewportWidth;
+  const testimonialContainerPadding = selectTSML(
+    w,
+    "0",
+    "2rem",
+    "2rem",
+    "2rem"
+  );
+
+  const testimonialTextWidth = selectTSML(w, "85%", "70%", "70%", "70%");
+  const testimonialTextAlign = selectTSML(
+    w,
+    "left",
+    "justify",
+    "justify",
+    "justify"
+  );
+
   const handleDragStart = (e) => e.preventDefault();
   const productCrouselItems = testimonials.map((t) => (
     <div
       className={styles.testimonialContainer}
       style={{
-        width: "100%",
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "5rem",
+        padding: testimonialContainerPadding,
       }}
       onDragStart={handleDragStart}>
-      <div className={styles.testimonialText}>{`"${t.text}"`}</div>
+      <div
+        className={styles.testimonialText}
+        style={{
+          width: testimonialTextWidth,
+          textAlign: testimonialTextAlign,
+        }}>{`"${t.text}"`}</div>
       <div className={styles.testimonialSource}>{`- ${t.source}`}</div>
     </div>
   ));

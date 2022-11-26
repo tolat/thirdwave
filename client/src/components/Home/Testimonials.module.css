@@ -1,11 +1,13 @@
 .testimonialContainer {
-  width: 80%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
   box-sizing: border-box;
   background-color: transparent;
+  margin-top: 5rem;
+  justify-content: center;
 }
 
 .testimonialText {
@@ -29,8 +31,4 @@
   background-image: url("../../images/bus3.jpeg");
   background-attachment: fixed;
   background-size: cover;
-}
-
-.makeWhite {
-  filter: contrast(3) grayscale(1);
 }
