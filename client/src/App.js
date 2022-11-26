@@ -7,13 +7,15 @@ import Partners from "./components/Home/Partners";
 
 import Testimonials from "./components/Home/Testimonials";
 import Footer from "./components/Footer/Footer";
+import NavDrawer from "./components/Nav/NavDrawer";
 
 function App() {
   const { width } = useWindowSize();
 
   return (
     <div className="App">
-      <NavBar />
+      <NavDrawer />
+      <NavBar viewportWidth={width} />
       <Banner1 viewportWidth={width} />
       <ThirdwaveBlurb viewportWidth={width} />
       <Partners viewportWidth={width} />

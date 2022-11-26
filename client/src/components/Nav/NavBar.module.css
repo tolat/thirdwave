@@ -30,10 +30,12 @@
 
 .logo {
   margin: 0 0 0 2rem;
-  width: 250px;
+  max-width: 80%;
+  flex-grow: 1;
   height: 100%;
   background-size: contain;
   background-repeat: no-repeat;
+  position: static;
 }
 
 .buttons {
@@ -42,27 +44,11 @@
   align-items: center;
 }
 
-.navButton {
-  margin: 1rem;
-  border: none;
-  font-size: 1.15rem;
-  height: 3rem;
-  background-color: white;
-  border-radius: 0;
-  text-decoration: none;
-  background-image: linear-gradient(#ffffff, #ffffff);
-  background-size: 0% 0.12em;
-  background-position-y: 100%;
-  background-position-x: 0%;
-  background-repeat: no-repeat;
-  transition: background-size 0.3s ease-in-out;
-  padding: 0.1rem;
-  background-color: transparent;
-  color: white;
-}
-
-.navButton:hover,
-.navButton:active {
-  cursor: pointer;
-  background-size: 100% 0.12em;
+.burgerButton {
+  display: unset;
+  position: fixed;
+  z-index: 12;
+  right: 1rem;
+  display: none;
+  align-items: center;
 }

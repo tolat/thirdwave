@@ -75,3 +75,16 @@ export const useScrollPosition = () => {
 
   return scrollPosition;
 };
+
+export const toggleNavDrawer = () => {
+  let navDrawer = document.getElementById("navDrawer");
+  //let navDrawerBlackout = document.getElementById("navDrawerBlackout");
+
+  if (navDrawer.style.right != "0px") {
+    navDrawer.style.right = "0px";
+    //navDrawerBlackout.style.display = "block";
+  } else {
+    navDrawer.style.right = "-20rem";
+    //navDrawerBlackout.style.display = "none";
+  }
+};

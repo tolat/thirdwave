@@ -1,10 +1,17 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo2.png";
 import React, { useState } from "react";
-import { useScrollPosition } from "../../utils";
+import { selectTSML, useScrollPosition } from "../../utils";
+import { Turn as Hamburger } from "hamburger-react";
+import { toggleNavDrawer } from "../../utils";
+import NavButton from "./NavButton";
 
 const NavBar = (props) => {
+  const w = props.viewportWidth;
   const scrollPosition = useScrollPosition();
+  const [isOpen, setOpen] = useState(false);
+  const horizontalButtonsDisplay = selectTSML(w, "none");
+  const burgerMenuDisplay = selectTSML(w, "flex");
 
   function convertRemToPixels(rem) {
     return (
@@ -33,7 +40,9 @@ const NavBar = (props) => {
           <div
             className={styles.logo}
             style={{ backgroundImage: `url("${logo}")` }}></div>
-          <div className={styles.buttons}>
+          <div
+            className={styles.buttons}
+            style={{ display: horizontalButtonsDisplay }}>
             <NavButton style={{ height: buttonHeight }}>Home</NavButton>
             <NavButton style={{ height: buttonHeight }}>About</NavButton>
             <NavButton style={{ height: buttonHeight }}>Services</NavButton>
@@ -42,15 +51,13 @@ const NavBar = (props) => {
           </div>
         </div>
       </div>
+      <div
+        className={`${styles.burgerButton} invertFilter`}
+        style={{ height: barHeight, display: burgerMenuDisplay }}
+        onClick={toggleNavDrawer}>
+        <Hamburger toggled={isOpen} toggle={setOpen} />
+      </div>
     </React.Fragment>
-  );
-};
-
-const NavButton = (props) => {
-  return (
-    <button className={styles.navButton} style={props.style}>
-      {props.children}
-    </button>
   );
 };
 
