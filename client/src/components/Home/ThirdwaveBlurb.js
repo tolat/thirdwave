@@ -1,12 +1,12 @@
 import CentralSection from "../UI/CentralSection";
 import styles from "./ThirdwaveBlurb.module.css";
-import { selectTSML } from "../../utils";
+import { selectFromWidth } from "../../utils";
 
 import img from "../../images/under_grouse.jpeg";
 
 const ThirdwaveBlurb = (props) => {
   const w = props.viewportWidth;
-  const textContainerFlexDirection = selectTSML(
+  const textContainerFlexDirection = selectFromWidth(
     w,
     "column",
     "row",
@@ -14,13 +14,19 @@ const ThirdwaveBlurb = (props) => {
     "row"
   );
 
-  const secondBlurbDisplay = selectTSML(w, "none", "", "", "");
-  const textContainerMargin = selectTSML(w, "0", "", "", "");
-  const textImageContainerMargin = selectTSML(w, "0 0 3rem 0", "", "", "");
-  const textImageContainerJustifyContent = selectTSML(w, "center", "", "", "");
-  const textFontSize = selectTSML(w, "1.1rem");
-  const textLineHeight = selectTSML(w, "1.4rem");
-  const textAlign = selectTSML(w);
+  const secondBlurbDisplay = selectFromWidth(w, "none", "", "", "");
+  const textContainerMargin = selectFromWidth(w, "0", "", "", "");
+  const textImageContainerMargin = selectFromWidth(w, "0 0 3rem 0", "", "", "");
+  const textImageContainerJustifyContent = selectFromWidth(
+    w,
+    "center",
+    "",
+    "",
+    ""
+  );
+  const textFontSize = selectFromWidth(w, "1.1rem");
+  const textLineHeight = selectFromWidth(w, "1.4rem");
+  const textAlign = selectFromWidth(w);
 
   return (
     <CentralSection backgroundColor={"white"}>

@@ -1,7 +1,11 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo2.png";
 import React, { useState } from "react";
-import { selectTSML, useScrollPosition, handleToggleModal } from "../../utils";
+import {
+  selectFromWidth,
+  useScrollPosition,
+  handleToggleModal,
+} from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
@@ -10,8 +14,8 @@ const NavBar = (props) => {
   const w = props.viewportWidth;
   const scrollPosition = useScrollPosition();
   const [isOpen, setOpen] = useState(false);
-  const horizontalButtonsDisplay = selectTSML(w, "none");
-  const burgerMenuDisplay = selectTSML(w, "flex");
+  const horizontalButtonsDisplay = selectFromWidth(w, "none");
+  const burgerMenuDisplay = selectFromWidth(w, "flex");
 
   function convertRemToPixels(rem) {
     return (

@@ -2,7 +2,12 @@ import GeneralButton from "../UI/GeneralButton";
 import GeneralInput from "../UI/GeneralInput";
 import modalStyles from "../UI/Modal.module.css";
 import styles from "./ContactModal.module.css";
-import { selectTSML, sendMessage, showFlash, closeFlash } from "../../utils";
+import {
+  selectFromWidth,
+  sendMessage,
+  showFlash,
+  closeFlash,
+} from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "../UI/Modal";
 import Spinner from "react-bootstrap/Spinner";
@@ -13,16 +18,22 @@ import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
-  const inputDisplay = selectTSML(w, "column");
-  const inputWidth = selectTSML(w, "100%", "50%", "50%", "50%");
-  const textAreaBottMarg = selectTSML(w, "10rem");
-  const scrollMaskImage = selectTSML(w, "", "none", "none", "none");
-  const quoteModalWidth = selectTSML(w, "100%", "50rem", "50rem", "50rem");
-  const quoteModalHeight = selectTSML(w, "100%", "", "", "");
-  const quoteModalMaxHeight = selectTSML(w, "", "80%", "80%", "80%");
-  const buttonFontSize = selectTSML(w, "1.4rem", "", "", "");
-  const sidepanelDisplay = selectTSML(w, "none", "flex", "flex", "flex");
-  const mobileDetailsDisplay = selectTSML(w, "block", "none", "none", "none");
+  const inputDisplay = selectFromWidth(w, "column");
+  const inputWidth = selectFromWidth(w, "100%", "50%", "50%", "50%");
+  const textAreaBottMarg = selectFromWidth(w, "10rem");
+  const scrollMaskImage = selectFromWidth(w, "", "none", "none", "none");
+  const quoteModalWidth = selectFromWidth(w, "100%", "50rem", "50rem", "50rem");
+  const quoteModalHeight = selectFromWidth(w, "100%", "", "", "");
+  const quoteModalMaxHeight = selectFromWidth(w, "", "80%", "80%", "80%");
+  const buttonFontSize = selectFromWidth(w, "1.4rem", "", "", "");
+  const sidepanelDisplay = selectFromWidth(w, "none", "flex", "flex", "flex");
+  const mobileDetailsDisplay = selectFromWidth(
+    w,
+    "block",
+    "none",
+    "none",
+    "none"
+  );
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");

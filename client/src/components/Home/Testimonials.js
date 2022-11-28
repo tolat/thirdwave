@@ -3,7 +3,7 @@ import styles from "./Testimonials.module.css";
 import AliceCarousel from "react-alice-carousel";
 import BlackFade from "../UI/BlackFade";
 import { useEffect } from "react";
-import { selectTSML } from "../../utils";
+import { selectFromWidth } from "../../utils";
 
 import background from "../../images/bus3_medium.jpeg";
 
@@ -50,7 +50,7 @@ const Testimonials = (props) => {
 
 const Carousel = (props) => {
   const w = props.viewportWidth;
-  const testimonialContainerPadding = selectTSML(
+  const testimonialContainerPadding = selectFromWidth(
     w,
     "0",
     "2rem",
@@ -58,8 +58,8 @@ const Carousel = (props) => {
     "2rem"
   );
 
-  const testimonialTextWidth = selectTSML(w, "85%", "70%", "70%", "70%");
-  const testimonialTextAlign = selectTSML(
+  const testimonialTextWidth = selectFromWidth(w, "85%", "70%", "70%", "70%");
+  const testimonialTextAlign = selectFromWidth(
     w,
     "left",
     "justify",

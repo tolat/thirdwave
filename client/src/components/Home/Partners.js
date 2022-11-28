@@ -7,7 +7,7 @@ import northvan from "../../images/partner_icons/northvan.png";
 import surrey from "../../images/partner_icons/surrey.png";
 import richmond from "../../images/partner_icons/richmond.png";
 
-import { selectTSML } from "../../utils";
+import { selectFromWidth } from "../../utils";
 
 const imageLinks = [fraser, northvan, surrey, richmond];
 
@@ -24,7 +24,13 @@ const Partners = (props) => {
 
 const Carousel = (props) => {
   const w = props.viewportWidth;
-  const partnerLogoHeight = selectTSML(w, "50rem", "60rem", "70rem", "70rem");
+  const partnerLogoHeight = selectFromWidth(
+    w,
+    "50rem",
+    "60rem",
+    "70rem",
+    "70rem"
+  );
   // Alice carousel for products
   const handleDragStart = (e) => e.preventDefault();
   const productCrouselItems = imageLinks.map((l) => (

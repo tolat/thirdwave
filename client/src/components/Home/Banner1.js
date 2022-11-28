@@ -1,6 +1,6 @@
 import styles from "./Banner1.module.css";
 import CentralSection from "../UI/CentralSection";
-import { selectTSML } from "../../utils";
+import { selectFromWidth } from "../../utils";
 import React, { useEffect, useState } from "react";
 import BlackFade from "../UI/BlackFade";
 
@@ -15,15 +15,21 @@ import heroBackground from "../../images/bus1.jpeg";
 
 const Banner1 = (props) => {
   const w = props.viewportWidth;
-  const containerHeight = selectTSML(w, "40rem", "45rem", "45rem", "45rem");
+  const containerHeight = selectFromWidth(
+    w,
+    "40rem",
+    "45rem",
+    "45rem",
+    "45rem"
+  );
   const [contentOpacity, setContentOpacity] = useState("0");
-  const heroZoom = selectTSML(w, "0.65");
-  const heroMarginTop = selectTSML(w, "25rem");
-  const heroBorderBottom = selectTSML(w, "1px solid white");
-  const header2BorderBottom = selectTSML(w, "none");
-  const iconsContainerWidth = selectTSML(w, "unset");
-  const iconsContainerZoom = selectTSML(w, "0.8");
-  const servicesDisplay = selectTSML(w, "none");
+  const heroZoom = selectFromWidth(w, "0.65");
+  const heroMarginTop = selectFromWidth(w, "25rem");
+  const heroBorderBottom = selectFromWidth(w, "1px solid white");
+  const header2BorderBottom = selectFromWidth(w, "none");
+  const iconsContainerWidth = selectFromWidth(w, "unset");
+  const iconsContainerZoom = selectFromWidth(w, "0.8");
+  const servicesDisplay = selectFromWidth(w, "none");
 
   const onExpand = () => {
     let offsetPosition = document
