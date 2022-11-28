@@ -66,7 +66,8 @@ const NavBar = (props) => {
       <div
         className={`${styles.burgerButton} invertFilter`}
         style={{ height: barHeight, display: burgerMenuDisplay }}
-        onClick={toggleNavDrawer}>
+        onClick={toggleNavDrawer}
+        id="burgerMenu">
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </div>
     </React.Fragment>

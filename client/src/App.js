@@ -27,7 +27,7 @@ function App() {
         modalVis={contactModalVis}
         setModalVis={setContactModalVis}
       />
-      <NavDrawer />
+      <NavDrawer setContactModalVis={setContactModalVis} />
       <NavBar viewportWidth={width} setContactModalVis={setContactModalVis} />
       <Banner1 viewportWidth={width} />
       <ThirdwaveBlurb viewportWidth={width} />

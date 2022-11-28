@@ -1,7 +1,13 @@
 import styles from "./NavDrawer.module.css";
 import NavButton from "./NavButton";
+import { handleToggleModal, clickBurgerMenuIcon } from "../../utils";
 
 const NavDrawer = (props) => {
+  const onContactButtonClick = () => {
+    handleToggleModal(props.setContactModalVis);
+    clickBurgerMenuIcon(true);
+  };
+
   return (
     <div id="navDrawer" className={styles.container}>
       <div className={styles.dropdownButtons}>
@@ -15,7 +21,11 @@ const NavDrawer = (props) => {
           <NavButton style={{ fontSize: "1.3rem" }}>Services</NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>Contact</NavButton>
+          <NavButton
+            style={{ fontSize: "1.3rem" }}
+            onClick={onContactButtonClick}>
+            Contact
+          </NavButton>
         </div>
         <div>
           <NavButton style={{ fontSize: "1.3rem" }}>FAQ</NavButton>

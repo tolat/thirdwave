@@ -12,7 +12,6 @@ export const selectFromWidth = (width, mobile, sml, med, lrg) => {
 };
 
 export const handleToggleModal = (setModalVisFunction) => {
-  console.log("toggling modal");
   const hide = { o: "0", v: "hidden" };
   const show = { o: "1", v: "visible" };
   // eslint-disable-next-line
@@ -87,5 +86,12 @@ export const toggleNavDrawer = () => {
   } else {
     navDrawer.style.right = "-20rem";
     //navDrawerBlackout.style.display = "none";
+  }
+};
+
+export const clickBurgerMenuIcon = (buttonActive = false) => {
+  document.getElementsByClassName("hamburger-react")[0].click();
+  if (!buttonActive) {
+    toggleNavDrawer();
   }
 };
