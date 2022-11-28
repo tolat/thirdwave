@@ -28,3 +28,15 @@ code {
 .alice-carousel__prev-btn:hover {
   filter: grayscale(1) contrast(0);
 }
+
+.pointer-hover:hover {
+  cursor: pointer;
+}
+
+.noscroll::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
+.noscroll {
+  scrollbar-width: none; /* for Firefox */
+}

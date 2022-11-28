@@ -1,7 +1,7 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo2.png";
 import React, { useState } from "react";
-import { selectTSML, useScrollPosition } from "../../utils";
+import { selectTSML, useScrollPosition, handleToggleModal } from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
@@ -30,6 +30,10 @@ const NavBar = (props) => {
   const buttonHeight =
     scrollPosition > convertRemToPixels(10) ? "1.8rem" : "3rem";
 
+  const onContactButtonClick = () => {
+    handleToggleModal(props.setContactModalVis);
+  };
+
   return (
     <React.Fragment>
       <div
@@ -46,7 +50,11 @@ const NavBar = (props) => {
             <NavButton style={{ height: buttonHeight }}>Home</NavButton>
             <NavButton style={{ height: buttonHeight }}>About</NavButton>
             <NavButton style={{ height: buttonHeight }}>Services</NavButton>
-            <NavButton style={{ height: buttonHeight }}>Contact</NavButton>
+            <NavButton
+              style={{ height: buttonHeight }}
+              onClick={onContactButtonClick}>
+              Contact
+            </NavButton>
             <NavButton style={{ height: buttonHeight }}>FAQ</NavButton>
           </div>
         </div>

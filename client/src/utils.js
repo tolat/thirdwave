@@ -12,6 +12,7 @@ export const selectTSML = (width, tiny, sml, med, lrg) => {
 };
 
 export const handleToggleModal = (setModalVisFunction) => {
+  console.log("toggling modal");
   const hide = { o: "0", v: "hidden" };
   const show = { o: "1", v: "visible" };
   // eslint-disable-next-line
@@ -79,7 +80,7 @@ export const useScrollPosition = () => {
 export const toggleNavDrawer = () => {
   let navDrawer = document.getElementById("navDrawer");
   //let navDrawerBlackout = document.getElementById("navDrawerBlackout");
-
+  // eslint-disable-next-line
   if (navDrawer.style.right != "0px") {
     navDrawer.style.right = "0px";
     //navDrawerBlackout.style.display = "block";

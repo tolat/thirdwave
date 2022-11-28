@@ -1,0 +1,49 @@
+.header {
+  font-size: 1.5rem;
+}
+
+.message {
+  font-size: 1rem;
+  color: rgb(95, 95, 95);
+  max-width: 80%;
+  line-height: 1.3rem;
+  padding: 0.5rem;
+}
+
+.button {
+  padding-left: 1rem;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.masterContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  box-sizing: border-box;
+  margin-top: -10rem;
+  transition: margin-top 0.27s ease-in-out;
+  box-sizing: border-box;
+}
+
+.flashContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding: 1rem;
+  max-width: 90%;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
