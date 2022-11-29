@@ -1,6 +1,6 @@
 import styles from "./Footer.module.css";
 import CentralSection from "../UI/CentralSection";
-import { selectFromWidth } from "../../utils";
+import { responsive } from "../../utils";
 
 import logo from "../../images/logo2.png";
 import facebook from "../../images/icons/facebook.png";
@@ -10,7 +10,7 @@ import linkedin from "../../images/icons/linkedin.png";
 
 const Footer = (props) => {
   const w = props.viewportWidth;
-  const flexDirection = selectFromWidth(w, "column", "column", "row", "row");
+  const flexDirection = responsive(w, "column", "column", "row", "row");
   return (
     <CentralSection backgroundColor="rgb(41,41,41)">
       <div className={styles.outerContainer}>

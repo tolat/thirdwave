@@ -70,3 +70,14 @@ textarea {
   font-size: 0.95rem;
   line-height: 1.6rem;
 }
+
+.sendButton {
+  background-color: transparent;
+  box-shadow: none;
+  font-size: 1.4rem;
+  width: 100%;
+  align-self: flex-start;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

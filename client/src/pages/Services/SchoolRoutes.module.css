@@ -1,0 +1,36 @@
+.container {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+}
+
+.iconsContainer {
+  display: grid;
+  grid-template: "a a" 50% "b b" 50%;
+}
+
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconImg {
+  height: 3.5rem;
+  padding: 2rem;
+}
+
+.textContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 1.2rem;
+}
+
+li {
+  font-size: 1.2rem;
+}

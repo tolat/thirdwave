@@ -2,12 +2,7 @@ import GeneralButton from "../UI/GeneralButton";
 import GeneralInput from "../UI/GeneralInput";
 import modalStyles from "../UI/Modal.module.css";
 import styles from "./ContactModal.module.css";
-import {
-  selectFromWidth,
-  sendMessage,
-  showFlash,
-  closeFlash,
-} from "../../utils";
+import { responsive, sendMessage, showFlash, closeFlash } from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "../UI/Modal";
 import Spinner from "react-bootstrap/Spinner";
@@ -18,22 +13,16 @@ import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
-  const inputDisplay = selectFromWidth(w, "column");
-  const inputWidth = selectFromWidth(w, "100%", "50%", "50%", "50%");
-  const textAreaBottMarg = selectFromWidth(w, "10rem");
-  const scrollMaskImage = selectFromWidth(w, "", "none", "none", "none");
-  const quoteModalWidth = selectFromWidth(w, "100%", "50rem", "50rem", "50rem");
-  const quoteModalHeight = selectFromWidth(w, "100%", "", "", "");
-  const quoteModalMaxHeight = selectFromWidth(w, "", "80%", "80%", "80%");
-  const buttonFontSize = selectFromWidth(w, "1.4rem", "", "", "");
-  const sidepanelDisplay = selectFromWidth(w, "none", "flex", "flex", "flex");
-  const mobileDetailsDisplay = selectFromWidth(
-    w,
-    "block",
-    "none",
-    "none",
-    "none"
-  );
+  const inputDisplay = responsive(w, "column");
+  const inputWidth = responsive(w, "100%", "50%", "50%", "50%");
+  const textAreaBottMarg = responsive(w, "10rem");
+  const scrollMaskImage = responsive(w, "", "none", "none", "none");
+  const quoteModalWidth = responsive(w, "100%", "50rem", "50rem", "50rem");
+  const quoteModalHeight = responsive(w, "100%", "", "", "");
+  const quoteModalMaxHeight = responsive(w, "", "80%", "80%", "80%");
+  const buttonFontSize = responsive(w, "1.4rem", "", "", "");
+  const sidepanelDisplay = responsive(w, "none", "flex", "flex", "flex");
+  const mobileDetailsDisplay = responsive(w, "block", "none", "none", "none");
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
@@ -189,23 +178,13 @@ const ContactModal = (props) => {
           </div>
         </div>
 
-        <GeneralButton
-          style={{
-            backgroundColor: "transparent",
-            boxShadow: "none",
-            fontSize: "1.6rem",
-            width: "100%",
-            alignSelf: "flex-start",
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-          }}>
+        <GeneralButton customClasses={styles.sendButton}>
           <div style={{ fontSize: buttonFontSize }}>Send Message</div>
 
           <img
             style={{
               marginLeft: "0.6rem",
-              height: "2.3rem",
+              height: "2.1rem",
               display: iconDisplay,
             }}
             src={sendmail_icon}

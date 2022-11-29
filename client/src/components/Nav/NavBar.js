@@ -1,11 +1,7 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo2.png";
 import React, { useState } from "react";
-import {
-  selectFromWidth,
-  useScrollPosition,
-  handleToggleModal,
-} from "../../utils";
+import { responsive, useScrollPosition, handleToggleModal } from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
@@ -15,8 +11,8 @@ const NavBar = (props) => {
   const w = props.viewportWidth;
   const scrollPosition = useScrollPosition();
   const [isOpen, setOpen] = useState(false);
-  const horizontalButtonsDisplay = selectFromWidth(w, "none");
-  const burgerMenuDisplay = selectFromWidth(w, "flex");
+  const horizontalButtonsDisplay = responsive(w, "none");
+  const burgerMenuDisplay = responsive(w, "flex");
 
   function convertRemToPixels(rem) {
     return (
@@ -62,7 +58,15 @@ const NavBar = (props) => {
               </NavLink>
             </NavButton>
             <NavButton style={{ height: buttonHeight }}>About</NavButton>
-            <NavButton style={{ height: buttonHeight }}>Services</NavButton>
+            <NavButton style={{ height: buttonHeight }}>
+              <NavLink
+                className={(navData) =>
+                  navData.isActive ? styles.activePage : ""
+                }
+                to="/services">
+                Services
+              </NavLink>
+            </NavButton>
             <NavButton
               style={{ height: buttonHeight }}
               onClick={onContactButtonClick}>

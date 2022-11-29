@@ -1,8 +1,8 @@
-import styles from "./Banner1.module.css";
+import styles from "./HeroContent.module.css";
 import CentralSection from "../../components/UI/CentralSection";
-import { selectFromWidth } from "../../utils";
+import { responsive } from "../../utils";
 import React, { useEffect, useState } from "react";
-import BlackFade from "../../components/UI/BlackFade";
+import ReactDOM from "react-dom";
 
 import maple_leaf from "../../images/maple_leaf.png";
 import bus from "../../images/icons/bus.svg";
@@ -11,25 +11,17 @@ import map from "../../images/icons/map.svg";
 import family from "../../images/icons/fieldtrip.svg";
 import tag from "../../images/icons/tag.svg";
 import expand from "../../images/icons/expand.svg";
-import heroBackground from "../../images/bus1.jpeg";
 
-const Banner1 = (props) => {
+const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const containerHeight = selectFromWidth(
-    w,
-    "40rem",
-    "45rem",
-    "45rem",
-    "45rem"
-  );
   const [contentOpacity, setContentOpacity] = useState("0");
-  const heroZoom = selectFromWidth(w, "0.65");
-  const heroMarginTop = selectFromWidth(w, "25rem");
-  const heroBorderBottom = selectFromWidth(w, "1px solid white");
-  const header2BorderBottom = selectFromWidth(w, "none");
-  const iconsContainerWidth = selectFromWidth(w, "unset");
-  const iconsContainerZoom = selectFromWidth(w, "0.8");
-  const servicesDisplay = selectFromWidth(w, "none");
+  const heroZoom = responsive(w, "0.65");
+  const heroMarginTop = responsive(w, "25rem");
+  const heroBorderBottom = responsive(w, "1px solid white");
+  const header2BorderBottom = responsive(w, "none");
+  const iconsContainerWidth = responsive(w, "unset");
+  const iconsContainerZoom = responsive(w, "0.8");
+  const servicesDisplay = responsive(w, "none");
 
   const onExpand = () => {
     let offsetPosition = document
@@ -45,14 +37,15 @@ const Banner1 = (props) => {
     setContentOpacity("1");
   }, []);
 
-  return (
-    <BlackFade
-      backgroundImage={heroBackground}
-      backgroundOpacity="0.7"
-      backgroundAttachment="fixed"
-      backgroundSize="cover">
-      <div className={styles.container} style={{ height: containerHeight }}>
-        <CentralSection containerStyle={{ height: "100%" }}>
+  const [domReady, setDomReady] = useState(false);
+
+  useEffect(() => {
+    setDomReady(true);
+  }, []);
+
+  return domReady
+    ? ReactDOM.createPortal(
+        <CentralSection>
           <div
             className={styles.centralContainer}
             style={{ opacity: contentOpacity }}>
@@ -94,11 +87,11 @@ const Banner1 = (props) => {
                   width: iconsContainerWidth,
                   zoom: iconsContainerZoom,
                 }}>
-                <StatIcon text="School Routes" imgUrl={family} />
-                <StatIcon text="Charters" imgUrl={bus} />
-                <StatIcon text="Shop Rental" imgUrl={wrench} />
-                <StatIcon text="Service Regions" imgUrl={map} />
-                <StatIcon text="Used Bus Sales" imgUrl={tag} />
+                <ServicesIcon text="School Routes" imgUrl={family} />
+                <ServicesIcon text="Charters" imgUrl={bus} />
+                <ServicesIcon text="Shop Rental" imgUrl={wrench} />
+                <ServicesIcon text="Service Regions" imgUrl={map} />
+                <ServicesIcon text="Used Bus Sales" imgUrl={tag} />
               </div>
               <div
                 className={`${styles.expandButton} invertFilter`}
@@ -111,13 +104,13 @@ const Banner1 = (props) => {
               </div>
             </div>
           </div>
-        </CentralSection>
-      </div>
-    </BlackFade>
-  );
+        </CentralSection>,
+        document.getElementById("hero-content")
+      )
+    : null;
 };
 
-const StatIcon = (props) => {
+const ServicesIcon = (props) => {
   return (
     <div className={`${styles.iconContainer} invertFilter`}>
       <img
@@ -130,4 +123,4 @@ const StatIcon = (props) => {
   );
 };
 
-export default Banner1;
+export default HeroContent;

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
+import React from "react";
 
 // function to select from
-export const selectFromWidth = (width, mobile, sml, med, lrg) => {
+export const responsive = (width, mobile, sml, med, lrg) => {
   return width < process.env.REACT_APP_BREAKPOINT_T
     ? mobile
     : width < process.env.REACT_APP_BREAKPOINT_S

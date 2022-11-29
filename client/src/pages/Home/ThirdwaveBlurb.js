@@ -1,12 +1,12 @@
 import CentralSection from "../../components/UI/CentralSection";
 import styles from "./ThirdwaveBlurb.module.css";
-import { selectFromWidth } from "../../utils";
+import { responsive } from "../../utils";
 
 import img from "../../images/under_grouse.jpeg";
 
 const ThirdwaveBlurb = (props) => {
   const w = props.viewportWidth;
-  const textContainerFlexDirection = selectFromWidth(
+  const textContainerFlexDirection = responsive(
     w,
     "column",
     "row",
@@ -14,19 +14,13 @@ const ThirdwaveBlurb = (props) => {
     "row"
   );
 
-  const secondBlurbDisplay = selectFromWidth(w, "none", "", "", "");
-  const textContainerMargin = selectFromWidth(w, "0", "", "", "");
-  const textImageContainerMargin = selectFromWidth(w, "0 0 3rem 0", "", "", "");
-  const textImageContainerJustifyContent = selectFromWidth(
-    w,
-    "center",
-    "",
-    "",
-    ""
-  );
-  const textFontSize = selectFromWidth(w, "1.1rem");
-  const textLineHeight = selectFromWidth(w, "1.4rem");
-  const textAlign = selectFromWidth(w);
+  const secondBlurbDisplay = responsive(w, "none", "", "", "");
+  const textContainerMargin = responsive(w, "0", "", "", "");
+  const textImageContainerMargin = responsive(w, "0 0 3rem 0", "", "", "");
+  const textImageContainerJustifyContent = responsive(w, "center", "", "", "");
+  const textFontSize = responsive(w, "1.1rem");
+  const textLineHeight = responsive(w, "1.4rem");
+  const textAlign = responsive(w);
 
   return (
     <CentralSection backgroundColor={"white"}>
