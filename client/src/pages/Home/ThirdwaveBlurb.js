@@ -1,4 +1,4 @@
-import CentralSection from "../UI/CentralSection";
+import CentralSection from "../../components/UI/CentralSection";
 import styles from "./ThirdwaveBlurb.module.css";
 import { selectFromWidth } from "../../utils";
 

@@ -1,6 +1,6 @@
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import CentralSection from "../UI/CentralSection";
+import CentralSection from "../../components/UI/CentralSection";
 
 import fraser from "../../images/partner_icons/fraseracademy.png";
 import northvan from "../../images/partner_icons/northvan.png";

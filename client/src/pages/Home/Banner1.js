@@ -1,8 +1,8 @@
 import styles from "./Banner1.module.css";
-import CentralSection from "../UI/CentralSection";
+import CentralSection from "../../components/UI/CentralSection";
 import { selectFromWidth } from "../../utils";
 import React, { useEffect, useState } from "react";
-import BlackFade from "../UI/BlackFade";
+import BlackFade from "../../components/UI/BlackFade";
 
 import maple_leaf from "../../images/maple_leaf.png";
 import bus from "../../images/icons/bus.svg";

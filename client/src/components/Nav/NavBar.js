@@ -9,6 +9,7 @@ import {
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
+import { NavLink } from "react-router-dom";
 
 const NavBar = (props) => {
   const w = props.viewportWidth;
@@ -51,7 +52,15 @@ const NavBar = (props) => {
           <div
             className={styles.buttons}
             style={{ display: horizontalButtonsDisplay }}>
-            <NavButton style={{ height: buttonHeight }}>Home</NavButton>
+            <NavButton style={{ height: buttonHeight }}>
+              <NavLink
+                className={(navData) =>
+                  navData.isActive ? styles.activePage : ""
+                }
+                to="/home">
+                Home
+              </NavLink>
+            </NavButton>
             <NavButton style={{ height: buttonHeight }}>About</NavButton>
             <NavButton style={{ height: buttonHeight }}>Services</NavButton>
             <NavButton

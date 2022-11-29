@@ -1,7 +1,7 @@
-import CentralSection from "../UI/CentralSection";
+import CentralSection from "../../components/UI/CentralSection";
 import styles from "./Testimonials.module.css";
 import AliceCarousel from "react-alice-carousel";
-import BlackFade from "../UI/BlackFade";
+import BlackFade from "../../components/UI/BlackFade";
 import { useEffect } from "react";
 import { selectFromWidth } from "../../utils";
 
