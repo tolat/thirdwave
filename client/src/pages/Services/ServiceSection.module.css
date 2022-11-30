@@ -1,0 +1,44 @@
+.container {
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.contentContainer {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+}
+
+.header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 2rem 2rem 1rem 0rem;
+  padding: 0 1rem 1rem 1rem;
+  height: 3rem;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.headerIcon {
+  height: 80%;
+  margin: 0 0.5rem 0 0;
+}
+
+.textContainer {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.text {
+  font-size: 1.2rem;
+}
+
+li {
+  font-size: 1.2rem;
+}

@@ -53,10 +53,6 @@
   align-items: center;
 }
 
-.activePage {
-  font-weight: bold;
-}
-
 a {
   text-decoration: unset;
   color: unset;

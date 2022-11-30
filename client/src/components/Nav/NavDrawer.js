@@ -1,6 +1,7 @@
 import styles from "./NavDrawer.module.css";
 import NavButton from "./NavButton";
 import { handleToggleModal, clickBurgerMenuIcon } from "../../utils";
+import { NavLink } from "react-router-dom";
 
 const NavDrawer = (props) => {
   const onContactButtonClick = () => {
@@ -8,17 +9,33 @@ const NavDrawer = (props) => {
     clickBurgerMenuIcon(true);
   };
 
+  const onNavButtonClick = () => {
+    clickBurgerMenuIcon(true);
+  };
+
   return (
     <div id="navDrawer" className={styles.container}>
       <div className={styles.dropdownButtons}>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>Home</NavButton>
+          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+            <NavLink
+              className={(navData) => (navData.isActive ? "bold" : "")}
+              to="/home">
+              Home
+            </NavLink>
+          </NavButton>
         </div>
         <div>
           <NavButton style={{ fontSize: "1.3rem" }}>About</NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>Services</NavButton>
+          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+            <NavLink
+              className={(navData) => (navData.isActive ? "bold" : "")}
+              to="/services">
+              Services
+            </NavLink>
+          </NavButton>
         </div>
         <div>
           <NavButton

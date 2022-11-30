@@ -4,6 +4,7 @@ import {
   DOMReadyPortal,
   handleHeroFadeTransitions,
   responsive,
+  scrollToId,
   updateHeroResponsiveHeights,
 } from "../../utils";
 import React, { useEffect, useState } from "react";
@@ -14,8 +15,7 @@ import wrench from "../../images/icons/build.svg";
 import map from "../../images/icons/map.svg";
 import family from "../../images/icons/fieldtrip.svg";
 import tag from "../../images/icons/tag.svg";
-import expand from "../../images/icons/expand.svg";
-import { Form } from "react-router-dom";
+import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
@@ -29,16 +29,6 @@ const HeroContent = (props) => {
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
-
-  const onExpand = () => {
-    let offsetPosition = document
-      .getElementById("ThirdwaveBlurb")
-      .getBoundingClientRect().top;
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  };
 
   handleHeroFadeTransitions(
     useEffect,
@@ -103,15 +93,7 @@ const HeroContent = (props) => {
               <ServicesIcon text="Service Regions" imgUrl={map} />
               <ServicesIcon text="Used Bus Sales" imgUrl={tag} />
             </div>
-            <div
-              className={`${styles.expandButton} invertFilter`}
-              onClick={onExpand}>
-              <img
-                className={styles.expandButtonImg}
-                src={expand}
-                alt="expand"
-              />
-            </div>
+            <ExpandButton scrollToId="ThirdwaveBlurb" />
           </div>
         </div>
       </CentralSection>

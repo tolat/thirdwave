@@ -40,3 +40,7 @@ code {
 .noscroll {
   scrollbar-width: none; /* for Firefox */
 }
+
+.bold {
+  font-weight: bold;
+}

@@ -140,3 +140,11 @@ export const handleHeroFadeTransitions = (
     };
   }, [dependencies]);
 };
+
+export const scrollToId = (Id) => {
+  let offsetPosition = document.getElementById(Id).getBoundingClientRect().top;
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+};

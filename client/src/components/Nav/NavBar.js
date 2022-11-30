@@ -50,9 +50,7 @@ const NavBar = (props) => {
             style={{ display: horizontalButtonsDisplay }}>
             <NavButton style={{ height: buttonHeight }}>
               <NavLink
-                className={(navData) =>
-                  navData.isActive ? styles.activePage : ""
-                }
+                className={(navData) => (navData.isActive ? "bold" : "")}
                 to="/home">
                 Home
               </NavLink>
@@ -60,9 +58,7 @@ const NavBar = (props) => {
             <NavButton style={{ height: buttonHeight }}>About</NavButton>
             <NavButton style={{ height: buttonHeight }}>
               <NavLink
-                className={(navData) =>
-                  navData.isActive ? styles.activePage : ""
-                }
+                className={(navData) => (navData.isActive ? "bold" : "")}
                 to="/services">
                 Services
               </NavLink>

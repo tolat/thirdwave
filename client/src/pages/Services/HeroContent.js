@@ -5,8 +5,12 @@ import {
   responsive,
   updateHeroResponsiveHeights,
   handleHeroFadeTransitions,
+  scrollToId,
 } from "../../utils";
 import React, { useEffect, useState } from "react";
+
+import expand from "../../images/icons/expand.svg";
+import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
   const [contentOpacity, setContentOpacity] = useState("0");
@@ -30,8 +34,11 @@ const HeroContent = (props) => {
   return (
     <DOMReadyPortal portal={document.getElementById("hero-content")}>
       <CentralSection>
-        <div style={{ transition: contentTransition, opacity: contentOpacity }}>
-          Services
+        <div
+          style={{ transition: contentTransition, opacity: contentOpacity }}
+          className={styles.container}>
+          <div className={styles.header}>Services</div>
+          <ExpandButton scrollToId="SchoolRoutes" />
         </div>
       </CentralSection>
     </DOMReadyPortal>
