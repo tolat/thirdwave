@@ -10,7 +10,7 @@ import { responsive } from "../../utils";
 const ServiceRegions = (props) => {
   const width = props.viewportWidth;
   const contentFlexDirection = responsive(width, "column", "column");
-
+  const headerJustify = responsive(width, "start", "end", "end", "end");
   return (
     <ServiceSection
       id="ServiceRegions"
@@ -19,7 +19,7 @@ const ServiceRegions = (props) => {
       headerText="Service Regions"
       viewportWidth={width}
       backgroundColor="rgb(251,251,251)"
-      justifyHeader="end">
+      justifyHeader={headerJustify}>
       <div
         className={styles.container}
         style={{ flexDirection: contentFlexDirection }}>

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
 import styles from "./UsedBusSales.module.css";
 import sectionStyles from "./ServiceSection.module.css";
-import { DataGrid, GridRowsProp, GridColDef } from "@mui/x-data-grid";
+import { DataGrid } from "@mui/x-data-grid";
 
 import tag from "../../images/icons/tag.svg";
 import ServiceSection from "./ServiceSection";
 import { style } from "@mui/system";
+import GeneralButton from "../../components/UI/GeneralButton";
 
 const sampleBusData = [
   {
@@ -60,20 +60,20 @@ const sampleBusData = [
   },
 ];
 
-const rows = sampleBusData;
-
-const columns = [
-  { field: "title", headerName: "Title", width: 150 },
-  { field: "make", headerName: "Make", width: 150 },
-  { field: "model", headerName: "Model", width: 150 },
-  { field: "capacity", headerName: "Capacity (Adults)", width: 150 },
-  { field: "horsepower", headerName: "Horsepower", width: 150 },
-  { field: "torque", headerName: "Torque (ft/lb)", width: 150 },
-  { field: "weight", headerName: "Weight (kg)", width: 150 },
-];
-
 const UsedBusSales = (props) => {
   const width = props.viewportWidth;
+
+  const rows = sampleBusData;
+  const columns = [
+    { field: "title", headerName: "Title", width: 150 },
+    { field: "make", headerName: "Make", width: 150 },
+    { field: "model", headerName: "Model", width: 150 },
+    { field: "capacity", headerName: "Capacity (Adults)", width: 150 },
+    { field: "horsepower", headerName: "Horsepower", width: 150 },
+    { field: "torque", headerName: "Torque (ft/lb)", width: 150 },
+    { field: "weight", headerName: "Weight (kg)", width: 150 },
+    { field: "inquireButton", headerName: "", width: 150 },
+  ];
 
   return (
     <ServiceSection
@@ -85,7 +85,7 @@ const UsedBusSales = (props) => {
       <div className={styles.container}>
         <div className={sectionStyles.textContainer}>
           <div className={sectionStyles.text}>
-            See our available stock below:
+            See our available stock below.
           </div>
         </div>
         <div className={styles.gridContainer}>

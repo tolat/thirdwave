@@ -142,9 +142,20 @@ export const handleHeroFadeTransitions = (
 };
 
 export const scrollToId = (Id) => {
-  let offsetPosition = document.getElementById(Id).getBoundingClientRect().top;
+  if (!document.getElementById(Id)) {
+    console.log("id not found");
+    return;
+  }
+  let offset = document.getElementById(Id).getBoundingClientRect().top;
   window.scrollTo({
-    top: offsetPosition,
+    top: offset,
+    behavior: "smooth",
+  });
+};
+
+export const scrollToOffset = (offset) => {
+  window.scrollTo({
+    top: offset,
     behavior: "smooth",
   });
 };

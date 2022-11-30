@@ -55,15 +55,15 @@ const NavBar = (props) => {
                 Home
               </NavLink>
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>About</NavButton>
+            <NavButton style={{ height: buttonHeight }}>About / FAQ</NavButton>
             <NavButton style={{ height: buttonHeight }}>
               <NavLink
+                id="servicesButton"
                 className={(navData) => (navData.isActive ? "bold" : "")}
                 to="/services">
                 Services
               </NavLink>
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>FAQ</NavButton>
             <NavButton
               style={{ height: buttonHeight }}
               onClick={onContactButtonClick}>

@@ -43,6 +43,17 @@ const HeroContent = (props) => {
     props.setHeroProps
   );
 
+  const servicesIconClickHandler = (e) => {
+    const innerText = e.target.innerText;
+    if (innerText) {
+      document.getElementById("servicesButton").click();
+    }
+
+    setTimeout(() => {
+      scrollToId(innerText.replaceAll(" ", ""));
+    }, 800);
+  };
+
   return (
     <DOMReadyPortal portal={document.getElementById("hero-content")}>
       <CentralSection>
@@ -87,11 +98,31 @@ const HeroContent = (props) => {
                 width: iconsContainerWidth,
                 zoom: iconsContainerZoom,
               }}>
-              <ServicesIcon text="School Routes" imgUrl={family} />
-              <ServicesIcon text="Charters" imgUrl={bus} />
-              <ServicesIcon text="Shop Rental" imgUrl={wrench} />
-              <ServicesIcon text="Service Regions" imgUrl={map} />
-              <ServicesIcon text="Used Bus Sales" imgUrl={tag} />
+              <ServicesIcon
+                onClick={servicesIconClickHandler}
+                text="School Routes"
+                imgUrl={family}
+              />
+              <ServicesIcon
+                onClick={servicesIconClickHandler}
+                text="Charters"
+                imgUrl={bus}
+              />
+              <ServicesIcon
+                onClick={servicesIconClickHandler}
+                text="Shop Rental"
+                imgUrl={wrench}
+              />
+              <ServicesIcon
+                onClick={servicesIconClickHandler}
+                text="Service Regions"
+                imgUrl={map}
+              />
+              <ServicesIcon
+                onClick={servicesIconClickHandler}
+                text="Used Bus Sales"
+                imgUrl={tag}
+              />
             </div>
             <ExpandButton scrollToId="ThirdwaveBlurb" />
           </div>
@@ -103,12 +134,19 @@ const HeroContent = (props) => {
 };
 
 const ServicesIcon = (props) => {
+  const clickContainer = () => {
+    document.getElementById(`${props.text}_linkid`).click();
+  };
   return (
-    <div className={`${styles.iconContainer} invertFilter`}>
+    <div
+      id={`${props.text}_linkid`}
+      onClick={props.onClick}
+      className={`${styles.iconContainer} invertFilter`}>
       <img
         className={`${styles.iconImg} `}
         src={props.imgUrl}
         alt={props.alt}
+        onClick={clickContainer}
       />
       <div className={styles.iconText}>{props.text}</div>
     </div>

@@ -43,3 +43,15 @@
 li {
   font-size: 1.2rem;
 }
+
+.inquireButton {
+  margin: 0 0rem 0 1rem;
+  font-size: 1.1rem;
+  background-color: /* rgb(42, 81, 128); */ black;
+  color: white;
+  font-weight: bold;
+}
+
+.inquireButton:hover {
+  opacity: 0.7;
+}

@@ -1,5 +1,6 @@
 import styles from "./ServiceSection.module.css";
 import CentralSection from "../../components/UI/CentralSection";
+import GeneralButton from "../../components/UI/GeneralButton";
 import { responsive } from "../../utils";
 
 const ServiceSection = (props) => {
@@ -17,6 +18,11 @@ const ServiceSection = (props) => {
             alt={props.iconAlt}
           />
           {props.headerText}
+          <GeneralButton
+            onClick={props.inquireOnClick}
+            customClasses={styles.inquireButton}>
+            Inquire
+          </GeneralButton>
         </div>
         <div
           className={styles.contentContainer}

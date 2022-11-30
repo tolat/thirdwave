@@ -4,9 +4,11 @@ import sectionStyles from "./ServiceSection.module.css";
 
 import bus from "../../images/icons/bus.svg";
 import ServiceSection from "./ServiceSection";
+import { responsive } from "../../utils";
 
 const Charters = (props) => {
   const width = props.viewportWidth;
+  const headerJustify = responsive(width, "start", "end", "end", "end");
 
   return (
     <ServiceSection
@@ -15,7 +17,7 @@ const Charters = (props) => {
       iconAlt="charters icon"
       headerText="Charters"
       backgroundColor="rgb(251,251,251)"
-      justifyHeader="end"
+      justifyHeader={headerJustify}
       viewportWidth={width}>
       <div className={sectionStyles.textContainer}>
         <div className={sectionStyles.text}>
