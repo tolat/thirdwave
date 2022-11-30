@@ -14,7 +14,7 @@ const Charters = (props) => {
       icon={bus}
       iconAlt="charters icon"
       headerText="Charters"
-      backgroundColor="rgb(250,250,250)"
+      backgroundColor="rgb(251,251,251)"
       justifyHeader="end"
       viewportWidth={width}>
       <div className={sectionStyles.textContainer}>

@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  box-sizing: border-box;
+}
+
+.image {
+  max-height: 20rem;
+  margin: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+  border-radius: 3px;
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.text {
+  font-size: 1.2rem;
+  margin: 1rem 0 1rem 0;
+}

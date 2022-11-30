@@ -63,12 +63,13 @@ const NavBar = (props) => {
                 Services
               </NavLink>
             </NavButton>
+            <NavButton style={{ height: buttonHeight }}>FAQ</NavButton>
             <NavButton
               style={{ height: buttonHeight }}
               onClick={onContactButtonClick}>
               Contact
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>FAQ</NavButton>
+            <NavButton style={{ height: buttonHeight }}>Get Quote</NavButton>
           </div>
         </div>
       </div>

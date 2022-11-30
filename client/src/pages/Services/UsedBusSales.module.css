@@ -1,0 +1,10 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.gridContainer {
+  height: 30rem;
+  width: 100%;
+}
