@@ -1,8 +1,12 @@
 import styles from "./HeroContent.module.css";
 import CentralSection from "../../components/UI/CentralSection";
-import { responsive } from "../../utils";
+import {
+  DOMReadyPortal,
+  handleHeroFadeTransitions,
+  responsive,
+  updateHeroResponsiveHeights,
+} from "../../utils";
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 
 import maple_leaf from "../../images/maple_leaf.png";
 import bus from "../../images/icons/bus.svg";
@@ -11,10 +15,10 @@ import map from "../../images/icons/map.svg";
 import family from "../../images/icons/fieldtrip.svg";
 import tag from "../../images/icons/tag.svg";
 import expand from "../../images/icons/expand.svg";
+import { Form } from "react-router-dom";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const [contentOpacity, setContentOpacity] = useState("0");
   const heroZoom = responsive(w, "0.65");
   const heroMarginTop = responsive(w, "25rem");
   const heroBorderBottom = responsive(w, "1px solid white");
@@ -22,6 +26,9 @@ const HeroContent = (props) => {
   const iconsContainerWidth = responsive(w, "unset");
   const iconsContainerZoom = responsive(w, "0.8");
   const servicesDisplay = responsive(w, "none");
+  const [contentOpacity, setContentOpacity] = useState("0");
+  const [contentTransition, setContentTransition] =
+    useState("opacity 1s ease-in");
 
   const onExpand = () => {
     let offsetPosition = document
@@ -33,81 +40,84 @@ const HeroContent = (props) => {
     });
   };
 
-  useEffect(() => {
-    setContentOpacity("1");
-  }, []);
+  handleHeroFadeTransitions(
+    useEffect,
+    setContentTransition,
+    setContentOpacity,
+    props.heroProps
+  );
 
-  const [domReady, setDomReady] = useState(false);
+  updateHeroResponsiveHeights(
+    ["40rem", "45rem", "45rem", "45rem"],
+    useEffect,
+    props.setHeroProps
+  );
 
-  useEffect(() => {
-    setDomReady(true);
-  }, []);
-
-  return domReady
-    ? ReactDOM.createPortal(
-        <CentralSection>
+  return (
+    <DOMReadyPortal portal={document.getElementById("hero-content")}>
+      <CentralSection>
+        <div
+          className={styles.centralContainer}
+          style={{ transition: contentTransition, opacity: contentOpacity }}>
           <div
-            className={styles.centralContainer}
-            style={{ opacity: contentOpacity }}>
-            <div
-              className={styles.heroContainer}
-              style={{
-                zoom: heroZoom,
-                marginTop: heroMarginTop,
-                borderBottom: heroBorderBottom,
-              }}>
-              <img
-                className={styles.canadianOwnedImg}
-                src={maple_leaf}
-                alt="canadian owned"
-              />
-              <div className={styles.headerContainer}>
-                <div className={styles.header1}>Locally owned and operated</div>
-                <div
-                  className={styles.header2}
-                  style={{ borderBottom: header2BorderBottom }}>
-                  {" "}
-                  Since 1987
-                </div>
-                <div
-                  className={styles.headerServices}
-                  style={{ display: servicesDisplay }}>
-                  <div className={styles.servicesItem}>Route Contracts</div>
-                  <div className={styles.servicesDot}>.</div>
-                  <div className={styles.servicesItem}>Rentals</div>
-                  <div className={styles.servicesDot}>.</div>
-                  <div className={styles.servicesItem}>Event Catering</div>
-                </div>
-              </div>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            className={styles.heroContainer}
+            style={{
+              zoom: heroZoom,
+              marginTop: heroMarginTop,
+              borderBottom: heroBorderBottom,
+            }}>
+            <img
+              className={styles.canadianOwnedImg}
+              src={maple_leaf}
+              alt="canadian owned"
+            />
+            <div className={styles.headerContainer}>
+              <div className={styles.header1}>Locally owned and operated</div>
               <div
-                className={styles.iconsContainer}
-                style={{
-                  width: iconsContainerWidth,
-                  zoom: iconsContainerZoom,
-                }}>
-                <ServicesIcon text="School Routes" imgUrl={family} />
-                <ServicesIcon text="Charters" imgUrl={bus} />
-                <ServicesIcon text="Shop Rental" imgUrl={wrench} />
-                <ServicesIcon text="Service Regions" imgUrl={map} />
-                <ServicesIcon text="Used Bus Sales" imgUrl={tag} />
+                className={styles.header2}
+                style={{ borderBottom: header2BorderBottom }}>
+                {" "}
+                Since 1987
               </div>
               <div
-                className={`${styles.expandButton} invertFilter`}
-                onClick={onExpand}>
-                <img
-                  className={styles.expandButtonImg}
-                  src={expand}
-                  alt="expand"
-                />
+                className={styles.headerServices}
+                style={{ display: servicesDisplay }}>
+                <div className={styles.servicesItem}>Route Contracts</div>
+                <div className={styles.servicesDot}>.</div>
+                <div className={styles.servicesItem}>Rentals</div>
+                <div className={styles.servicesDot}>.</div>
+                <div className={styles.servicesItem}>Event Catering</div>
               </div>
             </div>
           </div>
-        </CentralSection>,
-        document.getElementById("hero-content")
-      )
-    : null;
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              className={styles.iconsContainer}
+              style={{
+                width: iconsContainerWidth,
+                zoom: iconsContainerZoom,
+              }}>
+              <ServicesIcon text="School Routes" imgUrl={family} />
+              <ServicesIcon text="Charters" imgUrl={bus} />
+              <ServicesIcon text="Shop Rental" imgUrl={wrench} />
+              <ServicesIcon text="Service Regions" imgUrl={map} />
+              <ServicesIcon text="Used Bus Sales" imgUrl={tag} />
+            </div>
+            <div
+              className={`${styles.expandButton} invertFilter`}
+              onClick={onExpand}>
+              <img
+                className={styles.expandButtonImg}
+                src={expand}
+                alt="expand"
+              />
+            </div>
+          </div>
+        </div>
+      </CentralSection>
+      ,
+    </DOMReadyPortal>
+  );
 };
 
 const ServicesIcon = (props) => {

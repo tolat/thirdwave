@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import ReactDOM from "react-dom";
 
 // function to select from
 export const responsive = (width, mobile, sml, med, lrg) => {
@@ -95,4 +96,47 @@ export const clickBurgerMenuIcon = (buttonActive = false) => {
   if (!buttonActive) {
     toggleNavDrawer();
   }
+};
+
+export const DOMReadyPortal = (props) => {
+  const [domReady, setDomReady] = useState(false);
+
+  useEffect(() => {
+    setDomReady(true);
+  }, []);
+
+  return domReady ? ReactDOM.createPortal(props.children, props.portal) : null;
+};
+
+export const updateHeroResponsiveHeights = (
+  heights,
+  uEffect,
+  setHeroHeight
+) => {
+  uEffect(() => {
+    setHeroHeight((prevState) => ({
+      ...prevState,
+      containerMinHeight: heights,
+    }));
+  }, []);
+};
+
+export const handleHeroFadeTransitions = (
+  uEffect,
+  setContentTransition,
+  setContentOpacity,
+  dependencies
+) => {
+  uEffect(() => {
+    setContentTransition("none");
+    setContentOpacity("0");
+    let timeout = setTimeout(() => {
+      setContentTransition("opacity 0.8s ease-in");
+      setContentOpacity("1");
+    }, 100);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [dependencies]);
 };

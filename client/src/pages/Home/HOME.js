@@ -9,7 +9,11 @@ const HOME = (props) => {
 
   return (
     <React.Fragment>
-      <HeroContent setHeroProps={props.setHeroProps} viewportWidth={width} />
+      <HeroContent
+        heroProps={props.heroProps}
+        setHeroProps={props.setHeroProps}
+        viewportWidth={width}
+      />
       <ThirdwaveBlurb viewportWidth={width} />
       <Partners viewportWidth={width} />
       <Testimonials viewportWidth={width} />

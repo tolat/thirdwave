@@ -22,7 +22,7 @@ function App() {
     v: "hidden",
   });
   const [heroProps, setHeroProps] = useState({
-    responsiveHeights: ["40rem", "45rem", "45rem", "45rem"],
+    containerMinHeight: ["40rem", "45rem", "45rem", "45rem"],
     bgImage: heroBackground,
     bgAttachment: "fixed",
     bgSize: "cover",
@@ -30,7 +30,7 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <div className={`noscroll`}>
       <Flash id="appFlash" />
       <ContactModal
         viewportWidth={width}
@@ -44,12 +44,22 @@ function App() {
         <Route path="/" element={<Navigate to="/home" />} />
         <Route
           path="/home"
-          element={<HOME setHeroProps={setHeroProps} viewportWidth={width} />}
+          element={
+            <HOME
+              setHeroProps={setHeroProps}
+              heroProps={heroProps}
+              viewportWidth={width}
+            />
+          }
         />
         <Route
           path="/services"
           element={
-            <SERVICES setHeroProps={setHeroProps} viewportWidth={width} />
+            <SERVICES
+              setHeroProps={setHeroProps}
+              heroProps={heroProps}
+              viewportWidth={width}
+            />
           }
         />
       </Routes>

@@ -5,7 +5,10 @@ import styles from "./Hero.module.css";
 
 const Hero = (props) => {
   const w = props.viewportWidth;
-  const containerHeight = responsive(w, ...props.heroProps.responsiveHeights);
+  const containerMinHeight = responsive(
+    w,
+    ...props.heroProps.containerMinHeight
+  );
 
   return (
     <BlackFade
@@ -16,7 +19,7 @@ const Hero = (props) => {
       <div
         id="hero-content"
         className={styles.container}
-        style={{ height: containerHeight }}>
+        style={{ minHeight: containerMinHeight }}>
         {props.children}
       </div>
     </BlackFade>

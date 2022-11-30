@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import HeroContent from "./HeroContent";
 import SchoolRoutes from "./SchoolRoutes";
 
 const SERVICES = (props) => {
@@ -6,6 +7,7 @@ const SERVICES = (props) => {
 
   return (
     <React.Fragment>
+      <HeroContent setHeroProps={props.setHeroProps} viewportWidth={width} />
       <SchoolRoutes viewportWidth={width} />
     </React.Fragment>
   );
