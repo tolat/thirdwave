@@ -34,6 +34,16 @@ const faqData = [
     q: "How long will it take to install solar on my home?",
     a: "Despite the actual installation of solar panels taking only 2-4 days typically, solar projects have a timeline of 3-12 weeks (depending on regional permitting requirements). The majority of delays come when a building permit is required, which can alone take anywhere from 1 to 8 weeks depending on the municipality. We make sure to give realistic timelines based on a region's permit requirements.",
   },
+  {
+    key: "faq7",
+    q: "Is it sunny enough in Vancouver and BC generally for solar to be worth it?",
+    a: "Yes! It is a common misconception that British Columbia is too rainy or overcast for solar, specifically Vancouver and Victoria. In fact, BC receives the same amount of annual energy from the sun as Germany, a global leader in solar energy.",
+  },
+  {
+    key: "faq8",
+    q: "How much does a typical system cost, and how long will it take to pay itself off?",
+    a: "In BC, the average cost of a solar system to offset the yearly energy usage of a home is $20,000 to $30,000 (not including battery backup). The payback period is highly dependent on site conditions, shading, roof angle, and region, but is typially between 10-15 years (standard system lifespan is 25-35 years).",
+  },
 ];
 
 const FAQ = (props) => {

@@ -17,28 +17,31 @@ const NavDrawer = (props) => {
     <div id="navDrawer" className={styles.container}>
       <div className={styles.dropdownButtons}>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+          <NavButton style={{ fontSize: "1.3rem" }}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
-              to="/home">
+              to="/home"
+              onClick={onNavButtonClick}>
               Home
             </NavLink>
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+          <NavButton style={{ fontSize: "1.3rem" }}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
-              to="/about">
+              to="/about"
+              onClick={onNavButtonClick}>
               About / FAQ
             </NavLink>
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+          <NavButton style={{ fontSize: "1.3rem" }}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
-              to="/services">
+              to="/services"
+              onClick={onNavButtonClick}>
               Services
             </NavLink>
           </NavButton>

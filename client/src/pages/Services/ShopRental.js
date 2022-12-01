@@ -4,9 +4,12 @@ import sectionStyles from "./ServiceSection.module.css";
 
 import wrench from "../../images/icons/build.svg";
 import ServiceSection from "./ServiceSection";
+import image from "../../images/bus_shop.jpeg";
+import { responsive } from "../../utils";
 
 const ShopRental = (props) => {
   const width = props.viewportWidth;
+  const imageContainerWidth = responsive(width, "100%");
 
   return (
     <ServiceSection
@@ -15,6 +18,11 @@ const ShopRental = (props) => {
       iconAlt="shop rental icon"
       headerText="Shop Rental"
       viewportWidth={width}>
+      <div
+        className={styles.imageContainer}
+        style={{ width: imageContainerWidth }}>
+        <img className={styles.image} src={image} alt="shop with bus" />
+      </div>
       <div className={sectionStyles.textContainer}>
         <div className={sectionStyles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

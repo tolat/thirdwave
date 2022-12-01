@@ -31,7 +31,10 @@ const AboutSection = (props) => {
 
   return (
     <CentralSection>
-      <div className={styles.container} style={{ padding: containerPadding }}>
+      <div
+        id="AboutSection"
+        className={styles.container}
+        style={{ padding: containerPadding }}>
         <div className={styles.mainHeaderContainer}>
           <div className={styles.mainHeader}>About</div>
         </div>

@@ -33,7 +33,7 @@ const HeroContent = (props) => {
           style={{ transition: contentTransition, opacity: contentOpacity }}
           className={styles.container}>
           <div className={styles.header}>About / FAQ</div>
-          <ExpandButton />
+          <ExpandButton scrollToId="AboutSection" />
         </div>
       </CentralSection>
     </DOMReadyPortal>
