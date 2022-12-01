@@ -26,7 +26,13 @@ const NavDrawer = (props) => {
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>About</NavButton>
+          <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
+            <NavLink
+              className={(navData) => (navData.isActive ? "bold" : "")}
+              to="/about">
+              About / FAQ
+            </NavLink>
+          </NavButton>
         </div>
         <div>
           <NavButton style={{ fontSize: "1.3rem" }} onClick={onNavButtonClick}>
