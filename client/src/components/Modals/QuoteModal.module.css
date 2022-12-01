@@ -56,6 +56,9 @@ textarea {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  border: none;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .sidepanelHeader {
@@ -69,6 +72,11 @@ textarea {
   color: white;
   font-size: 0.95rem;
   line-height: 1.6rem;
+}
+
+.sidePanelContentsContainer {
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .sendButton {
@@ -101,8 +109,21 @@ textarea {
   margin-top: -1rem;
 }
 
-.mobileCalculator {
-  /* background-color: rgb(42, 81, 128);
-  padding: 2rem;
-  border-radius: 3px; */
+.datePickersOuterContainer {
+  display: flex;
+  margin-bottom: 2rem;
+  flex-direction: column;
+}
+
+.datePickersContainer {
+  display: flex;
+}
+
+.datePickersHeader {
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.datePickerSpacer {
+  width: 5%;
 }

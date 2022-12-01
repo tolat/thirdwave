@@ -4,11 +4,14 @@ import sectionStyles from "./ServiceSection.module.css";
 
 import bus from "../../images/icons/bus.svg";
 import ServiceSection from "./ServiceSection";
-import { responsive } from "../../utils";
+import { responsive, handleToggleModal } from "../../utils";
 
 const Charters = (props) => {
   const width = props.viewportWidth;
   const headerJustify = responsive(width, "start", "end", "end", "end");
+  const inquireClickHandler = () => {
+    handleToggleModal(props.setQuoteModalVis, "Charters");
+  };
 
   return (
     <ServiceSection
@@ -18,7 +21,8 @@ const Charters = (props) => {
       headerText="Charters"
       backgroundColor="rgb(251,251,251)"
       justifyHeader={headerJustify}
-      viewportWidth={width}>
+      viewportWidth={width}
+      inquireOnClick={inquireClickHandler}>
       <div className={sectionStyles.textContainer}>
         <div className={sectionStyles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

@@ -13,6 +13,7 @@ const NavBar = (props) => {
   const [isOpen, setOpen] = useState(false);
   const horizontalButtonsDisplay = responsive(w, "none");
   const burgerMenuDisplay = responsive(w, "flex");
+  const reduceNavbarHeigthOnScroll = 2;
 
   function convertRemToPixels(rem) {
     return (
@@ -25,11 +26,20 @@ const NavBar = (props) => {
   }
 
   const bgOpacity = capNumber(scrollPosition / convertRemToPixels(10), 1);
+
   const barHeight = `${
-    5 - capNumber((2 * scrollPosition) / convertRemToPixels(10), 2)
+    5 -
+    capNumber(
+      (reduceNavbarHeigthOnScroll * scrollPosition) / convertRemToPixels(10),
+      reduceNavbarHeigthOnScroll
+    )
   }rem`;
+
   const buttonHeight =
-    scrollPosition > convertRemToPixels(10) ? "1.8rem" : "3rem";
+    scrollPosition > convertRemToPixels(10) ? "1.9rem" : "3rem";
+
+  const buttonBackgroundImage =
+    scrollPosition > convertRemToPixels(10) ? "none" : "";
 
   const onContactButtonClick = () => {
     handleToggleModal(props.setContactModalVis);
@@ -52,14 +62,22 @@ const NavBar = (props) => {
           <div
             className={styles.buttons}
             style={{ display: horizontalButtonsDisplay }}>
-            <NavButton style={{ height: buttonHeight }}>
+            <NavButton
+              style={{
+                backgroundImage: buttonBackgroundImage,
+                height: buttonHeight,
+              }}>
               <NavLink
                 className={(navData) => (navData.isActive ? "bold" : "")}
                 to="/home">
                 Home
               </NavLink>
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>
+            <NavButton
+              style={{
+                backgroundImage: buttonBackgroundImage,
+                height: buttonHeight,
+              }}>
               <NavLink
                 id="aboutButton"
                 className={(navData) => (navData.isActive ? "bold" : "")}
@@ -67,7 +85,11 @@ const NavBar = (props) => {
                 About / FAQ
               </NavLink>
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>
+            <NavButton
+              style={{
+                backgroundImage: buttonBackgroundImage,
+                height: buttonHeight,
+              }}>
               <NavLink
                 id="servicesButton"
                 className={(navData) => (navData.isActive ? "bold" : "")}
@@ -76,12 +98,18 @@ const NavBar = (props) => {
               </NavLink>
             </NavButton>
             <NavButton
-              style={{ height: buttonHeight }}
+              style={{
+                backgroundImage: buttonBackgroundImage,
+                height: buttonHeight,
+              }}
               onClick={onContactButtonClick}>
               Contact
             </NavButton>
             <NavButton
-              style={{ height: buttonHeight }}
+              style={{
+                backgroundImage: buttonBackgroundImage,
+                height: buttonHeight,
+              }}
               onClick={onQuoteButtonClick}>
               Get Quote
             </NavButton>

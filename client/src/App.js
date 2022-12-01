@@ -83,6 +83,7 @@ function App() {
               setHeroProps={setHeroProps}
               heroProps={heroProps}
               viewportWidth={width}
+              setQuoteModalVis={setQuoteModalVis}
             />
           }
         />

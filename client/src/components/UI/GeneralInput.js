@@ -7,6 +7,7 @@ const GeneralInput = (props) => {
         {props.label}
       </div>
       <input
+        id={props.id}
         className={`${styles.input} ${props.customClasses}`}
         type={props.type}
         placeholder={props.placeholder}

@@ -5,12 +5,17 @@ import sectionStyles from "./ServiceSection.module.css";
 import map from "../../images/icons/map.svg";
 import ServiceSection from "./ServiceSection";
 import regions from "../../images/regions.jpg";
-import { responsive } from "../../utils";
+import { responsive, handleToggleModal } from "../../utils";
 
 const ServiceRegions = (props) => {
   const width = props.viewportWidth;
   const contentFlexDirection = responsive(width, "column", "column");
   const headerJustify = responsive(width, "start", "end", "end", "end");
+
+  const inquireClickHandler = () => {
+    handleToggleModal(props.setQuoteModalVis, "Service Regions");
+  };
+
   return (
     <ServiceSection
       id="ServiceRegions"
@@ -19,7 +24,8 @@ const ServiceRegions = (props) => {
       headerText="Service Regions"
       viewportWidth={width}
       backgroundColor="rgb(251,251,251)"
-      justifyHeader={headerJustify}>
+      justifyHeader={headerJustify}
+      inquireOnClick={inquireClickHandler}>
       <div
         className={styles.container}
         style={{ flexDirection: contentFlexDirection }}>

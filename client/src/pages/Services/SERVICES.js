@@ -11,12 +11,31 @@ const SERVICES = (props) => {
 
   return (
     <React.Fragment>
-      <HeroContent setHeroProps={props.setHeroProps} viewportWidth={width} />
-      <SchoolRoutes viewportWidth={width} />
-      <Charters viewportWidth={width} />
-      <ShopRental viewportWidth={width} />
-      <ServiceRegions viewportWidth={width} />
-      <UsedBusSales viewportWidth={width} />
+      <HeroContent
+        setQuoteModalVis={props.setQuoteModalVis}
+        setHeroProps={props.setHeroProps}
+        viewportWidth={width}
+      />
+      <SchoolRoutes
+        setQuoteModalVis={props.setQuoteModalVis}
+        viewportWidth={width}
+      />
+      <Charters
+        setQuoteModalVis={props.setQuoteModalVis}
+        viewportWidth={width}
+      />
+      <ShopRental
+        setQuoteModalVis={props.setQuoteModalVis}
+        viewportWidth={width}
+      />
+      <ServiceRegions
+        setQuoteModalVis={props.setQuoteModalVis}
+        viewportWidth={width}
+      />
+      <UsedBusSales
+        setQuoteModalVis={props.setQuoteModalVis}
+        viewportWidth={width}
+      />
     </React.Fragment>
   );
 };

@@ -15,11 +15,21 @@ export const responsive = (width, mobile, sml, med, lrg) => {
     : lrg;
 };
 
-export const handleToggleModal = (setModalVisFunction) => {
+export const handleToggleModal = (
+  setModalVisFunction,
+  setQuoteType = false
+) => {
   const hide = { o: "0", v: "hidden" };
   const show = { o: "1", v: "visible" };
   // eslint-disable-next-line
   setModalVisFunction((prevState) => (prevState.o == "0" ? show : hide));
+
+  if (setQuoteType)
+    setTimeout(() => {
+      document.getElementById("quoteNameInput").focus();
+      document.querySelector("#quoteModalSelectContainer select").value =
+        setQuoteType;
+    }, 100);
 };
 
 export const sendMessage = (

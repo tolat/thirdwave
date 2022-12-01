@@ -12,6 +12,7 @@ import msg_icon from "../../images/icons/message_icon.png";
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
 import BusCalculator from "../Utils/BusCalculator";
 import { SelectField } from "../../utils";
+import BasicDatePicker from "../UI/DatePicker";
 
 const QuoteModal = (props) => {
   const w = props.viewportWidth;
@@ -121,6 +122,7 @@ const QuoteModal = (props) => {
           }}>
           <div className={modalStyles.sectionContainer}>
             <GeneralInput
+              id="quoteNameInput"
               label="Name"
               type="text"
               placeholder="Full Name"
@@ -152,14 +154,16 @@ const QuoteModal = (props) => {
               />
             </div>
           </div>
-          <div className={styles.selectFieldContainer}>
-            Type of inquiry:
+          <div
+            className={styles.selectFieldContainer}
+            id="quoteModalSelectContainer">
+            Type of inquiry
             <SelectField
               options={[
                 { key: Math.random(), value: "select" },
                 { key: Math.random(), value: "School Routes" },
                 { key: Math.random(), value: "Charters" },
-                { key: Math.random(), value: "Shop Facilities" },
+                { key: Math.random(), value: "Shop Rental" },
                 { key: Math.random(), value: "Service Regions" },
                 { key: Math.random(), value: "Used Bus Sales" },
                 { key: Math.random(), value: "Other" },
@@ -167,17 +171,27 @@ const QuoteModal = (props) => {
               className={styles.selectInput}
             />
           </div>
+          <div className={styles.datePickersOuterContainer}>
+            <div className={styles.datePickersHeader}>Booking Dates</div>
+            <div className={styles.datePickersContainer}>
+              <BasicDatePicker style={{ width: "45%" }} label="From" />
+              <div className={styles.datePickerSpacer}></div>
+              <BasicDatePicker style={{ width: "45%" }} label="To" />
+            </div>
+          </div>
 
           <div
             className={modalStyles.sectionContainer}
             style={{ marginBottom: textAreaBottMarg }}>
             <div className={modalStyles.sectionHeader}>
-              <img
-                className={modalStyles.inputIcon}
-                src={msg_icon}
-                alt="msg icon"
-              />{" "}
-              <div>Additional Details</div>
+              <div style={{ display: "flex" }}>
+                <img
+                  className={modalStyles.inputIcon}
+                  src={msg_icon}
+                  alt="msg icon"
+                />
+                <div>Additional Details</div>
+              </div>
             </div>
             <textarea
               id="quoteModalTextArea"
@@ -231,7 +245,7 @@ const QuoteSidepanel = (props) => {
 
 const SidePanelContents = (props) => {
   return (
-    <React.Fragment>
+    <div className={`${styles.sidePanelContentsContainer} noscroll`}>
       <div className={styles.sidepanelHeader}>
         <div
           className={`${modalStyles.sectionHeader} ${
@@ -246,7 +260,7 @@ const SidePanelContents = (props) => {
         </div>
       </div>
       <BusCalculator theme={props.busCalcTheme} />
-    </React.Fragment>
+    </div>
   );
 };
 

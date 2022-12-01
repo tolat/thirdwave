@@ -8,13 +8,17 @@ import surrey from "../../images/partner_icons/surrey.png";
 import richmond from "../../images/partner_icons/richmond.png";
 import family from "../../images/icons/fieldtrip.svg";
 import ServiceSection from "./ServiceSection";
-import { responsive } from "../../utils";
+import { responsive, handleToggleModal } from "../../utils";
 
 const SchoolRoutes = (props) => {
   const width = props.viewportWidth;
 
   const iconHeight = responsive(width, "2.5rem");
   const iconPadding = responsive(width, "1rem 0 1rem 0", "2rem 1rem 2rem 1rem");
+
+  const inquireClickHandler = () => {
+    handleToggleModal(props.setQuoteModalVis, "School Routes");
+  };
 
   return (
     <ServiceSection
@@ -23,7 +27,8 @@ const SchoolRoutes = (props) => {
       iconAlt="family icon"
       headerText="School Routes"
       justifyHeader="start"
-      viewportWidth={width}>
+      viewportWidth={width}
+      inquireOnClick={inquireClickHandler}>
       <div className={styles.iconsContainer}>
         <div className={styles.iconContainer}>
           <img

@@ -4,8 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 import tag from "../../images/icons/tag.svg";
 import ServiceSection from "./ServiceSection";
-import { style } from "@mui/system";
-import GeneralButton from "../../components/UI/GeneralButton";
+import { handleToggleModal } from "../../utils";
 
 const sampleBusData = [
   {
@@ -75,13 +74,18 @@ const UsedBusSales = (props) => {
     { field: "inquireButton", headerName: "", width: 150 },
   ];
 
+  const inquireClickHandler = () => {
+    handleToggleModal(props.setQuoteModalVis, "Used Bus Sales");
+  };
+
   return (
     <ServiceSection
       id="UsedBusSales"
       icon={tag}
       iconAlt="bus sales icon"
       headerText="Used Bus Sales"
-      viewportWidth={width}>
+      viewportWidth={width}
+      inquireOnClick={inquireClickHandler}>
       <div className={styles.container}>
         <div className={sectionStyles.textContainer}>
           <div className={sectionStyles.text}>
