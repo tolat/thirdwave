@@ -29,7 +29,7 @@ const BusCalculator = (props) => {
         inputStyle={themeStylesInput}
       />
       <div className={styles.calculatorOutputContainer}>
-        <div className={themeStylesClasses}>Recommended Buses:</div>
+        <div className={themeStylesClasses}>Recommended Buses</div>
         <div id="busCalculatorOutput" className={styles.calculatorOutput}>
           Enter passenger qtys
         </div>
