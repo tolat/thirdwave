@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import Flash from "./components/Flash/Flash";
 import ContactModal from "./components/Modals/ContactModal";
+import QuoteModal from "./components/Modals/QuoteModal";
 import NavDrawer from "./components/Nav/NavDrawer";
 import NavBar from "./components/Nav/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -22,8 +23,12 @@ function App() {
     o: "0",
     v: "hidden",
   });
+  const [quoteModalVis, setQuoteModalVis] = useState({
+    o: "0",
+    v: "hidden",
+  });
   const [heroProps, setHeroProps] = useState({
-    containerMinHeight: ["40rem", "45rem", "45rem", "45rem"],
+    containerMinHeight: ["30rem", "45rem", "45rem", "45rem"],
     bgImage: heroBackground,
     bgAttachment: "fixed",
     bgSize: "cover",
@@ -38,8 +43,20 @@ function App() {
         modalVis={contactModalVis}
         setModalVis={setContactModalVis}
       />
-      <NavDrawer setContactModalVis={setContactModalVis} />
-      <NavBar viewportWidth={width} setContactModalVis={setContactModalVis} />
+      <QuoteModal
+        viewportWidth={width}
+        modalVis={quoteModalVis}
+        setModalVis={setQuoteModalVis}
+      />
+      <NavDrawer
+        setContactModalVis={setContactModalVis}
+        setQuoteModalVis={setQuoteModalVis}
+      />
+      <NavBar
+        viewportWidth={width}
+        setContactModalVis={setContactModalVis}
+        setQuoteModalVis={setQuoteModalVis}
+      />
       <Hero heroProps={heroProps} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />

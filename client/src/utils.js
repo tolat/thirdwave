@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
+
 import React from "react";
 import ReactDOM from "react-dom";
+import Form from "react-bootstrap/Form";
 
 // function to select from
 export const responsive = (width, mobile, sml, med, lrg) => {
@@ -158,4 +160,18 @@ export const scrollToOffset = (offset) => {
     top: offset,
     behavior: "smooth",
   });
+};
+
+export function SelectField(props) {
+  return (
+    <Form.Select className={props.className}>
+      {props.options.map((o) => (
+        <option key={o.key}>{o.value}</option>
+      ))}
+    </Form.Select>
+  );
+}
+
+export const handleSubmit = (event) => {
+  //TBD
 };

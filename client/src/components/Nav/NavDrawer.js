@@ -9,6 +9,11 @@ const NavDrawer = (props) => {
     clickBurgerMenuIcon(true);
   };
 
+  const onQuoteButtonClick = () => {
+    handleToggleModal(props.setQuoteModalVis);
+    clickBurgerMenuIcon(true);
+  };
+
   const onNavButtonClick = () => {
     clickBurgerMenuIcon(true);
   };
@@ -54,7 +59,11 @@ const NavDrawer = (props) => {
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>FAQ</NavButton>
+          <NavButton
+            style={{ fontSize: "1.3rem" }}
+            onClick={onQuoteButtonClick}>
+            Get Quote
+          </NavButton>
         </div>
       </div>
     </div>

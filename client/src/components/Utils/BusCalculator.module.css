@@ -1,0 +1,21 @@
+.calculatorOutputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 1rem;
+}
+
+.calculatorOutput {
+  background-color: white;
+  border-radius: 2px;
+  padding: 1rem;
+  height: 5rem;
+  border: 1px solid grey;
+  margin-top: 1rem;
+  color: grey;
+  font-size: 1rem;
+  text-transform: none;
+  line-height: 1rem;
+}

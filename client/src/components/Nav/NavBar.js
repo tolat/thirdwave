@@ -35,6 +35,10 @@ const NavBar = (props) => {
     handleToggleModal(props.setContactModalVis);
   };
 
+  const onQuoteButtonClick = () => {
+    handleToggleModal(props.setQuoteModalVis);
+  };
+
   return (
     <React.Fragment>
       <div
@@ -56,7 +60,6 @@ const NavBar = (props) => {
               </NavLink>
             </NavButton>
             <NavButton style={{ height: buttonHeight }}>
-              {" "}
               <NavLink
                 id="aboutButton"
                 className={(navData) => (navData.isActive ? "bold" : "")}
@@ -77,7 +80,11 @@ const NavBar = (props) => {
               onClick={onContactButtonClick}>
               Contact
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>Get Quote</NavButton>
+            <NavButton
+              style={{ height: buttonHeight }}
+              onClick={onQuoteButtonClick}>
+              Get Quote
+            </NavButton>
           </div>
         </div>
       </div>

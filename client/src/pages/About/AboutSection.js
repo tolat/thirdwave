@@ -94,7 +94,7 @@ const AboutSection = (props) => {
             <div
               className={styles.aboutOwnersHeader}
               style={{ padding: aboutOwnersTextPadding }}>
-              A word from principal manager Murray Nicholl
+              A word from Principal Manager, Murray Nicholl
             </div>
             <div
               className={styles.aboutOwnersText}
