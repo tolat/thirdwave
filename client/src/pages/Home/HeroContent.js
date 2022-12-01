@@ -20,8 +20,9 @@ import ExpandButton from "../../components/UI/ExpandButton";
 const HeroContent = (props) => {
   const w = props.viewportWidth;
   const heroZoom = responsive(w, "0.65");
-  const heroMarginTop = responsive(w, "25rem");
+  const heroMarginTop = responsive(w, "18rem");
   const heroBorderBottom = responsive(w, "1px solid white");
+  const heroFontSize = responsive(w, "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
   const iconsContainerZoom = responsive(w, "0.8");
@@ -29,6 +30,14 @@ const HeroContent = (props) => {
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
+  const subHeroBulletsFontSize = responsive(
+    w,
+    "",
+    "1.1rem",
+    "1.4rem",
+    "1.4rem"
+  );
+  const subHeroBulletsDotMargin = responsive(w, "", "-2.8rem", "", "");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -38,7 +47,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["30rem", "45rem", "45rem", "45rem"],
+    ["30rem", "45rem", "45rem", "55rem"],
     useEffect,
     props.setHeroProps
   );
@@ -73,21 +82,48 @@ const HeroContent = (props) => {
               alt="canadian owned"
             />
             <div className={styles.headerContainer}>
-              <div className={styles.header1}>Locally owned and operated</div>
+              <div
+                className={styles.header1}
+                style={{ fontSize: heroFontSize }}>
+                Locally owned and operated
+              </div>
               <div
                 className={styles.header2}
-                style={{ borderBottom: header2BorderBottom }}>
+                style={{
+                  borderBottom: header2BorderBottom,
+                  fontSize: heroFontSize,
+                }}>
                 {" "}
                 Since 1987
               </div>
               <div
                 className={styles.headerServices}
                 style={{ display: servicesDisplay }}>
-                <div className={styles.servicesItem}>Route Contracts</div>
-                <div className={styles.servicesDot}>.</div>
-                <div className={styles.servicesItem}>Rentals</div>
-                <div className={styles.servicesDot}>.</div>
-                <div className={styles.servicesItem}>Event Catering</div>
+                <div
+                  style={{ fontSize: subHeroBulletsFontSize }}
+                  className={styles.servicesItem}>
+                  Route Contracts
+                </div>
+                <div
+                  style={{ fontSize: subHeroBulletsDotMargin }}
+                  className={styles.servicesDot}>
+                  .
+                </div>
+                <div
+                  style={{ fontSize: subHeroBulletsFontSize }}
+                  className={styles.servicesItem}>
+                  Rentals
+                </div>
+                <div
+                  style={{ fontSize: subHeroBulletsDotMargin }}
+                  className={styles.servicesDot}>
+                  .
+                </div>
+                <div
+                  style={{ fontSize: subHeroBulletsFontSize }}
+                  className={styles.servicesItem}>
+                  Event Catering
+                </div>
               </div>
             </div>
           </div>

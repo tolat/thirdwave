@@ -13,9 +13,11 @@ import expand from "../../images/icons/expand.svg";
 import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
+  const width = props.viewportWidth;
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
+  const headerMarginTop = responsive(width, "6rem");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -25,7 +27,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["20rem", "20rem", "20rem", "20rem"],
+    ["18rem", "30rem", "30rem", "30rem"],
     useEffect,
     props.setHeroProps
   );
@@ -36,7 +38,9 @@ const HeroContent = (props) => {
         <div
           style={{ transition: contentTransition, opacity: contentOpacity }}
           className={styles.container}>
-          <div className={styles.header}>Services</div>
+          <div className={styles.header} style={{ marginTop: headerMarginTop }}>
+            Services
+          </div>
           <ExpandButton scrollToId="SchoolRoutes" />
         </div>
       </CentralSection>

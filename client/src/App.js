@@ -18,17 +18,13 @@ import SERVICES from "./pages/Services/SERVICES";
 import ABOUT from "./pages/About/ABOUT";
 
 function App() {
+  const initModalVis = { o: "0", v: "hidden" };
   const { width } = useWindowSize();
-  const [contactModalVis, setContactModalVis] = useState({
-    o: "0",
-    v: "hidden",
-  });
-  const [quoteModalVis, setQuoteModalVis] = useState({
-    o: "0",
-    v: "hidden",
-  });
+  const [contactModalVis, setContactModalVis] = useState(initModalVis);
+  const [quoteModalVis, setQuoteModalVis] = useState(initModalVis);
+
   const [heroProps, setHeroProps] = useState({
-    containerMinHeight: ["30rem", "45rem", "45rem", "45rem"],
+    containerMinHeight: ["40rem", "45rem", "45rem", "45rem"],
     bgImage: heroBackground,
     bgAttachment: "fixed",
     bgSize: "cover",
@@ -57,7 +53,7 @@ function App() {
         setContactModalVis={setContactModalVis}
         setQuoteModalVis={setQuoteModalVis}
       />
-      <Hero heroProps={heroProps} />
+      <Hero heroProps={heroProps} viewportWidth={width} />
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route
