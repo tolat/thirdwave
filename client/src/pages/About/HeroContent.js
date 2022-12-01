@@ -2,14 +2,10 @@ import styles from "./HeroContent.module.css";
 import CentralSection from "../../components/UI/CentralSection";
 import {
   DOMReadyPortal,
-  responsive,
   updateHeroResponsiveHeights,
   handleHeroFadeTransitions,
-  scrollToId,
 } from "../../utils";
 import React, { useEffect, useState } from "react";
-
-import expand from "../../images/icons/expand.svg";
 import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
@@ -36,8 +32,8 @@ const HeroContent = (props) => {
         <div
           style={{ transition: contentTransition, opacity: contentOpacity }}
           className={styles.container}>
-          <div className={styles.header}>Services</div>
-          <ExpandButton scrollToId="SchoolRoutes" />
+          <div className={styles.header}>About / FAQ</div>
+          <ExpandButton />
         </div>
       </CentralSection>
     </DOMReadyPortal>

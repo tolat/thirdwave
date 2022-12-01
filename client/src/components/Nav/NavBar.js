@@ -55,7 +55,15 @@ const NavBar = (props) => {
                 Home
               </NavLink>
             </NavButton>
-            <NavButton style={{ height: buttonHeight }}>About / FAQ</NavButton>
+            <NavButton style={{ height: buttonHeight }}>
+              {" "}
+              <NavLink
+                id="aboutButton"
+                className={(navData) => (navData.isActive ? "bold" : "")}
+                to="/about">
+                About / FAQ
+              </NavLink>
+            </NavButton>
             <NavButton style={{ height: buttonHeight }}>
               <NavLink
                 id="servicesButton"

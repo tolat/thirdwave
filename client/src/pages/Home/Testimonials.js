@@ -5,7 +5,7 @@ import BlackFade from "../../components/UI/BlackFade";
 import { useEffect } from "react";
 import { responsive } from "../../utils";
 
-import background from "../../images/bus3_medium.jpeg";
+import background from "../../images/bus7.jpeg";
 
 const testimonials = [
   {
@@ -38,7 +38,7 @@ const Testimonials = (props) => {
   return (
     <BlackFade
       backgroundImage={background}
-      backgroundOpacity="0.4"
+      backgroundOpacity="0.55"
       backgroundAttachment="fixed"
       backgroundSize="cover">
       <CentralSection>

@@ -10,10 +10,11 @@ import NavBar from "./components/Nav/NavBar";
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 
-import heroBackground from "./images/bus1.jpeg";
+import heroBackground from "./images/bus5.jpeg";
 
 import HOME from "./pages/Home/HOME";
 import SERVICES from "./pages/Services/SERVICES";
+import ABOUT from "./pages/About/ABOUT";
 
 function App() {
   const { width } = useWindowSize();
@@ -26,7 +27,7 @@ function App() {
     bgImage: heroBackground,
     bgAttachment: "fixed",
     bgSize: "cover",
-    bgOpacity: "0.7",
+    bgOpacity: "0.8",
   });
 
   return (
@@ -46,6 +47,16 @@ function App() {
           path="/home"
           element={
             <HOME
+              setHeroProps={setHeroProps}
+              heroProps={heroProps}
+              viewportWidth={width}
+            />
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <ABOUT
               setHeroProps={setHeroProps}
               heroProps={heroProps}
               viewportWidth={width}

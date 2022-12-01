@@ -38,6 +38,7 @@
 
 .text {
   font-size: 1.2rem;
+  text-align: justify;
 }
 
 li {
@@ -50,6 +51,7 @@ li {
   background-color: /* rgb(42, 81, 128); */ black;
   color: white;
   font-weight: bold;
+  height: 2.5rem;
 }
 
 .inquireButton:hover {

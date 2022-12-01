@@ -10,6 +10,7 @@ const BlackFade = (props) => {
           opacity: props.backgroundOpacity,
           backgroundAttachment: props.backgroundAttachment || "local",
           backgroundSize: props.backgroundSize || "cover",
+          backgroundPosition: props.backgroundPosition,
         }}
       />
       <div className={styles.childrenContainer}>{props.children}</div>
