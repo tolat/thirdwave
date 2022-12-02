@@ -56,8 +56,15 @@ app.post("/quote", async (req, res) => {
     await transporter.sendMail({
       from: req.body.userEmail,
       to: "thirdwavebus@gmail.com",
-      subject: "Quote request from thirdwavebus.com",
-      text: `${req.body}`,
+      subject: `${req.body.type} quote request from thirdwavebus.com`,
+      text: `
+      Name: ${req.body.name}\n
+      Phone: ${req.body.phone}\n
+      Email: ${req.body.email}\n
+      Dates: ${req.body.from} ${req.body.to ? "to " : ""} ${
+        req.body.to ? req.body.to : ""
+      } \n\n
+      Details: ${req.body.details}`,
     });
   } catch (e) {
     console.log(e);
