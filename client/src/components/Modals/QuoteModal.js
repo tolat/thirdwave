@@ -40,6 +40,7 @@ const QuoteModal = (props) => {
   const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
+  const stackedView = utils.responsive(w, true, false, false, false);
 
   const formFields = [
     "name",
@@ -178,8 +179,7 @@ const QuoteModal = (props) => {
           <div
             className={styles.mobileCalculator}
             style={{
-              marginTop: "-6rem",
-              height: "100%",
+              marginTop: "-9rem",
               display: mobileCalculatorDisplay,
             }}>
             <SidePanelContents busCalcTheme={busCalcTheme} />

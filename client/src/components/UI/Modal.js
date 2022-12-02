@@ -4,7 +4,6 @@ import closeButton from "../../images/close_button.png";
 
 const Modal = (props) => {
   const w = props.viewportWidth;
-  /* const modalScale = responsive(w, "1", "1", "1", "1"); */
 
   const onToggleModal = () => {
     handleToggleModal(props.setModalVis);
@@ -22,7 +21,6 @@ const Modal = (props) => {
         className={`${styles.modal} noscroll`}
         style={{
           width: props.modalWidth,
-          /*  transform: `scale(${modalScale})`, */
           height: props.modalHeight,
           maxHeight: props.modalMaxHeight,
           backgroundImage: `url(${props.background}`,
@@ -43,7 +41,6 @@ const Modal = (props) => {
               onClick={onToggleModal}
             />
           </div>
-
           {props.children}
         </div>
       </div>

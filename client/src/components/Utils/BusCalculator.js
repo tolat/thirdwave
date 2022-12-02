@@ -1,6 +1,6 @@
 import styles from "./BusCalculator.module.css";
 import GeneralInput from "../UI/GeneralInput";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const BusCalculator = (props) => {
   const themeStylesInput =
@@ -12,15 +12,23 @@ const BusCalculator = (props) => {
   const [numSmallBuses, setNumSmallBuses] = useState("0");
   const [numMediumBuses, setNumMediumBuses] = useState("0");
   const [numLargeBuses, setNumLargeBuses] = useState("0");
+  const numAdults = useRef();
+  const numChildren = useRef();
 
   const busCapacities = {
-    small: { adults: 20, children: 20 },
+    small: { adults: 20, children: 29 },
     medium: { adults: 46, children: 70 },
-    large: { adults: 54, children: 82 },
+    large: { adults: 56, children: 84 },
   };
 
   const calculateBuses = (children, adults) => {
-    const combinedPassengers = adults + 0.65 * children;
+    const childAdultRatio =
+      (busCapacities.small.adults / busCapacities.small.children +
+        busCapacities.medium.adults / busCapacities.medium.children +
+        busCapacities.large.adults / busCapacities.large.children) /
+      3;
+
+    const combinedPassengers = adults + childAdultRatio * children;
     let remainingPassengers = combinedPassengers;
 
     let large = Math.floor(remainingPassengers / busCapacities.large.adults);
@@ -44,13 +52,10 @@ const BusCalculator = (props) => {
   };
 
   const updateCalculator = () => {
-    const numChildren =
-      parseInt(document.getElementById("busCalculatorChildrenInput").value) ||
-      0;
-    const numAdults =
-      parseInt(document.getElementById("busCalculatorAdultsInput").value) || 0;
-
-    const qtys = calculateBuses(numChildren, numAdults);
+    const qtys = calculateBuses(
+      parseInt(numChildren.current.value) || 0,
+      parseInt(numAdults.current.value) || 0
+    );
     setNumSmallBuses(qtys.small);
     setNumMediumBuses(qtys.medium);
     setNumLargeBuses(qtys.large);
@@ -59,28 +64,26 @@ const BusCalculator = (props) => {
   return (
     <div className={props.className}>
       <GeneralInput
-        id="busCalculatorAdultsInput"
-        label="Adults (11+ yrs)"
+        label="Adults (Grade 5+)"
         type="number"
         placeholder="Enter Number"
         customClasses={themeStylesClasses}
         inputStyle={themeStylesInput}
         onChange={updateCalculator}
+        inputRef={numAdults}
       />
       <GeneralInput
-        id="busCalculatorChildrenInput"
-        label="Children (0-10 yrs)"
+        label="Children (Grade K-4)"
         type="number"
         placeholder="Enter Number"
         customClasses={themeStylesClasses}
         inputStyle={themeStylesInput}
         onChange={updateCalculator}
+        inputRef={numChildren}
       />
       <div className={styles.calculatorOutputContainer}>
         <div className={themeStylesClasses}>Recommended Buses</div>
-        <div
-          id="busCalculatorOutput"
-          className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
+        <div className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
           {[
             {
               key: Math.random(),
@@ -104,13 +107,15 @@ const BusCalculator = (props) => {
               adults: busCapacities.large.adults,
             },
           ].map((outputItem) => (
-            <div className={styles.outputItemOuterContainer}>
+            <div
+              key={outputItem.key}
+              className={styles.outputItemOuterContainer}>
               <div className={styles.outputItemContainer}>
                 <div className={styles.outputItemLabel}>{outputItem.label}</div>
                 <div className={styles.outputItemQuantiy}>{outputItem.qty}</div>
               </div>
               <div className={styles.outputItemCapacities}>
-                ({outputItem.children} Children, {outputItem.adults} Adults)
+                ({outputItem.children} Children or {outputItem.adults} Adults)
               </div>
             </div>
           ))}

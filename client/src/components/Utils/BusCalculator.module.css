@@ -14,13 +14,17 @@
   font-size: 1rem;
   text-transform: none;
   line-height: 1rem;
+  margin-bottom: 5rem;
 }
 
 .outputItemContainer {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.8rem;
   font-weight: bold;
+}
+
+.outputItemOuterContainer {
+  margin-bottom: 1.5rem;
 }
 
 .outputItemLabel {
@@ -34,5 +38,5 @@
 .outputItemCapacities {
   font-size: 0.95rem;
   color: black;
-  margin-top: 0.2rem;
+  margin-top: 0.3rem;
 }
