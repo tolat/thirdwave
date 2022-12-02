@@ -6,6 +6,7 @@ import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
 import { NavLink } from "react-router-dom";
+import { borderLeft } from "@mui/system";
 
 const NavBar = (props) => {
   const w = props.viewportWidth;
@@ -116,9 +117,10 @@ const NavBar = (props) => {
               style={{
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
+                fontWeight: "bold",
               }}
               onClick={onQuoteButtonClick}>
-              Get Quote
+              GET QUOTE
             </NavButton>
           </div>
         </div>

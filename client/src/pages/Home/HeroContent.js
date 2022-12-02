@@ -102,7 +102,7 @@ const HeroContent = (props) => {
                 <div
                   style={{ fontSize: subHeroBulletsFontSize }}
                   className={styles.servicesItem}>
-                  Route Contracts
+                  Charters
                 </div>
                 <div
                   style={{ marginTop: subHeroBulletsDotMargin }}
@@ -112,7 +112,7 @@ const HeroContent = (props) => {
                 <div
                   style={{ fontSize: subHeroBulletsFontSize }}
                   className={styles.servicesItem}>
-                  Rentals
+                  School Routes
                 </div>
                 <div
                   style={{ marginTop: subHeroBulletsDotMargin }}
@@ -122,7 +122,7 @@ const HeroContent = (props) => {
                 <div
                   style={{ fontSize: subHeroBulletsFontSize }}
                   className={styles.servicesItem}>
-                  Event Catering
+                  Events
                 </div>
               </div>
             </div>
