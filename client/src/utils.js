@@ -191,7 +191,6 @@ export const formSubmit = (
 
   const formData = {};
   for (let field of formFields) {
-    console.log(field, formRefs[field], formRefs[field].current);
     formData[field] = formRefs[field].current.value;
   }
 

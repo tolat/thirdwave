@@ -37,7 +37,7 @@ const QuoteModal = (props) => {
     "none",
     "none"
   );
-  // const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
+  const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
 
@@ -75,7 +75,7 @@ const QuoteModal = (props) => {
       modalWidth={quoteModalWidth}
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
-      /* sidepanel={<QuoteSidepanel busCalcTheme={busCalcTheme} />} */
+      sidepanel={<QuoteSidepanel busCalcTheme={busCalcTheme} />}
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <div
@@ -137,7 +137,9 @@ const QuoteModal = (props) => {
             />
           </div>
           <div className={styles.datePickersOuterContainer}>
-            <div className={styles.datePickersHeader}>Booking Dates</div>
+            <div className={styles.datePickersHeader}>
+              Dates (if applicable)
+            </div>
             <div className={styles.datePickersContainer}>
               <BasicDatePicker
                 inputRef={formRefs.from}
@@ -180,7 +182,7 @@ const QuoteModal = (props) => {
               height: "100%",
               display: mobileCalculatorDisplay,
             }}>
-            {/* <SidePanelContents busCalcTheme={busCalcTheme} /> */}
+            <SidePanelContents busCalcTheme={busCalcTheme} />
           </div>
         </div>
 
@@ -228,7 +230,7 @@ const SidePanelContents = (props) => {
             src={calculator}
             alt="calculator icon"
           />
-          <div>Bus Sizing Calculator</div>
+          <div style={{ fontSize: "1.45rem" }}>Bus Estimator</div>
         </div>
       </div>
       <BusCalculator theme={props.busCalcTheme} />

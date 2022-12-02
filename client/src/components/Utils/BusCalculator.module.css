@@ -8,14 +8,31 @@
 }
 
 .calculatorOutput {
-  background-color: white;
-  border-radius: 2px;
-  padding: 1rem;
-  height: 5rem;
-  border: 1px solid grey;
+  background-color: transparent;
   margin-top: 1rem;
-  color: grey;
+  color: black;
   font-size: 1rem;
   text-transform: none;
   line-height: 1rem;
+}
+
+.outputItemContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.8rem;
+  font-weight: bold;
+}
+
+.outputItemLabel {
+  font-weight: bold;
+}
+
+.ouputItemQuantity {
+  font-weight: bold;
+}
+
+.outputItemCapacities {
+  font-size: 0.95rem;
+  color: black;
+  margin-top: 0.2rem;
 }
