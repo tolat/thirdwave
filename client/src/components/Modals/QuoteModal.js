@@ -15,18 +15,28 @@ import BasicDatePicker from "../Utils/DatePicker";
 
 const QuoteModal = (props) => {
   const w = props.viewportWidth;
-  const quoteModalWidths = ["100%", "50rem", "50rem", "50rem"];
-  const mobileCalcDisplays = ["block", "none", "none", "none"];
   const inputDisplay = utils.responsive(w, "column");
   const inputWidth = utils.responsive(w, "100%", "50%", "50%", "50%");
   const textAreaBottMarg = utils.responsive(w, "10rem");
   const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
-  const quoteModalWidth = utils.responsive(w, ...quoteModalWidths);
+  const quoteModalWidth = utils.responsive(
+    w,
+    "100%",
+    "50rem",
+    "50rem",
+    "50rem"
+  );
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
   const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
-  const mobileCalculatorDisplay = utils.responsive(w, ...mobileCalcDisplays);
+  const mobileCalculatorDisplay = utils.responsive(
+    w,
+    "block",
+    "none",
+    "none",
+    "none"
+  );
   // const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
@@ -51,8 +61,8 @@ const QuoteModal = (props) => {
       setSpinnerDisplay,
       setIconDisplay,
       utils.clearForm,
-      "/message",
-      "Message Sent Successfully!",
+      "/quote",
+      "Quote request sent successfully!",
       "Thank you for your request. We will get in touch with you if we have any questions, otherwise you can expect a quote within 3 business days."
     );
   };

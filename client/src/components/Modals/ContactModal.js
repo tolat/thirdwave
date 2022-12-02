@@ -41,7 +41,7 @@ const ContactModal = (props) => {
       utils.clearForm,
       "/message",
       "Message Sent Successfully!",
-      "Thank you for your request. We will get in touch with you if we have any questions, otherwise you can expect a quote within 3 business days."
+      "Thanks for getting in touch. We will do our best to respond to all questions within 3 business days."
     );
   };
 

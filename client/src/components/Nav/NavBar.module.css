@@ -55,5 +55,9 @@
 
 a {
   text-decoration: unset;
-  color: unset;
+  color: white;
+}
+
+a:hover {
+  color: white;
 }

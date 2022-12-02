@@ -20,7 +20,7 @@ import ExpandButton from "../../components/UI/ExpandButton";
 const HeroContent = (props) => {
   const w = props.viewportWidth;
   const heroZoom = responsive(w, "0.65");
-  const heroMarginTop = responsive(w, "18rem");
+  const heroMarginTop = responsive(w, "18rem", "15rem");
   const heroBorderBottom = responsive(w, "1px solid white");
   const heroFontSize = responsive(w, "2.3rem");
   const header2BorderBottom = responsive(w, "none");
@@ -37,7 +37,7 @@ const HeroContent = (props) => {
     "1.4rem",
     "1.4rem"
   );
-  const subHeroBulletsDotMargin = responsive(w, "", "-2.8rem", "", "");
+  const subHeroBulletsDotMargin = responsive(w, "", "-3.6rem", "", "");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -105,7 +105,7 @@ const HeroContent = (props) => {
                   Route Contracts
                 </div>
                 <div
-                  style={{ fontSize: subHeroBulletsDotMargin }}
+                  style={{ marginTop: subHeroBulletsDotMargin }}
                   className={styles.servicesDot}>
                   .
                 </div>
@@ -115,7 +115,7 @@ const HeroContent = (props) => {
                   Rentals
                 </div>
                 <div
-                  style={{ fontSize: subHeroBulletsDotMargin }}
+                  style={{ marginTop: subHeroBulletsDotMargin }}
                   className={styles.servicesDot}>
                   .
                 </div>
