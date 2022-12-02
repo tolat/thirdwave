@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.395bc847.css",
-    "main.js": "/static/js/main.e571d0ce.js",
+    "main.css": "/static/css/main.d999b79c.css",
+    "main.js": "/static/js/main.0c959809.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/regions.jpg": "/static/media/regions.e233bae5b48134f55f97.jpg",
     "static/media/bus7.jpeg": "/static/media/bus7.9367fc2dd6754ebd8b15.jpeg",
     "static/media/bus8.jpeg": "/static/media/bus8.bf34ff728bf538a9437e.jpeg",
     "static/media/bus_shop.jpeg": "/static/media/bus_shop.898687b56dcd835aa679.jpeg",
-    "static/media/bus5.jpeg": "/static/media/bus5.47c6ed2ef5e27d17f1d1.jpeg",
+    "static/media/bus5.jpeg": "/static/media/bus5.ea05308d9d826da8a3ff.jpeg",
     "static/media/richmond.png": "/static/media/richmond.1bb08682ae87fc81581a.png",
-    "static/media/logo2.png": "/static/media/logo2.db42ba0ad7b7b1e239c5.png",
+    "static/media/logo2.png": "/static/media/logo2.b45e2b9a541e07446459.png",
     "static/media/bus3.jpeg": "/static/media/bus3.5786e0b0583bb0a740ac.jpeg",
     "static/media/under_grouse.jpeg": "/static/media/under_grouse.d63025df93cbfb27139a.jpeg",
     "static/media/surrey.png": "/static/media/surrey.e7f8c431f0453a967ebd.png",
@@ -26,12 +26,12 @@
     "static/media/tag.svg": "/static/media/tag.d72feff50df6bb5d079333d6598fe867.svg",
     "static/media/map.svg": "/static/media/map.14c9502058d9d59a242c9833c5887836.svg",
     "static/media/expand.svg": "/static/media/expand.45a1a7112bf6255f362b38eaa86ac6de.svg",
-    "main.395bc847.css.map": "/static/css/main.395bc847.css.map",
-    "main.e571d0ce.js.map": "/static/js/main.e571d0ce.js.map",
+    "main.d999b79c.css.map": "/static/css/main.d999b79c.css.map",
+    "main.0c959809.js.map": "/static/js/main.0c959809.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.395bc847.css",
-    "static/js/main.e571d0ce.js"
+    "static/css/main.d999b79c.css",
+    "static/js/main.0c959809.js"
   ]
 }
