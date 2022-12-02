@@ -81,3 +81,7 @@ textarea {
   justify-content: flex-end;
   align-items: center;
 }
+
+.detailsForMobile {
+  display: none;
+}

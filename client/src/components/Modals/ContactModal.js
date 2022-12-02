@@ -2,96 +2,47 @@ import GeneralButton from "../UI/GeneralButton";
 import GeneralInput from "../UI/GeneralInput";
 import modalStyles from "../UI/Modal.module.css";
 import styles from "./ContactModal.module.css";
-import { responsive, sendMessage, showFlash, closeFlash } from "../../utils";
+import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "../UI/Modal";
 import Spinner from "react-bootstrap/Spinner";
-
 import phone_icon from "../../images/icons/phone1.svg";
 import msg_icon from "../../images/icons/message_icon.png";
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
-  const inputDisplay = responsive(w, "column");
-  const inputWidth = responsive(w, "100%", "50%", "50%", "50%");
-  const textAreaBottMarg = responsive(w, "10rem");
-  const scrollMaskImage = responsive(w, "", "none", "none", "none");
-  const quoteModalWidth = responsive(w, "100%", "50rem", "50rem", "50rem");
-  const quoteModalHeight = responsive(w, "100%", "", "", "");
-  const quoteModalMaxHeight = responsive(w, "", "80%", "80%", "80%");
-  const buttonFontSize = responsive(w, "1.4rem", "", "", "");
-  const sidepanelDisplay = responsive(w, "none", "flex", "flex", "flex");
-  const mobileDetailsDisplay = responsive(w, "block", "none", "none", "none");
+  const quoteModalWidths = ["100%", "50rem", "50rem", "50rem"];
+  const inputDisplay = utils.responsive(w, "column");
+  const inputWidth = utils.responsive(w, "100%", "50%", "50%", "50%");
+  const textAreaBottMarg = utils.responsive(w, "10rem");
+  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
+  const quoteModalWidth = utils.responsive(w, ...quoteModalWidths);
+  const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
+  const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
+  const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
+  const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
+  const mobileDetailsDisplay = utils.responsive(w, "block");
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
 
-  const userEmailRef = useRef();
-  const userNameRef = useRef();
-  const userPhoneRef = useRef();
-  const userMessageRef = useRef();
+  const formFields = ["phone", "email", "message"];
+
+  const formRefs = utils.generateRefsFromStrings(formFields, useRef);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (
-      // eslint-disable-next-line
-      document.getElementById("contactModalSpinner").style.display == "block"
-    ) {
-      return;
-    }
-
-    const formData = {
-      name: userNameRef.current.value,
-      phone: userPhoneRef.current.value,
-      email: userEmailRef.current.value,
-      message: userMessageRef.current.value,
-    };
-
-    const resetSuccess = () => {
-      userEmailRef.current.value = "";
-      userNameRef.current.value = "";
-      userPhoneRef.current.value = "";
-      userMessageRef.current.value = "";
-
-      setSpinnerDisplay("none");
-      setIconDisplay("block");
-
-      showFlash(
-        "appFlash",
-        "Message successfully sent!",
-        "Thanks for getting in touch. We will do our best to respond to your inquiry within 3 business days.",
-        "rgb(55,55,55)",
-        "white",
-        "white"
-      );
-
-      setTimeout(() => {
-        closeFlash("appFlash");
-      }, 5000);
-    };
-
-    const resetFailure = (error) => {
-      setSpinnerDisplay("none");
-      setIconDisplay("block");
-
-      showFlash(
-        "appFlash",
-        "There was an error sending your message.",
-        error.message,
-        "rgb(231,164,164)"
-      );
-    };
-
-    setSpinnerDisplay("block");
-    setIconDisplay("none");
-
-    try {
-      sendMessage(formData, "/quote", resetSuccess, resetFailure);
-    } catch (e) {
-      resetFailure(e);
-    }
+    utils.formSubmit(
+      event,
+      formFields,
+      formRefs,
+      setSpinnerDisplay,
+      setIconDisplay,
+      utils.clearForm,
+      "/message",
+      "Message Sent Successfully!",
+      "Thank you for your request. We will get in touch with you if we have any questions, otherwise you can expect a quote within 3 business days."
+    );
   };
 
   return (
@@ -123,7 +74,7 @@ const ContactModal = (props) => {
                 type="text"
                 style={{ maxWidth: inputWidth }}
                 placeholder="Number"
-                inputRef={userPhoneRef}
+                inputRef={formRefs.phone}
                 required={true}
               />
               <GeneralInput
@@ -131,7 +82,7 @@ const ContactModal = (props) => {
                 type="email"
                 style={{ maxWidth: inputWidth }}
                 placeholder="Email"
-                inputRef={userEmailRef}
+                inputRef={formRefs.email}
                 required={true}
               />
             </div>
@@ -148,7 +99,7 @@ const ContactModal = (props) => {
               <div>Message</div>
             </div>
             <textarea
-              ref={userMessageRef}
+              ref={formRefs.message}
               className={styles.textArea}
               rows="8"
               required

@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -15,7 +16,11 @@ export default function BasicDatePicker(props) {
         onChange={(newValue) => {
           setValue(newValue);
         }}
-        renderInput={(params) => <TextField {...params} />}
+        inputRef={props.inputRef}
+        style={props.style}
+        renderInput={(params, inputRef, style) => (
+          <TextField ref={inputRef} style={props.style} {...params} />
+        )}
       />
     </LocalizationProvider>
   );

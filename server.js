@@ -35,10 +35,9 @@ app.post("/message", async (req, res) => {
   try {
     await transporter.sendMail({
       from: req.body.email,
-      to: "heliosolarsystems@gmail.com",
-      subject: "Message From Heliosite ",
+      to: "thirdwavebus@gmail.com",
+      subject: "Message From thirdwavebus.com",
       text: `
-      Name: ${req.body.name}\n
       Phone: ${req.body.phone}\n
       Email: ${req.body.email}\n\n
       ${req.body.message}`,
@@ -56,22 +55,9 @@ app.post("/quote", async (req, res) => {
   try {
     await transporter.sendMail({
       from: req.body.userEmail,
-      to: "heliosolarsystems@gmail.com",
-      subject: "Quote Request From Heliosite",
-      text: `
-      Project Address: ${req.body.userAddress}\n
-      Client Name: ${req.body.userName}\n
-      Phone: ${req.body.userPhone}\n
-      Email: ${req.body.userEmail}\n\n
-      Roof Material: ${req.body.roofMaterial}\n
-      Roof Age: ${req.body.roofAge}\n
-      Roof Pitch: ${req.body.roofPitch}\n
-      Target Offset: ${req.body.targetOffset}\n
-      Average Bill: ${req.body.averageBill}\n
-      Billing Cycle: ${req.body.billingCycle}\n
-      System Type: ${req.body.systemType}\n
-      Battery Backup: ${req.body.batteryBackup}\n
-      Budget: ${req.body.budget}\n`,
+      to: "thirdwavebus@gmail.com",
+      subject: "Quote request from thirdwavebus.com",
+      text: `${req.body}`,
     });
   } catch (e) {
     console.log(e);

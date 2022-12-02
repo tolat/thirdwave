@@ -2,7 +2,7 @@ import GeneralButton from "../UI/GeneralButton";
 import GeneralInput from "../UI/GeneralInput";
 import modalStyles from "../UI/Modal.module.css";
 import styles from "./QuoteModal.module.css";
-import { responsive, sendMessage, showFlash, closeFlash } from "../../utils";
+import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "../UI/Modal";
 import Spinner from "react-bootstrap/Spinner";
@@ -11,96 +11,50 @@ import calculator from "../../images/icons/calculator.svg";
 import msg_icon from "../../images/icons/message_icon.png";
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
 import BusCalculator from "../Utils/BusCalculator";
-import { SelectField } from "../../utils";
-import BasicDatePicker from "../UI/DatePicker";
+import BasicDatePicker from "../Utils/DatePicker";
 
 const QuoteModal = (props) => {
   const w = props.viewportWidth;
-  const inputDisplay = responsive(w, "column");
-  const inputWidth = responsive(w, "100%", "50%", "50%", "50%");
-  const textAreaBottMarg = responsive(w, "10rem");
-  const scrollMaskImage = responsive(w, "", "none", "none", "none");
-  const quoteModalWidth = responsive(w, "100%", "50rem", "50rem", "50rem");
-  const quoteModalHeight = responsive(w, "100%", "", "", "");
-  const quoteModalMaxHeight = responsive(w, "", "80%", "80%", "80%");
-  const buttonFontSize = responsive(w, "1.4rem", "", "", "");
-  const sidepanelDisplay = responsive(w, "none", "flex", "flex", "flex");
-  const mobileCalculatorDisplay = responsive(
-    w,
-    "block",
-    "none",
-    "none",
-    "none"
-  );
-  const busCalcTheme = responsive(w, "", "light", "light", "light");
+  const quoteModalWidths = ["100%", "50rem", "50rem", "50rem"];
+  const mobileCalcDisplays = ["block", "none", "none", "none"];
+  const inputDisplay = utils.responsive(w, "column");
+  const inputWidth = utils.responsive(w, "100%", "50%", "50%", "50%");
+  const textAreaBottMarg = utils.responsive(w, "10rem");
+  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
+  const quoteModalWidth = utils.responsive(w, ...quoteModalWidths);
+  const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
+  const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
+  const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
+  const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
+  const mobileCalculatorDisplay = utils.responsive(w, ...mobileCalcDisplays);
+  // const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
 
-  const userEmailRef = useRef();
-  const userNameRef = useRef();
-  const userPhoneRef = useRef();
-  const userMessageRef = useRef();
+  const formFields = [
+    "name",
+    "phone",
+    "email",
+    "type",
+    "from",
+    "to",
+    "details",
+  ];
+
+  const formRefs = utils.generateRefsFromStrings(formFields, useRef);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (
-      // eslint-disable-next-line
-      document.getElementById("quoteModalSpinner").style.display == "block"
-    ) {
-      return;
-    }
-
-    const formData = {
-      name: userNameRef.current.value,
-      phone: userPhoneRef.current.value,
-      email: userEmailRef.current.value,
-      message: userMessageRef.current.value,
-    };
-
-    const resetSuccess = () => {
-      userEmailRef.current.value = "";
-      userNameRef.current.value = "";
-      userPhoneRef.current.value = "";
-      userMessageRef.current.value = "";
-
-      setSpinnerDisplay("none");
-      setIconDisplay("block");
-
-      showFlash(
-        "appFlash",
-        "Message successfully sent!",
-        "Thanks for getting in touch. We will do our best to respond to your inquiry within 3 business days.",
-        "rgb(55,55,55)",
-        "white",
-        "white"
-      );
-
-      setTimeout(() => {
-        closeFlash("appFlash");
-      }, 5000);
-    };
-
-    const resetFailure = (error) => {
-      setSpinnerDisplay("none");
-      setIconDisplay("block");
-
-      showFlash(
-        "appFlash",
-        "There was an error sending your message.",
-        error.message,
-        "rgb(231,164,164)"
-      );
-    };
-
-    setSpinnerDisplay("block");
-    setIconDisplay("none");
-
-    try {
-      sendMessage(formData, "/quote", resetSuccess, resetFailure);
-    } catch (e) {
-      resetFailure(e);
-    }
+    utils.formSubmit(
+      event,
+      formFields,
+      formRefs,
+      setSpinnerDisplay,
+      setIconDisplay,
+      utils.clearForm,
+      "/message",
+      "Message Sent Successfully!",
+      "Thank you for your request. We will get in touch with you if we have any questions, otherwise you can expect a quote within 3 business days."
+    );
   };
 
   return (
@@ -111,7 +65,7 @@ const QuoteModal = (props) => {
       modalWidth={quoteModalWidth}
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
-      sidepanel={<QuoteSidepanel busCalcTheme={busCalcTheme} />}
+      /* sidepanel={<QuoteSidepanel busCalcTheme={busCalcTheme} />} */
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <div
@@ -126,7 +80,7 @@ const QuoteModal = (props) => {
               label="Name"
               type="text"
               placeholder="Full Name"
-              inputRef={userNameRef}
+              inputRef={formRefs.name}
               required={true}
               inputStyle={{ marginBottom: "1rem" }}
             />
@@ -141,7 +95,7 @@ const QuoteModal = (props) => {
                 type="text"
                 style={{ maxWidth: inputWidth }}
                 placeholder="Number"
-                inputRef={userPhoneRef}
+                inputRef={formRefs.phone}
                 required={true}
               />
               <GeneralInput
@@ -149,7 +103,7 @@ const QuoteModal = (props) => {
                 type="email"
                 style={{ maxWidth: inputWidth }}
                 placeholder="Email"
-                inputRef={userEmailRef}
+                inputRef={formRefs.email}
                 required={true}
               />
             </div>
@@ -169,14 +123,22 @@ const QuoteModal = (props) => {
                 { key: Math.random(), value: "Other" },
               ]}
               className={styles.selectInput}
+              inputRef={formRefs.type}
             />
           </div>
           <div className={styles.datePickersOuterContainer}>
             <div className={styles.datePickersHeader}>Booking Dates</div>
             <div className={styles.datePickersContainer}>
-              <BasicDatePicker style={{ width: "45%" }} label="From" />
-              <div className={styles.datePickerSpacer}></div>
-              <BasicDatePicker style={{ width: "45%" }} label="To" />
+              <BasicDatePicker
+                inputRef={formRefs.from}
+                style={{ width: "48%" }}
+                label="From"
+              />
+              <BasicDatePicker
+                inputRef={formRefs.to}
+                style={{ width: "48%" }}
+                label="To"
+              />
             </div>
           </div>
 
@@ -195,7 +157,7 @@ const QuoteModal = (props) => {
             </div>
             <textarea
               id="quoteModalTextArea"
-              ref={userMessageRef}
+              ref={formRefs.details}
               className={styles.textArea}
               rows="4"
               required
@@ -208,7 +170,7 @@ const QuoteModal = (props) => {
               height: "100%",
               display: mobileCalculatorDisplay,
             }}>
-            <SidePanelContents busCalcTheme={busCalcTheme} />
+            {/* <SidePanelContents busCalcTheme={busCalcTheme} /> */}
           </div>
         </div>
 
@@ -261,6 +223,16 @@ const SidePanelContents = (props) => {
       </div>
       <BusCalculator theme={props.busCalcTheme} />
     </div>
+  );
+};
+
+const SelectField = (props) => {
+  return (
+    <select ref={props.inputRef} className={props.className}>
+      {props.options.map((o) => (
+        <option key={o.key}>{o.value}</option>
+      ))}
+    </select>
   );
 };
 

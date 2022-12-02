@@ -172,16 +172,79 @@ export const scrollToOffset = (offset) => {
   });
 };
 
-export function SelectField(props) {
-  return (
-    <Form.Select className={props.className}>
-      {props.options.map((o) => (
-        <option key={o.key}>{o.value}</option>
-      ))}
-    </Form.Select>
-  );
-}
+export const formSubmit = (
+  event,
+  formFields,
+  formRefs,
+  setSpinnerDisplay,
+  setIconDisplay,
+  clearForm,
+  path,
+  successHeader,
+  successMessage
+) => {
+  event.preventDefault();
 
-export const handleSubmit = (event) => {
-  //TBD
+  if (document.getElementById("quoteModalSpinner").style.display == "block") {
+    return;
+  }
+
+  const formData = {};
+  for (let field of formFields) {
+    console.log(field, formRefs[field], formRefs[field].current);
+    formData[field] = formRefs[field].current.value;
+  }
+
+  function resetSuccess() {
+    clearForm(formFields, formRefs);
+    setSpinnerDisplay("none");
+    setIconDisplay("block");
+    showFlash(
+      "appFlash",
+      successHeader,
+      successMessage,
+      "rgb(55,55,55)",
+      "white",
+      "white"
+    );
+    setTimeout(() => {
+      closeFlash("appFlash");
+    }, 20000);
+  }
+
+  const resetFailure = (error) => {
+    setSpinnerDisplay("none");
+    setIconDisplay("block");
+
+    showFlash(
+      "appFlash",
+      "There was an error sending your request.",
+      error.message,
+      "rgb(231,164,164)"
+    );
+  };
+
+  setSpinnerDisplay("block");
+  setIconDisplay("none");
+
+  try {
+    sendMessage(formData, path, resetSuccess, resetFailure);
+  } catch (e) {
+    resetFailure(e);
+  }
+};
+
+export const generateRefsFromStrings = (formFields, uRef) => {
+  let formRefs = {};
+  for (let field of formFields) {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    formRefs[field] = uRef();
+  }
+  return formRefs;
+};
+
+export const clearForm = (formFields, formRefs) => {
+  for (let field of formFields) {
+    formRefs[field].current.value = "";
+  }
 };
