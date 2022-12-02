@@ -30,7 +30,7 @@
 }
 
 .textContainer {
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,7 +38,7 @@
 
 .text {
   font-size: 1.2rem;
-  text-align: justify;
+  margin: 1rem 0 1rem 0;
 }
 
 li {

@@ -11,8 +11,6 @@ import NavBar from "./components/Nav/NavBar";
 import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 
-import heroBackground from "./images/bus5.jpeg";
-
 import HOME from "./pages/Home/HOME";
 import SERVICES from "./pages/Services/SERVICES";
 import ABOUT from "./pages/About/ABOUT";
@@ -25,7 +23,6 @@ function App() {
 
   const [heroProps, setHeroProps] = useState({
     containerMinHeight: ["40rem", "45rem", "45rem", "45rem"],
-    bgImage: heroBackground,
     bgAttachment: "fixed",
     bgSize: "cover",
     bgOpacity: "0.8",

@@ -18,11 +18,6 @@ const ServiceSection = (props) => {
             alt={props.iconAlt}
           />
           {props.headerText}
-          <GeneralButton
-            onClick={props.inquireOnClick}
-            customClasses={styles.inquireButton}>
-            Inquire
-          </GeneralButton>
         </div>
         <div
           className={styles.contentContainer}

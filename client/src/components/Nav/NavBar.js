@@ -49,6 +49,10 @@ const NavBar = (props) => {
     handleToggleModal(props.setQuoteModalVis);
   };
 
+  const logoMarginTop = `${
+    0.8 - capNumber((0.8 * scrollPosition) / convertRemToPixels(10), 0.8)
+  }rem`;
+
   return (
     <React.Fragment>
       <div
@@ -58,7 +62,10 @@ const NavBar = (props) => {
         <div className={styles.innerContainer}>
           <div
             className={styles.logo}
-            style={{ backgroundImage: `url("${logo}")` }}></div>
+            style={{
+              backgroundImage: `url("${logo}")`,
+              marginTop: logoMarginTop,
+            }}></div>
           <div
             className={styles.buttons}
             style={{ display: horizontalButtonsDisplay }}>

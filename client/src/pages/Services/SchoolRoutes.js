@@ -13,7 +13,7 @@ import { responsive, handleToggleModal } from "../../utils";
 const SchoolRoutes = (props) => {
   const width = props.viewportWidth;
 
-  const iconHeight = responsive(width, "2.5rem");
+  const iconHeight = responsive(width, "4.5rem");
   const iconPadding = responsive(width, "1rem 0 1rem 0", "2rem 1rem 2rem 1rem");
 
   const inquireClickHandler = () => {
@@ -68,7 +68,7 @@ const SchoolRoutes = (props) => {
           Thirdwave Bus services offers full school route servicing in our
           principal areas:
         </div>
-        <div className={styles.serviceAreas}>
+        <div>
           <li>Greater Vancouver / Lower Mainlad</li>
           <li>South Vancouver Island</li>
           <li>The Sunshine Coast</li>
