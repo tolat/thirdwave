@@ -98,7 +98,7 @@ export const toggleNavDrawer = () => {
     navDrawer.style.right = "0px";
     //navDrawerBlackout.style.display = "block";
   } else {
-    navDrawer.style.right = "-20rem";
+    navDrawer.style.right = "-30rem";
     //navDrawerBlackout.style.display = "none";
   }
 };
