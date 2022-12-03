@@ -1,19 +1,17 @@
 import styles from "./BusCalculator.module.css";
-import GeneralInput from "../UI/GeneralInput";
-import { useRef, useState } from "react";
+import materialStyles from "../UI/MaterialInputs.module.css";
+import { MaterialTextInput } from "../UI/MaterialInputs";
+import { useState } from "react";
+import { responsive } from "../../utils";
+import { useWindowSize } from "usehooks-ts";
 
 const BusCalculator = (props) => {
-  const themeStylesInput =
-    props.theme == "light"
-      ? { borderBottom: "1px solid darkgrey", color: "black" }
-      : {};
+  const { width } = useWindowSize();
   const themeStylesClasses = props.theme == "light" ? "invertFilter" : "";
-
   const [numSmallBuses, setNumSmallBuses] = useState("0");
   const [numMediumBuses, setNumMediumBuses] = useState("0");
   const [numLargeBuses, setNumLargeBuses] = useState("0");
-  const numAdults = useRef();
-  const numChildren = useRef();
+  const scaleCalcOutputs = responsive(width, "0.8", "1", "1", "1");
 
   const busCapacities = {
     small: { adults: 20, children: 29 },
@@ -53,8 +51,8 @@ const BusCalculator = (props) => {
 
   const updateCalculator = () => {
     const qtys = calculateBuses(
-      parseInt(numChildren.current.value) || 0,
-      parseInt(numAdults.current.value) || 0
+      parseInt(props.formRefs.numChildren.current.value) || 0,
+      parseInt(props.formRefs.numAdults.current.value) || 0
     );
     setNumSmallBuses(qtys.small);
     setNumMediumBuses(qtys.medium);
@@ -63,45 +61,50 @@ const BusCalculator = (props) => {
 
   return (
     <div className={props.className}>
-      <GeneralInput
-        label="Adults (Grade 5+)"
-        type="number"
-        placeholder="Enter Number"
-        customClasses={themeStylesClasses}
-        inputStyle={themeStylesInput}
-        onChange={updateCalculator}
-        inputRef={numAdults}
-      />
-      <GeneralInput
-        label="Children (Grade K-4)"
-        type="number"
-        placeholder="Enter Number"
-        customClasses={themeStylesClasses}
-        inputStyle={themeStylesInput}
-        onChange={updateCalculator}
-        inputRef={numChildren}
-      />
+      <div className={styles.inputsContainer}>
+        <MaterialTextInput
+          label="Adults (10+ yrs)"
+          type="number"
+          onChange={updateCalculator}
+          inputRef={props.formRefs.numAdults}
+          style={{
+            boxSizing: "border-box",
+            width: "100%",
+          }}
+        />
+        <div className={materialStyles.formSpacer} />
+        <MaterialTextInput
+          label="Children (0-10 yrs)"
+          type="number"
+          onChange={updateCalculator}
+          inputRef={props.formRefs.numChildren}
+          style={{
+            boxSizing: "border-box",
+            width: "100%",
+          }}
+        />
+      </div>
+
       <div className={styles.calculatorOutputContainer}>
-        <div className={themeStylesClasses}>Recommended Buses</div>
         <div className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
           {[
             {
               key: Math.random(),
-              label: "Small:",
+              label: "Small Buses",
               qty: numSmallBuses,
               children: busCapacities.small.children,
               adults: busCapacities.small.adults,
             },
             {
               key: Math.random(),
-              label: "Medium:",
+              label: "Medium Buses",
               qty: numMediumBuses,
               children: busCapacities.medium.children,
               adults: busCapacities.medium.adults,
             },
             {
               key: Math.random(),
-              label: "Large:",
+              label: "Large Buses",
               qty: numLargeBuses,
               children: busCapacities.large.children,
               adults: busCapacities.large.adults,
@@ -109,13 +112,14 @@ const BusCalculator = (props) => {
           ].map((outputItem) => (
             <div
               key={outputItem.key}
-              className={styles.outputItemOuterContainer}>
+              className={styles.outputItemOuterContainer}
+              style={{ transform: `scale(${scaleCalcOutputs})` }}>
               <div className={styles.outputItemContainer}>
                 <div className={styles.outputItemLabel}>{outputItem.label}</div>
                 <div className={styles.outputItemQuantiy}>{outputItem.qty}</div>
               </div>
               <div className={styles.outputItemCapacities}>
-                ({outputItem.children} Children or {outputItem.adults} Adults)
+                {outputItem.children} Children or {outputItem.adults} Adults
               </div>
             </div>
           ))}

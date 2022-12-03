@@ -109,24 +109,7 @@ const ContactModal = (props) => {
         <div
           className={styles.detailsForMobile}
           style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
-          <div className={styles.sidepanelHeader}>
-            <div className={modalStyles.sectionHeader}>
-              <img
-                className={`${modalStyles.inputIcon}`}
-                src={phone_icon}
-                alt="phone icon"
-              />{" "}
-              <div>Contact Us</div>
-            </div>
-          </div>
-          <div className={styles.sidepanelText} style={{ color: "black" }}>
-            (604) 274-1221 <br /> murrayn@thirdwavebus.com
-            <br />
-            <br />
-            120-1355 Richmond, BC
-            <br />
-            V6V 1W5
-          </div>
+          <ContactDetails className="invertFilter" />
         </div>
 
         <GeneralButton customClasses={styles.sendButton}>
@@ -155,6 +138,14 @@ const ContactModal = (props) => {
 const ContactSidepanel = (props) => {
   return (
     <div className={styles.sidepanelContainer}>
+      <ContactDetails />
+    </div>
+  );
+};
+
+const ContactDetails = (props) => {
+  return (
+    <div className={`${props.className}`}>
       <div className={styles.sidepanelHeader}>
         <div className={modalStyles.sectionHeader}>
           <img
@@ -166,13 +157,29 @@ const ContactSidepanel = (props) => {
         </div>
       </div>
       <div className={styles.sidepanelText}>
-        (604) 274-1221 <br /> murrayn@thirdwavebus.com
+        <b>Phone:</b> (604) 274-1221 <br />
+        <b>Fax: </b>(604) 247-1222 <br />
+        <b>Shop:</b> (604) 247-1253 <br />
+        <b>AfterHours/Emergency:</b> (604)-768-3787
         <br />
+        <br />
+        <br />
+        <b>Address:</b>
         <br />
         120-1355 Richmond, BC
         <br />
         V6V 1W5
       </div>
+    </div>
+  );
+};
+
+const ContactItem = (props) => {
+  return (
+    <div className={styles.sidebarItemContainer}>
+      <div className={styles.sidebarItemLabel}>{props.label}:</div>
+      <div className={styles.sidebarItemName}>{props.contactName}</div>
+      <div className={styles.sidebarItemEmail}>{props.email}</div>
     </div>
   );
 };

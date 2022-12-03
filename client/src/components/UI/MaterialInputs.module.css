@@ -1,0 +1,9 @@
+.inputWrapper {
+  margin: 0.5rem 0 0.5rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.formSpacer {
+  width: 3rem;
+}

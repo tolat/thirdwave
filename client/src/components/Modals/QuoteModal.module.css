@@ -9,12 +9,6 @@
   margin-top: -3rem;
 }
 
-.simple {
-  text-transform: uppercase;
-  padding: 3rem;
-  margin-top: 3rem;
-}
-
 .textAreaContainer {
   display: flex;
   flex-direction: column;
@@ -22,21 +16,24 @@
 }
 
 .textArea {
-  border: 1px solid rgb(191, 190, 190);
+  border: 1px solid rgb(148, 148, 148);
   border-radius: 3px;
   width: 100%;
-  padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+  padding: 0.8rem 1.2rem 1.2rem 1.2rem;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  box-sizing: border-box;
 }
 
 .textArea:focus {
-  border: 1px solid black;
+  border: 2px solid rgb(32, 106, 202);
 }
 
 textarea {
   resize: none;
+  box-sizing: border-box;
 }
 
 .nonButtonContainer {
@@ -46,6 +43,7 @@ textarea {
     black calc(100% - 100px),
     transparent 100%
   );
+  padding: 1rem;
 }
 
 .sidepanelContainer {
@@ -103,10 +101,9 @@ textarea {
 }
 
 .selectFieldContainer {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-size: 1rem;
   text-transform: uppercase;
-  margin-top: -1rem;
 }
 
 .datePickersOuterContainer {
@@ -128,4 +125,12 @@ textarea {
 
 .datePickerSpacer {
   width: 5%;
+}
+
+.placeholderContent {
+  min-height: 30vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
 }

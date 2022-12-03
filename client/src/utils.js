@@ -181,7 +181,8 @@ export const formSubmit = (
   clearForm,
   path,
   successHeader,
-  successMessage
+  successMessage,
+  formType = ""
 ) => {
   event.preventDefault();
 
@@ -189,10 +190,15 @@ export const formSubmit = (
     return;
   }
 
+  console.log("INUTILS:", formRefs, formFields, path);
+
   const formData = {};
   for (let field of formFields) {
-    formData[field] = formRefs[field].current.value;
+    if (formRefs[field].current) {
+      formData[field] = formRefs[field].current.value;
+    }
   }
+  formData.type = formType;
 
   function resetSuccess() {
     clearForm(formFields, formRefs);

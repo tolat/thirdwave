@@ -4,7 +4,6 @@
   margin-top: 1rem;
   font-size: 1rem;
   text-transform: uppercase;
-  padding: 0.5rem;
 }
 
 .calculatorOutput {
@@ -14,7 +13,9 @@
   font-size: 1rem;
   text-transform: none;
   line-height: 1rem;
-  margin-bottom: 5rem;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .outputItemContainer {
@@ -39,4 +40,12 @@
   font-size: 0.95rem;
   color: black;
   margin-top: 0.3rem;
+}
+
+.inputsContainer {
+  display: flex;
+}
+
+.outputsInnerContainer {
+  display: flex;
 }

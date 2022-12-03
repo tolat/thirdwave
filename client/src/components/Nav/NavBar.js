@@ -76,7 +76,7 @@ const NavBar = (props) => {
                 height: buttonHeight,
               }}>
               <NavLink
-                className={(navData) => (navData.isActive ? "bold" : "")}
+                className={(navData) => (navData.isActive ? "activePage" : "")}
                 to="/home">
                 Home
               </NavLink>
@@ -88,7 +88,7 @@ const NavBar = (props) => {
               }}>
               <NavLink
                 id="aboutButton"
-                className={(navData) => (navData.isActive ? "bold" : "")}
+                className={(navData) => (navData.isActive ? "activePage" : "")}
                 to="/about">
                 About / FAQ
               </NavLink>
@@ -100,7 +100,7 @@ const NavBar = (props) => {
               }}>
               <NavLink
                 id="servicesButton"
-                className={(navData) => (navData.isActive ? "bold" : "")}
+                className={(navData) => (navData.isActive ? "activePage" : "")}
                 to="/services">
                 Services
               </NavLink>

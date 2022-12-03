@@ -1,0 +1,18 @@
+.sectionContainer {
+  margin-bottom: 2rem;
+}
+
+.sectionInputsContainer {
+  display: flex;
+}
+
+.inputIcon {
+  height: 1.9rem;
+  margin-right: 0.5rem;
+}
+
+.sectionSubContainer {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}

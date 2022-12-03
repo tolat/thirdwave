@@ -1,0 +1,53 @@
+ <div
+     className={styles.mobileCalculator}
+     style={{
+       marginTop: "-9rem",
+       display: mobileCalculatorDisplay,
+     }}>
+     <SidePanelContents busCalcTheme={busCalcTheme} />
+   </div>
+ </div>
+
+import calculator from "../../images/icons/calculator.svg";
+import BusCalculator from "../Utils/BusCalculator";
+const mobileCalculatorDisplay = utils.responsive(
+    w,
+    "block",
+    "none",
+    "none",
+    "none"
+  );
+const busCalcTheme = utils.responsive(w, "", "light", "light", "light");
+
+const Contents = (props) => {
+  return <div>{props.content}</div>;
+};
+
+const QuoteSidepanel = (props) => {
+  return (
+    <div className={`${styles.sidepanelContainer}`}>
+      <SidePanelContents busCalcTheme={props.busCalcTheme} />
+    </div>
+  );
+};
+
+const SidePanelContents = (props) => {
+  return (
+    <div className={`${styles.sidePanelContentsContainer} noscroll`}>
+      <div className={styles.sidepanelHeader}>
+        <div
+          className={`${modalStyles.sectionHeader} ${
+            props.busCalcTheme == "light" ? "invertFilter" : ""
+          }`}>
+          <img
+            className={`${modalStyles.inputIcon}`}
+            src={calculator}
+            alt="calculator icon"
+          />
+          <div style={{ fontSize: "1.45rem" }}>Bus Estimator</div>
+        </div>
+      </div>
+      <BusCalculator theme={props.busCalcTheme} />
+    </div>
+  );
+};

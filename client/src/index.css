@@ -44,3 +44,7 @@ code {
 .bold {
   font-weight: bold;
 }
+
+.activePage {
+  font-style: italic;
+}
