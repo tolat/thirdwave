@@ -52,19 +52,16 @@ app.post("/message", async (req, res) => {
 
 // POST route for sending emailed quote request from the free quote form
 app.post("/quote", async (req, res) => {
+  let text = "";
+  for (key in req.body) {
+    text = text.concat(`${key}: ${req.body[key]}\n`);
+  }
   try {
     await transporter.sendMail({
       from: req.body.userEmail,
       to: "thirdwavebus@gmail.com",
       subject: `${req.body.type} quote request from thirdwavebus.com`,
-      text: `
-      Name: ${req.body.name}\n
-      Phone: ${req.body.phone}\n
-      Email: ${req.body.email}\n
-      Dates: ${req.body.from} ${req.body.to ? "to " : ""} ${
-        req.body.to ? req.body.to : ""
-      } \n\n
-      Details: ${req.body.details}`,
+      text: text,
     });
   } catch (e) {
     console.log(e);

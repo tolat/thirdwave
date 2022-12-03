@@ -190,8 +190,6 @@ export const formSubmit = (
     return;
   }
 
-  console.log("INUTILS:", formRefs, formFields, path);
-
   const formData = {};
   for (let field of formFields) {
     if (formRefs[field].current) {
