@@ -11,47 +11,8 @@
   border-bottom-right-radius: 3px;
 }
 
-.simple {
-  text-transform: uppercase;
-  padding: 3rem;
-  margin-top: 3rem;
-}
-
-.textAreaContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-}
-
-.textArea {
-  border: 1px solid rgb(191, 190, 190);
-  border-radius: 3px;
-  width: 100%;
-  padding: 1.5rem 2rem 2rem 2rem;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.1rem;
-}
-
-.textArea:focus {
-  border: 1px solid black;
-}
-
-textarea {
-  resize: none;
-}
-
-.nonButtonContainer {
-  overflow-y: scroll;
-  mask-image: linear-gradient(
-    to bottom,
-    black calc(100% - 100px),
-    transparent 100%
-  );
-}
-
 .sidepanelContainer {
-  width: 19rem;
+  width: 16.5rem;
   height: 100%;
   background-color: rgb(42, 81, 128);
   padding: 2rem;
@@ -73,17 +34,6 @@ textarea {
   color: white;
   font-size: 0.95rem;
   line-height: 1.6rem;
-}
-
-.sendButton {
-  background-color: transparent;
-  box-shadow: none;
-  font-size: 1.4rem;
-  width: 100%;
-  align-self: flex-start;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
 }
 
 .detailsForMobile {

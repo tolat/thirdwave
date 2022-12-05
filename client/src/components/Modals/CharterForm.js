@@ -117,10 +117,13 @@ const CharterForm = (props) => {
         />
       </SectionContainer>
       <DetailsTextarea
-        refs={props.refs}
+        inputRef={props.refs.details}
         placeholder={
           "Please provide a name and number for the main trip contact (if applicable), as well as any additional trip details."
         }
+        headerText={"Additional Details *"}
+        textareaKey={"details"}
+        rows={"7"}
       />
     </React.Fragment>
   );

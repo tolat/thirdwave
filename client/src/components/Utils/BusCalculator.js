@@ -4,6 +4,7 @@ import { MaterialTextInput } from "../UI/MaterialInputs";
 import { useState } from "react";
 import { responsive } from "../../utils";
 import { useWindowSize } from "usehooks-ts";
+import { Spacer } from "../Modals/FormUtils";
 
 const BusCalculator = (props) => {
   const { width } = useWindowSize();
@@ -73,6 +74,7 @@ const BusCalculator = (props) => {
           }}
           required
         />
+        <div style={{ width: "2rem" }}></div>
         <div className={materialStyles.formSpacer} />
         <MaterialTextInput
           label="Children (0-10 yrs)"

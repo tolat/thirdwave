@@ -1,20 +1,15 @@
-import GeneralButton from "../UI/GeneralButton";
-import GeneralInput from "../UI/GeneralInput";
 import modalStyles from "../Modals/Modal.module.css";
 import styles from "./ContactModal.module.css";
 import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "./Modal";
 import phone_icon from "../../images/icons/phone1.svg";
-import msg_icon from "../../images/icons/message_icon.png";
 import { SubmitButton, NonButtonContainer } from "./FormUtils";
+import ContactForm from "./ContactForm";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
   const contactModalWidths = ["100%", "", "", ""];
-  const inputDisplay = utils.responsive(w, "column");
-  const inputWidth = utils.responsive(w, "100%", "50%", "50%", "50%");
-  const textAreaBottMarg = utils.responsive(w, "10rem");
   const quoteModalWidth = utils.responsive(w, ...contactModalWidths);
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
@@ -24,8 +19,7 @@ const ContactModal = (props) => {
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
 
-  const formFields = ["phone", "email", "message"];
-
+  const formFields = ["name", "phone", "email", "message"];
   const formRefs = utils.generateRefsFromStrings(formFields, useRef);
 
   const handleSubmit = (event) => {
@@ -54,49 +48,7 @@ const ContactModal = (props) => {
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
-          <div className={modalStyles.sectionContainer}>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: inputDisplay,
-                justifyContent: "space-between",
-              }}>
-              <GeneralInput
-                label="Phone Number"
-                type="text"
-                style={{ maxWidth: inputWidth }}
-                placeholder="Number"
-                inputRef={formRefs.phone}
-                required={true}
-              />
-              <GeneralInput
-                label="Email Address"
-                type="email"
-                style={{ maxWidth: inputWidth }}
-                placeholder="Email"
-                inputRef={formRefs.email}
-                required={true}
-              />
-            </div>
-          </div>
-          <div
-            className={modalStyles.sectionContainer}
-            style={{ marginBottom: textAreaBottMarg }}>
-            <div className={modalStyles.sectionHeader}>
-              <img
-                className={modalStyles.inputIcon}
-                src={msg_icon}
-                alt="msg icon"
-              />{" "}
-              <div>Message</div>
-            </div>
-            <textarea
-              ref={formRefs.message}
-              className={styles.textArea}
-              rows="8"
-              required
-            />
-          </div>
+          <ContactForm refs={formRefs} />
         </NonButtonContainer>
         <div
           className={styles.detailsForMobile}
@@ -107,6 +59,7 @@ const ContactModal = (props) => {
         <SubmitButton
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
+          buttonText={"Send Message"}
         />
       </form>
     </Modal>
@@ -148,16 +101,6 @@ const ContactDetails = (props) => {
         <br />
         V6V 1W5
       </div>
-    </div>
-  );
-};
-
-const ContactItem = (props) => {
-  return (
-    <div className={styles.sidebarItemContainer}>
-      <div className={styles.sidebarItemLabel}>{props.label}:</div>
-      <div className={styles.sidebarItemName}>{props.contactName}</div>
-      <div className={styles.sidebarItemEmail}>{props.email}</div>
     </div>
   );
 };

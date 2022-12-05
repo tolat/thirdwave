@@ -4,6 +4,7 @@ const path = require("path");
 const nodemailer = require("nodemailer");
 const { handleCORS } = require("./utils/customMiddeware");
 const favicon = require("serve-favicon");
+const utils = require("./utils/generalUtils");
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -32,58 +33,24 @@ app.use((req, res, next) => {
 
 // POST route for sending emailed message from the Contact form
 app.post("/message", async (req, res) => {
-  try {
-    await transporter.sendMail({
-      from: req.body.email,
-      to: "thirdwavebus@gmail.com",
-      subject: "Message From thirdwavebus.com",
-      text: `
-      Phone: ${req.body.phone}\n
-      Email: ${req.body.email}\n\n
-      ${req.body.message}`,
-    });
-  } catch (e) {
-    console.log(e);
-    res.send({ error: e });
-  }
-
-  res.send({ success: true });
+  utils.sendMail(
+    req,
+    res,
+    `Message from thirdwavebus.com`,
+    "thirdwavebus@gmail.com",
+    transporter
+  );
 });
 
 // POST route for sending emailed quote request from the free quote form
 app.post("/quote", async (req, res) => {
-  // Takes a camel case string and returns it as a capitalized and spaced title ,
-  // e.g. theCamelCaseString => The Camel Case String
-  const prettifyCamelCase = (str) => {
-    let newString = str[0].toUpperCase();
-    for (var i = 1; i < str.length; i++) {
-      if (str[i].match(/[A-Z]/) != null) {
-        newString = newString.concat(` ${str[i]}`);
-      } else {
-        newString = newString.concat(str[i]);
-      }
-    }
-    return newString;
-  };
-
-  let text = "";
-  for (key in req.body) {
-    text = text.concat(`${prettifyCamelCase(key)}: ${req.body[key]}\n`);
-  }
-
-  try {
-    await transporter.sendMail({
-      from: req.body.userEmail,
-      to: "thirdwavebus@gmail.com",
-      subject: `${req.body.type} quote request from thirdwavebus.com`,
-      text: text,
-    });
-  } catch (e) {
-    console.log(e);
-    res.send({ error: e });
-  }
-
-  res.send({ success: true });
+  utils.sendMail(
+    req,
+    res,
+    `${req.body.type} quote request from thirdwavebus.com`,
+    "thirdwavebus@gmail.com",
+    transporter
+  );
 });
 
 app.get("*", (req, res) => {

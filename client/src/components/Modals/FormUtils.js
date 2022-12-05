@@ -22,14 +22,14 @@ export const DetailsTextarea = (props) => {
             src={msg_icon}
             alt="msg icon"
           />
-          <div>Additional Details *</div>
+          <div>{props.headerText}</div>
         </div>
       </div>
 
       <textarea
-        ref={props.refs.details}
+        ref={props.inputRef}
         className={styles.textArea}
-        rows="6"
+        rows={props.rows}
         required
         placeholder={props.placeholder}
       />
@@ -119,7 +119,7 @@ export const SubmitButton = (props) => {
             ? "none"
             : "",
       }}>
-      <div style={{ fontSize: buttonFontSize }}>Send Message</div>
+      <div style={{ fontSize: buttonFontSize }}>{props.buttonText}</div>
 
       <img
         style={{

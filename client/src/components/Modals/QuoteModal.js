@@ -101,6 +101,7 @@ const QuoteModal = (props) => {
           formTypeRef={formTypeRef}
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
+          buttonText={"Request Quote"}
         />
       </form>
     </Modal>
