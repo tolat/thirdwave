@@ -8,10 +8,6 @@
   box-sizing: border-box;
 }
 
-.sectionContainer {
-  margin-bottom: 3rem;
-}
-
 .textAreaContainer {
   display: flex;
   flex-direction: column;

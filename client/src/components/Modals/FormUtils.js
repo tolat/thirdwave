@@ -14,9 +14,7 @@ export const DetailsTextarea = (props) => {
   const textAreaBottMarg = utils.responsive(width, "10rem");
 
   return (
-    <div
-      className={styles.sectionContainer}
-      style={{ marginBottom: textAreaBottMarg, marginTop: "1rem" }}>
+    <div style={{ marginBottom: textAreaBottMarg, marginTop: "1rem" }}>
       <div className={modalStyles.sectionHeader}>
         <div style={{ display: "flex" }}>
           <img
@@ -31,7 +29,7 @@ export const DetailsTextarea = (props) => {
       <textarea
         ref={props.refs.details}
         className={styles.textArea}
-        rows="4"
+        rows="6"
         required
         placeholder={props.placeholder}
       />
