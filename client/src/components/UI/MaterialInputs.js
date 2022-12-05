@@ -21,14 +21,13 @@ export const MaterialDatePicker = (props) => {
         }}
         inputRef={props.inputRef}
         style={props.style}
-        {...required}
-        renderInput={(params, inputRef, required, style) => (
+        renderInput={(params, inputRef, style) => (
           <div className={styles.inputWrapper}>
             <TextField
               variant="standard"
               ref={inputRef}
               style={props.style}
-              required={required}
+              {...required}
               {...params}
             />
           </div>
@@ -70,13 +69,13 @@ export const MaterialTimePicker = (props) => {
         }}
         inputRef={props.inputRef}
         style={props.style}
-        {...required}
         renderInput={(params, inputRef, style) => (
           <div className={styles.inputWrapper}>
             <TextField
               variant="standard"
               ref={inputRef}
               style={props.style}
+              {...required}
               {...params}
             />
           </div>

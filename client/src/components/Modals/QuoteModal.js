@@ -16,7 +16,6 @@ const QuoteModal = (props) => {
 
   // Generate refs for each sub-form
   const charterRefs = utils.generateRefsFromStrings(charterFields, useRef);
-
   const modalWidth = utils.responsive(w, "100%", "50rem", "50rem", "50rem");
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
@@ -86,6 +85,7 @@ const QuoteModal = (props) => {
       modalWidth={modalWidth}
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
+      sidepanel={<Sidepanel />}
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
@@ -104,6 +104,14 @@ const QuoteModal = (props) => {
         />
       </form>
     </Modal>
+  );
+};
+
+const Sidepanel = (props) => {
+  return (
+    <div className={styles.sidepanelContainer}>
+      <div></div>
+    </div>
   );
 };
 

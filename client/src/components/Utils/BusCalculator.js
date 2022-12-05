@@ -71,6 +71,7 @@ const BusCalculator = (props) => {
             boxSizing: "border-box",
             width: "100%",
           }}
+          required
         />
         <div className={materialStyles.formSpacer} />
         <MaterialTextInput
@@ -82,6 +83,7 @@ const BusCalculator = (props) => {
             boxSizing: "border-box",
             width: "100%",
           }}
+          required
         />
       </div>
 
@@ -116,7 +118,9 @@ const BusCalculator = (props) => {
               style={{ transform: `scale(${scaleCalcOutputs})` }}>
               <div className={styles.outputItemContainer}>
                 <div className={styles.outputItemLabel}>{outputItem.label}</div>
-                <div className={styles.outputItemQuantiy}>{outputItem.qty}</div>
+                <div className={styles.outputItemQuantity}>
+                  {outputItem.qty}
+                </div>
               </div>
               <div className={styles.outputItemCapacities}>
                 {outputItem.children} Children or {outputItem.adults} Adults

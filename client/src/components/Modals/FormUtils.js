@@ -24,7 +24,7 @@ export const DetailsTextarea = (props) => {
             src={msg_icon}
             alt="msg icon"
           />
-          <div>Additional Details</div>
+          <div>Additional Details *</div>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ export const SectionContainer = (props) => {
 export const SelectField = (props) => {
   return (
     <div className={styles.selectFieldContainer}>
-      Quote Type
+      Request Quote For:
       <select
         onChange={props.onChange}
         ref={props.inputRef}
@@ -105,12 +105,19 @@ export const SubmitButton = (props) => {
   const { w } = useWindowSize();
   const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
 
+  let formTypeRef = props.formTypeRef;
+
+  // Create placeholder refs when type not relevant (i.e. used in contact form)
+  if (!formTypeRef) {
+    formTypeRef = { current: "none" };
+  }
+
   return (
     <GeneralButton
       customClasses={styles.sendButton}
       style={{
         display:
-          !props.formTypeRef.current || props.formTypeRef.current.value == "-"
+          !formTypeRef.current || formTypeRef.current.value == "-"
             ? "none"
             : "",
       }}>

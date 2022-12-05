@@ -20,24 +20,20 @@
 
 .outputItemContainer {
   display: flex;
-  justify-content: space-between;
   font-weight: bold;
-}
-
-.outputItemOuterContainer {
-  margin-bottom: 1.5rem;
 }
 
 .outputItemLabel {
   font-weight: bold;
 }
 
-.ouputItemQuantity {
+.outputItemQuantity {
   font-weight: bold;
+  margin-left: 5px;
 }
 
 .outputItemCapacities {
-  font-size: 0.95rem;
+  font-size: 0.74rem;
   color: black;
   margin-top: 0.3rem;
 }

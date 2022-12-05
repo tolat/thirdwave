@@ -22,7 +22,7 @@
 
 .modal {
   box-sizing: border-box;
-  background-color: white;
+  background-color: transparent;
   border-radius: 3px;
   z-index: 3;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
@@ -35,6 +35,8 @@
 .headerContainer {
   display: flex;
   justify-content: space-between;
+  background-color: white;
+  border-top-right-radius: 3px;
 }
 
 .headerSpacer {
@@ -59,7 +61,8 @@
 }
 
 .sidePanel {
-  border-top-left-radius: 3px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   box-sizing: border-box;
 }
 

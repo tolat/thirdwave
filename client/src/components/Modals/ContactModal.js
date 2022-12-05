@@ -5,22 +5,19 @@ import styles from "./ContactModal.module.css";
 import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
 import Modal from "./Modal";
-import Spinner from "react-bootstrap/Spinner";
 import phone_icon from "../../images/icons/phone1.svg";
 import msg_icon from "../../images/icons/message_icon.png";
-import sendmail_icon from "../../images/icons/sendmail_icon.png";
+import { SubmitButton, NonButtonContainer } from "./FormUtils";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
-  const quoteModalWidths = ["100%", "50rem", "50rem", "50rem"];
+  const contactModalWidths = ["100%", "", "", ""];
   const inputDisplay = utils.responsive(w, "column");
   const inputWidth = utils.responsive(w, "100%", "50%", "50%", "50%");
   const textAreaBottMarg = utils.responsive(w, "10rem");
-  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
-  const quoteModalWidth = utils.responsive(w, ...quoteModalWidths);
+  const quoteModalWidth = utils.responsive(w, ...contactModalWidths);
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
-  const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
   const mobileDetailsDisplay = utils.responsive(w, "block");
 
@@ -56,12 +53,7 @@ const ContactModal = (props) => {
       sidepanel={<ContactSidepanel />}
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
-        <div
-          className={`${styles.nonButtonContainer} noscroll`}
-          style={{
-            maskImage: scrollMaskImage,
-            WebkitMaskImage: scrollMaskImage,
-          }}>
+        <NonButtonContainer>
           <div className={modalStyles.sectionContainer}>
             <div
               style={{
@@ -105,31 +97,17 @@ const ContactModal = (props) => {
               required
             />
           </div>
-        </div>
+        </NonButtonContainer>
         <div
           className={styles.detailsForMobile}
           style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
           <ContactDetails className="invertFilter" />
         </div>
 
-        <GeneralButton customClasses={styles.sendButton}>
-          <div style={{ fontSize: buttonFontSize }}>Send Message</div>
-
-          <img
-            style={{
-              marginLeft: "0.6rem",
-              height: "2.1rem",
-              display: iconDisplay,
-            }}
-            src={sendmail_icon}
-            alt="send icon"
-          />
-          <div
-            id="contactModalSpinner"
-            style={{ marginLeft: "2rem", display: spinnerDisplay }}>
-            <Spinner animation="border" role="status" />
-          </div>
-        </GeneralButton>
+        <SubmitButton
+          iconDisplay={iconDisplay}
+          spinnerDisplay={spinnerDisplay}
+        />
       </form>
     </Modal>
   );

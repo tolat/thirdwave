@@ -110,7 +110,7 @@ const CharterForm = (props) => {
         />
         <Spacer />
         <MaterialTextInput
-          label="Luggage Bays? (yes/no)"
+          label="Luggage Bays?"
           inputRef={props.refs.luggage}
           style={{ width: "100%" }}
           required
