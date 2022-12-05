@@ -26,6 +26,12 @@ const Footer = (props) => {
               120-1355 Richmond, BC
               <br />
               V6V 1W5
+              <br />
+              <br />
+              <b>DISPATCH:</b>
+              <br />
+              dispatch@thirdawavebus.com
+              <br />
             </div>
           </div>
           <div className={styles.socialIconsContainer}>
