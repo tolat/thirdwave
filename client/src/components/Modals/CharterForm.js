@@ -38,18 +38,21 @@ const CharterForm = (props) => {
           label="Organization/Group"
           inputRef={props.refs.group}
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTextInput
           label="Pickup Address"
           inputRef={props.refs.pickup}
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTextInput
           label="Destination Address"
           inputRef={props.refs.destination}
           style={{ width: "100%" }}
+          required
         />
       </SectionContainer>
       <SectionContainer>
@@ -57,6 +60,7 @@ const CharterForm = (props) => {
           label="Name"
           inputRef={props.refs.name}
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTextInput
@@ -64,6 +68,7 @@ const CharterForm = (props) => {
           type="tel"
           inputRef={props.refs.phone}
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTextInput
@@ -71,6 +76,7 @@ const CharterForm = (props) => {
           type="email"
           inputRef={props.refs.email}
           style={{ width: "100%" }}
+          required
         />
       </SectionContainer>
       <BusCalculator formRefs={props.refs} theme={busCalcTheme} />
@@ -79,6 +85,7 @@ const CharterForm = (props) => {
           inputRef={props.refs.pickupDate}
           label="Pickup Date"
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialDatePicker
@@ -92,21 +99,29 @@ const CharterForm = (props) => {
           inputRef={props.refs.pickupTime}
           label="Pickup Time"
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTimePicker
           inputRef={props.refs.returnTime}
           label="Return Time"
           style={{ width: "100%" }}
+          required
         />
         <Spacer />
         <MaterialTextInput
           label="Luggage Bays? (yes/no)"
           inputRef={props.refs.luggage}
           style={{ width: "100%" }}
+          required
         />
       </SectionContainer>
-      <DetailsTextarea refs={props.refs} />
+      <DetailsTextarea
+        refs={props.refs}
+        placeholder={
+          "Please provide a name and number for the main trip contact (if applicable), as well as any additional trip details."
+        }
+      />
     </React.Fragment>
   );
 };

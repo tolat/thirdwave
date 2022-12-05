@@ -246,8 +246,10 @@ export const generateRefsFromStrings = (formFields, uRef) => {
   return formRefs;
 };
 
-export const clearForm = (formFields, formRefs) => {
+export const clearForm = (formFields, formRefs, cleanupFn) => {
   for (let field of formFields) {
     formRefs[field].current.value = "";
   }
+
+  cleanupFn();
 };

@@ -9,6 +9,8 @@ import styles from "./MaterialInputs.module.css";
 
 export const MaterialDatePicker = (props) => {
   const [value, setValue] = React.useState(null);
+  const required = { required: props.required };
+
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
@@ -19,12 +21,14 @@ export const MaterialDatePicker = (props) => {
         }}
         inputRef={props.inputRef}
         style={props.style}
-        renderInput={(params, inputRef, style) => (
+        {...required}
+        renderInput={(params, inputRef, required, style) => (
           <div className={styles.inputWrapper}>
             <TextField
               variant="standard"
               ref={inputRef}
               style={props.style}
+              required={required}
               {...params}
             />
           </div>
@@ -35,6 +39,8 @@ export const MaterialDatePicker = (props) => {
 };
 
 export const MaterialTextInput = (props) => {
+  const required = { required: props.required };
+
   return (
     <div className={styles.inputWrapper}>
       <TextField
@@ -44,6 +50,7 @@ export const MaterialTextInput = (props) => {
         type={props.type}
         onChange={props.onChange}
         variant="standard"
+        {...required}
       />
     </div>
   );
@@ -51,6 +58,7 @@ export const MaterialTextInput = (props) => {
 
 export const MaterialTimePicker = (props) => {
   const [value, setValue] = React.useState(null);
+  const required = { required: props.required };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
@@ -62,6 +70,7 @@ export const MaterialTimePicker = (props) => {
         }}
         inputRef={props.inputRef}
         style={props.style}
+        {...required}
         renderInput={(params, inputRef, style) => (
           <div className={styles.inputWrapper}>
             <TextField

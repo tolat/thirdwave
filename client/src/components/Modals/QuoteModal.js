@@ -1,36 +1,38 @@
-import GeneralButton from "../UI/GeneralButton";
 import styles from "./QuoteModal.module.css";
 import * as utils from "../../utils";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Modal from "./Modal";
-import Spinner from "react-bootstrap/Spinner";
-import sendmail_icon from "../../images/icons/sendmail_icon.png";
 import CharterForm from "./CharterForm";
+import { SelectField, NonButtonContainer, SubmitButton } from "./FormUtils";
 
 // Import fields from all sub-forms
 import { charterFields } from "./CharterForm";
 
 const QuoteModal = (props) => {
   const w = props.viewportWidth;
-  const defaultFormState = { fields: [], refs: [], tpe: "-" };
   const emptyFormContent = (
     <div className={styles.placeholderContent}>Select a quote type.</div>
   );
 
-  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
+  // Generate refs for each sub-form
+  const charterRefs = utils.generateRefsFromStrings(charterFields, useRef);
+
   const modalWidth = utils.responsive(w, "100%", "50rem", "50rem", "50rem");
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
-  const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
-  const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
-  const [formState, setFormState] = useState(defaultFormState);
+  const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [content, setContent] = useState(emptyFormContent);
   const formTypeRef = useRef();
 
-  // Generate refs for each sub-form
-  const charterRefs = utils.generateRefsFromStrings(charterFields, useRef);
+  // Defalt form state **** SET TO EMPTY WHEN OTHER FORMAS ADDED ****
+  const defaultFormState = {
+    fields: [charterFields],
+    refs: [charterRefs],
+    type: "Charters",
+  };
+  const [formState, setFormState] = useState(defaultFormState);
 
   // Submit the form with the correct refs and type
   const handleSubmit = (event) => {
@@ -60,13 +62,21 @@ const QuoteModal = (props) => {
         return <CharterForm refs={charterRefs} />;
       default:
         setFormState(defaultFormState);
-        return emptyFormContent;
+        // Delete next line when adding more forms
+        return <CharterForm refs={charterRefs} />;
+      // return emptyFormContent;
     }
   }
 
-  const onFormTypeChange = (e) => {
+  // Handle form type change
+  const onFormTypeChange = () => {
     setContent(getContent());
   };
+
+  // Iinitialize form
+  useEffect(() => {
+    onFormTypeChange();
+  }, []);
 
   return (
     <Modal
@@ -76,78 +86,24 @@ const QuoteModal = (props) => {
       modalWidth={modalWidth}
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
-      /* sidepanel={<QuoteSidepanel busCalcTheme={busCalcTheme} />} */
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
-        <div
-          className={`${styles.nonButtonContainer} noscroll`}
-          style={{
-            maskImage: scrollMaskImage,
-            WebkitMaskImage: scrollMaskImage,
-          }}>
-          <div
-            className={styles.selectFieldContainer}
-            id="quoteModalSelectContainer">
-            Quote Type
-            <SelectField
-              options={[
-                { key: Math.random(), value: "-" },
-                { key: Math.random(), value: "School Routes" },
-                { key: Math.random(), value: "Charters" },
-                { key: Math.random(), value: "Shop Rental" },
-                { key: Math.random(), value: "Service Regions" },
-                { key: Math.random(), value: "Used Bus Sales" },
-                { key: Math.random(), value: "Other" },
-              ]}
-              className={styles.selectInput}
-              inputRef={formTypeRef}
-              onChange={onFormTypeChange}
-              formState={formState}
-            />
-          </div>
-          {content}
-        </div>
-        <GeneralButton
-          customClasses={styles.sendButton}
-          style={{
-            display:
-              !formTypeRef.current || formTypeRef.current.value == "-"
-                ? "none"
-                : "",
-          }}>
-          <div style={{ fontSize: buttonFontSize }}>Send Message</div>
-
-          <img
-            style={{
-              marginLeft: "0.6rem",
-              height: "2.1rem",
-              display: iconDisplay,
-            }}
-            src={sendmail_icon}
-            alt="send icon"
+        <NonButtonContainer>
+          <SelectField
+            className={styles.selectInput}
+            inputRef={formTypeRef}
+            onChange={onFormTypeChange}
+            formState={formState}
           />
-          <div
-            id="quoteModalSpinner"
-            style={{ marginLeft: "2rem", display: spinnerDisplay }}>
-            <Spinner animation="border" role="status" />
-          </div>
-        </GeneralButton>
+          {content}
+        </NonButtonContainer>
+        <SubmitButton
+          formTypeRef={formTypeRef}
+          iconDisplay={iconDisplay}
+          spinnerDisplay={spinnerDisplay}
+        />
       </form>
     </Modal>
-  );
-};
-
-const SelectField = (props) => {
-  return (
-    <select
-      onChange={props.onChange}
-      ref={props.inputRef}
-      className={props.className}
-      value={props.formState.type}>
-      {props.options.map((o) => (
-        <option key={o.key}>{o.value}</option>
-      ))}
-    </select>
   );
 };
 

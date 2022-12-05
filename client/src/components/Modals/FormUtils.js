@@ -2,6 +2,10 @@ import { useWindowSize } from "usehooks-ts";
 import styles from "./FormUtils.module.css";
 import * as utils from "../../utils";
 import modalStyles from "./Modal.module.css";
+import GeneralButton from "../UI/GeneralButton";
+import Spinner from "react-bootstrap/esm/Spinner";
+import { useState } from "react";
+import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 import msg_icon from "../../images/icons/message_icon.png";
 
@@ -29,8 +33,7 @@ export const DetailsTextarea = (props) => {
         className={styles.textArea}
         rows="4"
         required
-        placeholder="Please provide a name and number for the main trip contact (if applicable), as well as any
-          additional trip details."
+        placeholder={props.placeholder}
       />
     </div>
   );
@@ -54,5 +57,79 @@ export const SectionContainer = (props) => {
       style={{ flexDirection: inputDisplay }}>
       {props.children}
     </div>
+  );
+};
+
+export const SelectField = (props) => {
+  return (
+    <div className={styles.selectFieldContainer}>
+      Quote Type
+      <select
+        onChange={props.onChange}
+        ref={props.inputRef}
+        className={styles.selectInput}
+        value={props.formState.type}>
+        {[
+          /* { key: Math.random(), value: "-" },
+          { key: Math.random(), value: "School Routes" }, */
+          { key: Math.random(), value: "Charters" },
+          /* { key: Math.random(), value: "Shop Rental" },
+          { key: Math.random(), value: "Service Regions" },
+          { key: Math.random(), value: "Used Bus Sales" },
+          { key: Math.random(), value: "Other" }, */
+        ].map((o) => (
+          <option key={o.key}>{o.value}</option>
+        ))}
+      </select>
+    </div>
+  );
+};
+
+export const NonButtonContainer = (props) => {
+  const { w } = useWindowSize();
+  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
+
+  return (
+    <div
+      className={`${styles.nonButtonContainer} noscroll`}
+      style={{
+        maskImage: scrollMaskImage,
+        WebkitMaskImage: scrollMaskImage,
+      }}>
+      {props.children}
+    </div>
+  );
+};
+
+export const SubmitButton = (props) => {
+  const { w } = useWindowSize();
+  const buttonFontSize = utils.responsive(w, "1.4rem", "", "", "");
+
+  return (
+    <GeneralButton
+      customClasses={styles.sendButton}
+      style={{
+        display:
+          !props.formTypeRef.current || props.formTypeRef.current.value == "-"
+            ? "none"
+            : "",
+      }}>
+      <div style={{ fontSize: buttonFontSize }}>Send Message</div>
+
+      <img
+        style={{
+          marginLeft: "0.6rem",
+          height: "2.1rem",
+          display: props.iconDisplay,
+        }}
+        src={sendmail_icon}
+        alt="send icon"
+      />
+      <div
+        id="quoteModalSpinner"
+        style={{ marginLeft: "2rem", display: props.spinnerDisplay }}>
+        <Spinner animation="border" role="status" />
+      </div>
+    </GeneralButton>
   );
 };
