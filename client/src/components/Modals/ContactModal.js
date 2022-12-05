@@ -132,6 +132,7 @@ const ContactDetails = (props) => {
         <div style={{ marginTop: "0.5rem" }}>
           <i>482 CECILIA RD, VICTORIA, BC</i>
         </div>
+        <br />
       </div>
     </div>
   );

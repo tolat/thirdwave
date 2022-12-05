@@ -91,6 +91,9 @@ const UsedBusSales = (props) => {
           <div className={sectionStyles.text}>
             See our available stock below.
           </div>
+          <div className={sectionStyles.contactInfo}>
+            <b>Main Contact:</b> Murray Nicholl - murrayn@thirdwavebus.com{" "}
+          </div>
         </div>
         <div className={styles.gridContainer}>
           <DataGrid rows={rows} columns={columns} />

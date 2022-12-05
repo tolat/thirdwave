@@ -146,7 +146,7 @@ const HeroContent = (props) => {
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
-                text="Shop Rental"
+                text="Shop Services"
                 imgUrl={wrench}
               />
               <ServicesIcon
