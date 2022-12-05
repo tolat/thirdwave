@@ -17,7 +17,7 @@ const ShopRental = (props) => {
 
   return (
     <ServiceSection
-      id="ShopRental"
+      id="ShopServices"
       icon={wrench}
       iconAlt="shop rental icon"
       headerText="Shop Services"

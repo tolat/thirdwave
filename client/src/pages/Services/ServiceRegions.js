@@ -18,10 +18,10 @@ const ServiceRegions = (props) => {
 
   return (
     <ServiceSection
-      id="ServiceRegions"
+      id="Regions"
       icon={map}
       iconAlt="service regions icon"
-      headerText="Service Regions"
+      headerText="Regions"
       viewportWidth={width}
       backgroundColor="rgb(251,251,251)"
       justifyHeader={headerJustify}

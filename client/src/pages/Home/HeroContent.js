@@ -151,7 +151,7 @@ const HeroContent = (props) => {
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
-                text="Service Regions"
+                text="Regions"
                 imgUrl={map}
               />
               <ServicesIcon

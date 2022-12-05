@@ -2,7 +2,7 @@ import styles from "./Footer.module.css";
 import CentralSection from "../UI/CentralSection";
 import { responsive } from "../../utils";
 
-import logo from "../../images/logo2.png";
+import logo from "../../images/logo4.png";
 import facebook from "../../images/icons/facebook.png";
 import instagram from "../../images/icons/instagram.png";
 import youtube from "../../images/icons/youtube.png";

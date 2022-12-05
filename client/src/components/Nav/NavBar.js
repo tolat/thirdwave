@@ -1,12 +1,11 @@
 import styles from "./NavBar.module.css";
-import logo from "../../images/logo2.png";
+import logo from "../../images/logo4.png";
 import React, { useState } from "react";
 import { responsive, useScrollPosition, handleToggleModal } from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
 import { NavLink } from "react-router-dom";
-import { borderLeft } from "@mui/system";
 
 const NavBar = (props) => {
   const w = props.viewportWidth;
@@ -117,7 +116,6 @@ const NavBar = (props) => {
               style={{
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
-                fontWeight: "bold",
               }}
               onClick={onQuoteButtonClick}>
               GET QUOTE
