@@ -77,6 +77,12 @@ const SchoolRoutes = (props) => {
           To inquire about school route services, please contact us through the
           "Request Quote" button in the navigation bar.
         </div>
+        <div className={sectionStyles.contactInfo}>
+          <b>Main Contact:</b> Marcus Nicholl - marcusn@thirdwavebus.com{" "}
+        </div>
+        <div className={sectionStyles.contactInfo}>
+          <b>Dispatch:</b> dispatch@thirdawavebus.com
+        </div>
       </div>
     </ServiceSection>
   );

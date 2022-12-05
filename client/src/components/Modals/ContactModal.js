@@ -6,6 +6,7 @@ import Modal from "./Modal";
 import phone_icon from "../../images/icons/phone1.svg";
 import { SubmitButton, NonButtonContainer } from "./FormUtils";
 import ContactForm from "./ContactForm";
+import { useWindowSize } from "usehooks-ts";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
@@ -48,14 +49,13 @@ const ContactModal = (props) => {
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
+          <div
+            className={styles.detailsForMobile}
+            style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
+            <ContactDetails className="invertFilter" />
+          </div>
           <ContactForm refs={formRefs} />
         </NonButtonContainer>
-        <div
-          className={styles.detailsForMobile}
-          style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
-          <ContactDetails className="invertFilter" />
-        </div>
-
         <SubmitButton
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
@@ -75,6 +75,8 @@ const ContactSidepanel = (props) => {
 };
 
 const ContactDetails = (props) => {
+  const { w } = useWindowSize();
+
   return (
     <div className={`${props.className}`}>
       <div className={styles.sidepanelHeader}>
@@ -88,18 +90,48 @@ const ContactDetails = (props) => {
         </div>
       </div>
       <div className={styles.sidepanelText}>
+        <b>DISPATCH:</b>
+        <br />
+        dispatch@thirdawavebus.com
+        <br />
+        <br />
+        <b>
+          <u>Lower Mainland</u>
+        </b>
+        <br />
         <b>Phone:</b> (604) 274-1221 <br />
         <b>Fax: </b>(604) 247-1222 <br />
         <b>Shop:</b> (604) 247-1253 <br />
-        <b>AfterHours/Emergency:</b> (604)-768-3787
+        <b>Emergency:</b> (604)-768-3787
         <br />
+        <b>Owner:</b> Murray Nicholl
         <br />
+        <div style={{ marginTop: "0.5rem" }}>
+          <i>120-1355 RICHMOND, BC</i>
+        </div>
         <br />
-        <b>Address:</b>
+        <b>
+          <u>Sunshine Coast</u>
+        </b>
         <br />
-        120-1355 Richmond, BC
+        <b>Office:</b> (604) 855-1260 <br />
+        <b>Manager: </b>Randy Gould <br /> (604) 989-9670 <br />
+        <div style={{ marginTop: "0.5rem" }}>
+          <i>4373 SOLAR RD, SECHELT, BC</i>
+        </div>
         <br />
-        V6V 1W5
+        <b>
+          <u>Victoria</u>
+        </b>
+        <br />
+        <b>Office:</b> 1 (250) 382-4333 <br />
+        <b>Fax: </b>1 (250) 382-4336
+        <br />
+        <b>Manager: </b> David Davenport
+        <br />
+        <div style={{ marginTop: "0.5rem" }}>
+          <i>482 CECILIA RD, VICTORIA, BC</i>
+        </div>
       </div>
     </div>
   );

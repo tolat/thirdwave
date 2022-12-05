@@ -12,7 +12,7 @@
 }
 
 .sidepanelContainer {
-  width: 16.5rem;
+  width: 16rem;
   height: 100%;
   background-color: rgb(42, 81, 128);
   padding: 2rem;
@@ -32,8 +32,8 @@
 
 .sidepanelText {
   color: white;
-  font-size: 0.95rem;
-  line-height: 1.6rem;
+  font-size: 0.8rem;
+  line-height: 1.4rem;
 }
 
 .detailsForMobile {
