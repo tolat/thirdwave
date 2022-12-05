@@ -27,3 +27,11 @@
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+
+.quoteIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
+}

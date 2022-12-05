@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Modal from "./Modal";
 import CharterForm from "./CharterForm";
 import { SelectField, NonButtonContainer, SubmitButton } from "./FormUtils";
+import quote_icon from "../../images/icons/quote.svg";
 
 // Import fields from all sub-forms
 import { charterFields } from "./CharterForm";
@@ -111,7 +112,9 @@ const QuoteModal = (props) => {
 const Sidepanel = (props) => {
   return (
     <div className={styles.sidepanelContainer}>
-      <div></div>
+      <div className={styles.quoteIcon}>
+        <img className={"invertFilter"} src={quote_icon} alt="quote icon" />
+      </div>
     </div>
   );
 };
