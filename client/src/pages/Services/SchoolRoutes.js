@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import styles from "./SchoolRoutes.module.css";
 import sectionStyles from "./ServiceSection.module.css";
 
+import mapleridge from "../../images/partner_icons/mapleridge.png";
 import fraser from "../../images/partner_icons/fraseracademy.png";
-import northvan from "../../images/partner_icons/northvan.png";
-import surrey from "../../images/partner_icons/surrey.png";
-import richmond from "../../images/partner_icons/richmond.png";
+import sunshinecoast from "../../images/partner_icons/sunshinecoast.png";
+import kingdavid from "../../images/partner_icons/kingdavid.png";
 import family from "../../images/icons/fieldtrip.svg";
 import ServiceSection from "./ServiceSection";
 import { responsive, handleToggleModal } from "../../utils";
@@ -34,7 +34,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={fraser}
+            src={mapleridge}
             alt="fraser"
           />
         </div>
@@ -42,7 +42,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={northvan}
+            src={sunshinecoast}
             alt="northvan"
           />
         </div>
@@ -50,7 +50,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={surrey}
+            src={kingdavid}
             alt="surrey"
           />
         </div>
@@ -58,7 +58,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={richmond}
+            src={fraser}
             alt="richmond"
           />
         </div>
@@ -75,7 +75,8 @@ const SchoolRoutes = (props) => {
         </div>
         <div className={sectionStyles.text}>
           To inquire about school route services, please contact us through the
-          "Request Quote" button in the navigation bar.
+          "Contact" button in the navigation bar, or send an email to the main
+          Contact as listed below.
         </div>
         <div className={sectionStyles.contactInfo}>
           <b>Main Contact:</b> Marcus Nicholl - marcusn@thirdwavebus.com{" "}

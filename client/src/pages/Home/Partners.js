@@ -3,13 +3,29 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import CentralSection from "../../components/UI/CentralSection";
 
 import fraser from "../../images/partner_icons/fraseracademy.png";
-import northvan from "../../images/partner_icons/northvan.png";
-import surrey from "../../images/partner_icons/surrey.png";
-import richmond from "../../images/partner_icons/richmond.png";
+import mapleridge from "../../images/partner_icons/mapleridge.png";
+import stgeorges from "../../images/partner_icons/stgeorges.png";
+import pgatour from "../../images/partner_icons/pgatour.png";
+import sunshinecoast from "../../images/partner_icons/sunshinecoast.png";
+import greaterheights from "../../images/partner_icons/greaterheights.png";
+import talmud from "../../images/partner_icons/talmud.png";
+import kingdavid from "../../images/partner_icons/kingdavid.png";
+import rcs from "../../images/partner_icons/rcs.png";
 
 import { responsive } from "../../utils";
 
-const imageLinks = [fraser, northvan, surrey, richmond];
+const imageLinks = [
+  mapleridge,
+  sunshinecoast,
+  stgeorges,
+  kingdavid,
+  talmud,
+  pgatour,
+  fraser,
+
+  rcs,
+  greaterheights,
+];
 
 const Partners = (props) => {
   const w = props.viewportWidth;
@@ -24,7 +40,7 @@ const Partners = (props) => {
 
 const Carousel = (props) => {
   const w = props.viewportWidth;
-  const partnerLogoHeight = responsive(w, "50rem", "60rem", "70rem", "70rem");
+  const partnerLogoHeight = responsive(w, "70rem", "80rem", "100rem", "100rem");
   // Alice carousel for products
   const handleDragStart = (e) => e.preventDefault();
   const productCrouselItems = imageLinks.map((l) => (
