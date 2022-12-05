@@ -1,8 +1,5 @@
-import styles from "./CharterForm.module.css";
-import materialStyles from "../UI/MaterialInputs.module.css";
 import * as utils from "../../utils";
 import { useWindowSize } from "usehooks-ts";
-import { DetailsTextarea } from "./QuoteModal";
 import BusCalculator from "../Utils/BusCalculator";
 import React from "react";
 import {
@@ -10,6 +7,8 @@ import {
   MaterialDatePicker,
   MaterialTimePicker,
 } from "../UI/MaterialInputs";
+
+import { SectionContainer, Spacer, DetailsTextarea } from "./FormUtils";
 
 export const charterFields = [
   "group",
@@ -30,28 +29,7 @@ export const charterFields = [
 
 const CharterForm = (props) => {
   const { width } = useWindowSize();
-  const inputDisplay = utils.responsive(width, "column");
   const busCalcTheme = utils.responsive(width, "", "", "", "");
-  const spacerDisplay = utils.responsive(width, "none");
-
-  const Spacer = () => {
-    return (
-      <div
-        className={materialStyles.formSpacer}
-        style={{ display: spacerDisplay }}
-      />
-    );
-  };
-
-  const SectionContainer = (props) => {
-    return (
-      <div
-        className={styles.sectionSubContainer}
-        style={{ flexDirection: inputDisplay }}>
-        {props.children}
-      </div>
-    );
-  };
 
   return (
     <React.Fragment>
@@ -128,7 +106,7 @@ const CharterForm = (props) => {
           style={{ width: "100%" }}
         />
       </SectionContainer>
-      <DetailsTextarea formRefs={props.refs} />
+      <DetailsTextarea refs={props.refs} />
     </React.Fragment>
   );
 };

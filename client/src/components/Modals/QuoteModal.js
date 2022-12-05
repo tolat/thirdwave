@@ -1,17 +1,13 @@
 import GeneralButton from "../UI/GeneralButton";
 import styles from "./QuoteModal.module.css";
-import modalStyles from "../UI/Modal.module.css";
 import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
-import Modal from "../UI/Modal";
+import Modal from "./Modal";
 import Spinner from "react-bootstrap/Spinner";
-
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
-
-import { useWindowSize } from "usehooks-ts";
-import msg_icon from "../../images/icons/message_icon.png";
 import CharterForm from "./CharterForm";
 
+// Import fields from all sub-forms
 import { charterFields } from "./CharterForm";
 
 const QuoteModal = (props) => {
@@ -33,8 +29,10 @@ const QuoteModal = (props) => {
   const [content, setContent] = useState(emptyFormContent);
   const formTypeRef = useRef();
 
+  // Generate refs for each sub-form
   const charterRefs = utils.generateRefsFromStrings(charterFields, useRef);
 
+  // Submit the form with the correct refs and type
   const handleSubmit = (event) => {
     utils.formSubmit(
       event,
@@ -50,6 +48,7 @@ const QuoteModal = (props) => {
     );
   };
 
+  // Switch between sub-forms based on the value of the select quote type field
   function getContent() {
     switch (formTypeRef.current.value) {
       case "Charters":
@@ -153,34 +152,3 @@ const SelectField = (props) => {
 };
 
 export default QuoteModal;
-
-export const DetailsTextarea = (props) => {
-  const { width } = useWindowSize();
-  const textAreaBottMarg = utils.responsive(width, "10rem");
-
-  return (
-    <div
-      className={styles.sectionContainer}
-      style={{ marginBottom: textAreaBottMarg, marginTop: "1rem" }}>
-      <div className={modalStyles.sectionHeader}>
-        <div style={{ display: "flex" }}>
-          <img
-            className={modalStyles.inputIcon}
-            src={msg_icon}
-            alt="msg icon"
-          />
-          <div>Additional Details</div>
-        </div>
-      </div>
-
-      <textarea
-        ref={props.formRefs.details}
-        className={styles.textArea}
-        rows="4"
-        required
-        placeholder="Please provide a name and number for the main trip contact (if applicable), as well as any
-        additional trip details."
-      />
-    </div>
-  );
-};

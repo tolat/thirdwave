@@ -1,10 +1,10 @@
 import GeneralButton from "../UI/GeneralButton";
 import GeneralInput from "../UI/GeneralInput";
-import modalStyles from "../UI/Modal.module.css";
+import modalStyles from "../Modals/Modal.module.css";
 import styles from "./ContactModal.module.css";
 import * as utils from "../../utils";
 import React, { useState, useRef } from "react";
-import Modal from "../UI/Modal";
+import Modal from "./Modal";
 import Spinner from "react-bootstrap/Spinner";
 import phone_icon from "../../images/icons/phone1.svg";
 import msg_icon from "../../images/icons/message_icon.png";

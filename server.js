@@ -52,10 +52,25 @@ app.post("/message", async (req, res) => {
 
 // POST route for sending emailed quote request from the free quote form
 app.post("/quote", async (req, res) => {
+  // Takes a camel case string and returns it as a capitalized and spaced title ,
+  // e.g. theCamelCaseString => The Camel Case String
+  const prettifyCamelCase = (str) => {
+    let newString = str[0].toUpperCase();
+    for (var i = 1; i < str.length; i++) {
+      if (str[i].match(/[A-Z]/) != null) {
+        newString = newString.concat(` ${str[i]}`);
+      } else {
+        newString = newString.concat(str[i]);
+      }
+    }
+    return newString;
+  };
+
   let text = "";
   for (key in req.body) {
-    text = text.concat(`${key}: ${req.body[key]}\n`);
+    text = text.concat(`${prettifyCamelCase(key)}: ${req.body[key]}\n`);
   }
+
   try {
     await transporter.sendMail({
       from: req.body.userEmail,
