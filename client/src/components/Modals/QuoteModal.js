@@ -116,6 +116,11 @@ const Sidepanel = (props) => {
       <div className={styles.quoteIcon}>
         <img className={"invertFilter"} src={quote_icon} alt="quote icon" />
       </div>
+      <div className={styles.sidebarLetter}>Q</div>
+      <div className={styles.sidebarLetter}>U</div>
+      <div className={styles.sidebarLetter}>O</div>
+      <div className={styles.sidebarLetter}>T</div>
+      <div className={styles.sidebarLetter}>E</div>
     </div>
   );
 };

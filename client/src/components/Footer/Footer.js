@@ -18,9 +18,10 @@ const Footer = (props) => {
           className={styles.container}
           style={{ flexDirection: flexDirection }}>
           <div className={styles.footerContactContainer}>
-            <div className={styles.footerContactHeader}>Contact:</div>
             <div className={styles.footerContactText}>
-              <b>DISPATCH:</b>
+              <b>
+                <u>Dispatch</u>
+              </b>
               <br />
               dispatch@thirdawavebus.com
               <br />
