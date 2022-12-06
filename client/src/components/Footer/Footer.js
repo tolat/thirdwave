@@ -35,7 +35,7 @@ const Footer = (props) => {
               <b>Emergency:</b> (604)-768-3787
               <br />
               <div style={{ marginTop: "0.5rem" }}>
-                <i>13551 Verdun Place, Richmond BC</i>
+                <i>13551 VERDUN PLACE, RICHMOND BC</i>
               </div>
               <br />
               <b>
