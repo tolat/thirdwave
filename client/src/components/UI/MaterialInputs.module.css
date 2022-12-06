@@ -5,8 +5,8 @@
 }
 
 .inputSubtext {
-  font-size: 0.7rem;
-  color: grey;
+  font-size: 0.65rem;
+  color: rgb(80, 80, 80);
 }
 
 .checkboxWrapper {
@@ -26,9 +26,4 @@
 
 .checkboxLabel {
   font-weight: bold;
-}
-
-.checkboxSubLabel {
-  font-size: 0.7rem;
-  color: grey;
 }

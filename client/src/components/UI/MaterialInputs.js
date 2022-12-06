@@ -109,7 +109,7 @@ export const MaterialCheckbox = (props) => {
 
         <div>
           <div className={styles.checkboxLabel}> {props.label}</div>
-          <div className={styles.checkboxSubLabel}> {props.subLabel}</div>
+          <div className={styles.inputSubtext}> {props.subLabel}</div>
         </div>
       </div>
     </div>

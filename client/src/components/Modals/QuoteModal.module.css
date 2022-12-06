@@ -1,7 +1,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 1.5rem);
   box-sizing: border-box;
   justify-content: space-between;
   width: 100%;
