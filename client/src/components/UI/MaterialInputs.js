@@ -96,7 +96,7 @@ export const MaterialTimePicker = (props) => {
 export const MaterialCheckbox = (props) => {
   return (
     <div className={styles.inputWrapper}>
-      <div className={styles.checkboxWrapper}>
+      <div className={styles.checkboxWrapper} style={props.wrapperStyle}>
         <div className={styles.checkboxInputContainer}>
           <input
             className={styles.checkBoxInput}

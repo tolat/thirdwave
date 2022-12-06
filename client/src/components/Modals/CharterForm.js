@@ -34,7 +34,18 @@ export const charterFields = [
 
 const CharterForm = (props) => {
   const { width } = useWindowSize();
+  const desktopCheckboxStyle = {
+    justifyContent: "end",
+    marginBottom: "-3.6rem",
+  };
   const busCalcTheme = utils.responsive(width, "", "", "", "");
+  const checkboxStyle = utils.responsive(
+    width,
+    {},
+    desktopCheckboxStyle,
+    desktopCheckboxStyle,
+    desktopCheckboxStyle
+  );
 
   return (
     <React.Fragment>
@@ -154,7 +165,7 @@ const CharterForm = (props) => {
         label="Luggage Bays"
         subLabel="Small backpacks/daypacks do no require luggage bays"
         inputRef={props.refs.luggage}
-        required
+        wrapperStyle={checkboxStyle}
       />
       <DetailsTextarea
         inputRef={props.refs.details}
