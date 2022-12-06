@@ -90,21 +90,21 @@ const QuoteModal = (props) => {
       sidepanel={<Sidepanel />}
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
-        <NonButtonContainer>
-          <SelectField
-            className={styles.selectInput}
-            inputRef={formTypeRef}
-            onChange={onFormTypeChange}
-            formState={formState}
-          />
-          {content}
-        </NonButtonContainer>
-        <SubmitButton
-          formTypeRef={formTypeRef}
-          iconDisplay={iconDisplay}
-          spinnerDisplay={spinnerDisplay}
-          buttonText={"Request Quote"}
+        <SelectField
+          className={styles.selectInput}
+          inputRef={formTypeRef}
+          onChange={onFormTypeChange}
+          formState={formState}
         />
+        <NonButtonContainer>{content}</NonButtonContainer>
+        <div className={styles.submitButtonContainer}>
+          <SubmitButton
+            formTypeRef={formTypeRef}
+            iconDisplay={iconDisplay}
+            spinnerDisplay={spinnerDisplay}
+            buttonText={"Request Quote"}
+          />
+        </div>
       </form>
     </Modal>
   );

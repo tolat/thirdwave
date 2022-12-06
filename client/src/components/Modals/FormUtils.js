@@ -8,6 +8,7 @@ import { useState } from "react";
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 import msg_icon from "../../images/icons/message_icon.png";
+import { margin } from "@mui/system";
 
 export const DetailsTextarea = (props) => {
   const { width } = useWindowSize();
@@ -88,19 +89,7 @@ export const SelectField = (props) => {
 };
 
 export const NonButtonContainer = (props) => {
-  const { w } = useWindowSize();
-  const scrollMaskImage = utils.responsive(w, "", "none", "none", "none");
-
-  return (
-    <div
-      className={`${styles.nonButtonContainer} noscroll`}
-      style={{
-        maskImage: scrollMaskImage,
-        WebkitMaskImage: scrollMaskImage,
-      }}>
-      {props.children}
-    </div>
-  );
+  return <div className={`${styles.nonButtonContainer}`}>{props.children}</div>;
 };
 
 export const SubmitButton = (props) => {

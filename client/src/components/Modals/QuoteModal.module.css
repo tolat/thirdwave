@@ -5,8 +5,8 @@
   box-sizing: border-box;
   justify-content: space-between;
   width: 100%;
-  padding: 3rem;
-  margin-top: -4.5rem;
+  padding: 2rem;
+  margin-top: -3rem;
   background-color: white;
   border-bottom-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -44,4 +44,8 @@
   display: flex;
   justify-content: center;
   margin-top: -0.5rem;
+}
+
+.submitButtonContainer {
+  margin-bottom: 1rem;
 }
