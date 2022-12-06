@@ -11,6 +11,8 @@ import greaterheights from "../../images/partner_icons/greaterheights.png";
 import talmud from "../../images/partner_icons/talmud.png";
 import kingdavid from "../../images/partner_icons/kingdavid.png";
 import rcs from "../../images/partner_icons/rcs.png";
+import sarah from "../../images/partner_icons/sarah.png";
+import yale from "../../images/partner_icons/yale.png";
 
 import { responsive } from "../../utils";
 
@@ -19,10 +21,11 @@ const imageLinks = [
   sunshinecoast,
   stgeorges,
   kingdavid,
+  sarah,
   talmud,
   pgatour,
   fraser,
-
+  yale,
   rcs,
   greaterheights,
 ];
@@ -40,7 +43,7 @@ const Partners = (props) => {
 
 const Carousel = (props) => {
   const w = props.viewportWidth;
-  const partnerLogoHeight = responsive(w, "70rem", "80rem", "100rem", "100rem");
+  const partnerLogoHeight = responsive(w, "70rem", "90rem", "110rem", "110rem");
   // Alice carousel for products
   const handleDragStart = (e) => e.preventDefault();
   const productCrouselItems = imageLinks.map((l) => (
