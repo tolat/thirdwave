@@ -8,7 +8,7 @@ import sunshinecoast from "../../images/partner_icons/sunshinecoast.png";
 import kingdavid from "../../images/partner_icons/kingdavid.png";
 import family from "../../images/icons/fieldtrip.svg";
 import ServiceSection from "./ServiceSection";
-import { responsive, handleToggleModal } from "../../utils";
+import { responsive, toggleModal } from "../../utils";
 
 const SchoolRoutes = (props) => {
   const width = props.viewportWidth;
@@ -17,7 +17,7 @@ const SchoolRoutes = (props) => {
   const iconPadding = responsive(width, "1rem 0 1rem 0", "2rem 1rem 2rem 1rem");
 
   const inquireClickHandler = () => {
-    handleToggleModal(props.setQuoteModalVis, "School Routes");
+    toggleModal(props.setQuoteModalVis, "School Routes");
   };
 
   return (

@@ -15,14 +15,19 @@ export const responsive = (width, mobile, sml, med, lrg) => {
     : lrg;
 };
 
-export const handleToggleModal = (
-  setModalVisFunction,
-  setQuoteType = false
-) => {
+export const toggleModal = (setModalVisFunction, setQuoteType = false) => {
   const hide = { o: "0", v: "hidden" };
   const show = { o: "1", v: "visible" };
   // eslint-disable-next-line
-  setModalVisFunction((prevState) => (prevState.o == "0" ? show : hide));
+  setModalVisFunction((prevState) => {
+    if (prevState.o == "0") {
+      document.body.style.overflowY = "hidden";
+      return show;
+    } else {
+      document.body.style.overflowY = "";
+      return hide;
+    }
+  });
 
   if (setQuoteType)
     setTimeout(() => {

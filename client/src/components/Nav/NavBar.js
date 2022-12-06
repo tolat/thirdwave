@@ -1,7 +1,7 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo4.png";
 import React, { useState } from "react";
-import { responsive, useScrollPosition, handleToggleModal } from "../../utils";
+import { responsive, useScrollPosition, toggleModal } from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
@@ -42,11 +42,11 @@ const NavBar = (props) => {
     scrollPosition > convertRemToPixels(10) ? "none" : "";
 
   const onContactButtonClick = () => {
-    handleToggleModal(props.setContactModalVis);
+    toggleModal(props.setContactModalVis);
   };
 
   const onQuoteButtonClick = () => {
-    handleToggleModal(props.setQuoteModalVis);
+    toggleModal(props.setQuoteModalVis);
   };
 
   const logoMarginTop = `${

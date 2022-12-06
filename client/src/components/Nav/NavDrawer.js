@@ -1,16 +1,16 @@
 import styles from "./NavDrawer.module.css";
 import NavButton from "./NavButton";
-import { handleToggleModal, clickBurgerMenuIcon } from "../../utils";
+import { toggleModal, clickBurgerMenuIcon } from "../../utils";
 import { NavLink } from "react-router-dom";
 
 const NavDrawer = (props) => {
   const onContactButtonClick = () => {
-    handleToggleModal(props.setContactModalVis);
+    toggleModal(props.setContactModalVis);
     clickBurgerMenuIcon(true);
   };
 
   const onQuoteButtonClick = () => {
-    handleToggleModal(props.setQuoteModalVis);
+    toggleModal(props.setQuoteModalVis);
     clickBurgerMenuIcon(true);
   };
 

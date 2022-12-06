@@ -5,14 +5,15 @@ import sectionStyles from "./ServiceSection.module.css";
 import wrench from "../../images/icons/build.svg";
 import ServiceSection from "./ServiceSection";
 import image from "../../images/bus_shop.jpeg";
-import { responsive, handleToggleModal } from "../../utils";
+import { responsive, toggleModal } from "../../utils";
 
 const ShopRental = (props) => {
   const width = props.viewportWidth;
   const imageContainerWidth = responsive(width, "100%");
+  const imageMaxHeight = responsive(width, "17rem");
 
   const inquireClickHandler = () => {
-    handleToggleModal(props.setQuoteModalVis, "Shop Rental");
+    toggleModal(props.setQuoteModalVis, "Shop Rental");
   };
 
   return (
@@ -26,7 +27,12 @@ const ShopRental = (props) => {
       <div
         className={styles.imageContainer}
         style={{ width: imageContainerWidth }}>
-        <img className={styles.image} src={image} alt="shop with bus" />
+        <img
+          style={{ maxHeight: imageMaxHeight }}
+          className={styles.image}
+          src={image}
+          alt="shop with bus"
+        />
       </div>
       <div className={sectionStyles.textContainer}>
         <div className={sectionStyles.text}>

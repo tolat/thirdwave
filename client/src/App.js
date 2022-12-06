@@ -2,6 +2,7 @@ import "./App.css";
 import { useWindowSize } from "usehooks-ts";
 import { Route, Routes, Navigate } from "react-router-dom";
 import { useState } from "react";
+import React from "react";
 
 import Flash from "./components/Flash/Flash";
 import ContactModal from "./components/Modals/ContactModal";
@@ -29,7 +30,7 @@ function App() {
   });
 
   return (
-    <div className={`noscroll`}>
+    <React.Fragment>
       <Flash id="appFlash" />
       <ContactModal
         viewportWidth={width}
@@ -86,7 +87,7 @@ function App() {
         />
       </Routes>
       <Footer viewportWidth={width} />
-    </div>
+    </React.Fragment>
   );
 }
 

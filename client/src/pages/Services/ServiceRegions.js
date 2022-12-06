@@ -5,15 +5,15 @@ import sectionStyles from "./ServiceSection.module.css";
 import map from "../../images/icons/map.svg";
 import ServiceSection from "./ServiceSection";
 import regions from "../../images/regions.jpg";
-import { responsive, handleToggleModal } from "../../utils";
+import { responsive, toggleModal } from "../../utils";
 
 const ServiceRegions = (props) => {
   const width = props.viewportWidth;
   const contentFlexDirection = responsive(width, "column", "column");
   const headerJustify = responsive(width, "start", "end", "end", "end");
-
+  const imageMaxHeight = responsive(width, "17rem");
   const inquireClickHandler = () => {
-    handleToggleModal(props.setQuoteModalVis, "Service Regions");
+    toggleModal(props.setQuoteModalVis, "Service Regions");
   };
 
   return (
@@ -45,7 +45,12 @@ const ServiceRegions = (props) => {
           </div>
         </div>
         <div className={styles.imageContainer}>
-          <img className={styles.image} src={regions} alt="regions" />
+          <img
+            style={{ maxHeight: imageMaxHeight }}
+            className={styles.image}
+            src={regions}
+            alt="regions"
+          />
         </div>
       </div>
 

@@ -4,13 +4,13 @@ import sectionStyles from "./ServiceSection.module.css";
 
 import bus from "../../images/icons/bus.svg";
 import ServiceSection from "./ServiceSection";
-import { responsive, handleToggleModal } from "../../utils";
+import { responsive, toggleModal } from "../../utils";
 
 const Charters = (props) => {
   const width = props.viewportWidth;
   const headerJustify = responsive(width, "start", "end", "end", "end");
   const inquireClickHandler = () => {
-    handleToggleModal(props.setQuoteModalVis, "Charters");
+    toggleModal(props.setQuoteModalVis, "Charters");
   };
 
   return (

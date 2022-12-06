@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 
 import tag from "../../images/icons/tag.svg";
 import ServiceSection from "./ServiceSection";
-import { handleToggleModal } from "../../utils";
+import { toggleModal } from "../../utils";
 
 const sampleBusData = [
   {
@@ -75,7 +75,7 @@ const UsedBusSales = (props) => {
   ];
 
   const inquireClickHandler = () => {
-    handleToggleModal(props.setQuoteModalVis, "Used Bus Sales");
+    toggleModal(props.setQuoteModalVis, "Used Bus Sales");
   };
 
   return (
