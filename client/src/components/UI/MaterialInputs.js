@@ -103,6 +103,7 @@ export const MaterialCheckbox = (props) => {
             style={props.style}
             ref={props.inputRef}
             type="checkbox"
+            value={false}
           />
         </div>
 
