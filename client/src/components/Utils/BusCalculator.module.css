@@ -1,14 +1,5 @@
-.calculatorOutputContainer {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1rem;
-  font-size: 1rem;
-  text-transform: uppercase;
-}
-
 .calculatorOutput {
   background-color: transparent;
-  margin-top: 1rem;
   color: black;
   font-size: 1rem;
   text-transform: none;
@@ -21,6 +12,7 @@
 .outputItemContainer {
   display: flex;
   font-weight: bold;
+  justify-content: space-between;
 }
 
 .outputItemLabel {
@@ -29,7 +21,6 @@
 
 .outputItemQuantity {
   font-weight: bold;
-  margin-left: 5px;
 }
 
 .outputItemCapacities {

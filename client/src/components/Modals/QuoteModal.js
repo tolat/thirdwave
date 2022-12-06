@@ -8,6 +8,7 @@ import quote_icon from "../../images/icons/quote.svg";
 
 // Import fields from all sub-forms
 import { charterFields } from "./CharterForm";
+import FormSelect from "react-bootstrap/esm/FormSelect";
 
 const QuoteModal = (props) => {
   const w = props.viewportWidth;
@@ -17,7 +18,7 @@ const QuoteModal = (props) => {
 
   // Generate refs for each sub-form
   const charterRefs = utils.generateRefsFromStrings(charterFields, useRef);
-  const modalWidth = utils.responsive(w, "100%", "50rem", "50rem", "50rem");
+  const modalWidth = utils.responsive(w, "100%", "90%", "1170px", "1170px");
   const quoteModalHeight = utils.responsive(w, "100%", "", "", "");
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");

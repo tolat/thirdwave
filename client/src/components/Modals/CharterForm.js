@@ -6,23 +6,28 @@ import {
   MaterialTextInput,
   MaterialDatePicker,
   MaterialTimePicker,
+  MaterialCheckbox,
 } from "../UI/MaterialInputs";
 
 import { SectionContainer, Spacer, DetailsTextarea } from "./FormUtils";
 
 export const charterFields = [
-  "group",
-  "pickup",
-  "destination",
   "name",
+  "group",
   "phone",
   "email",
-  "numAdults",
-  "numChildren",
+  "pickupAddress",
+  "destinationAddress",
+  "destinationName",
   "pickupDate",
-  "secondDate",
-  "pickupTime",
-  "returnTime",
+  "returnDate",
+  "alternatePickupDate",
+  "alternateReturnDate",
+  "leavingDepartureTime",
+  "returnDepartureTime",
+  "returnArrivalTime",
+  "numChildren",
+  "numAdults",
   "luggage",
   "details",
 ];
@@ -35,30 +40,16 @@ const CharterForm = (props) => {
     <React.Fragment>
       <SectionContainer>
         <MaterialTextInput
-          label="Organization/Group"
-          inputRef={props.refs.group}
-          style={{ width: "100%" }}
-          required
-        />
-        <Spacer />
-        <MaterialTextInput
-          label="Pickup Address"
-          inputRef={props.refs.pickup}
-          style={{ width: "100%" }}
-          required
-        />
-        <Spacer />
-        <MaterialTextInput
-          label="Destination Address"
-          inputRef={props.refs.destination}
+          label="Name"
+          inputRef={props.refs.name}
           style={{ width: "100%" }}
           required
         />
       </SectionContainer>
       <SectionContainer>
         <MaterialTextInput
-          label="Name"
-          inputRef={props.refs.name}
+          label="Organization/Group"
+          inputRef={props.refs.group}
           style={{ width: "100%" }}
           required
         />
@@ -79,7 +70,28 @@ const CharterForm = (props) => {
           required
         />
       </SectionContainer>
-      <BusCalculator formRefs={props.refs} theme={busCalcTheme} />
+      <SectionContainer>
+        <MaterialTextInput
+          label="Pickup Address"
+          inputRef={props.refs.pickupAddress}
+          style={{ width: "100%" }}
+          required
+        />
+        <Spacer />
+        <MaterialTextInput
+          label="Destination Address"
+          inputRef={props.refs.destinationAddress}
+          style={{ width: "100%" }}
+          required
+        />
+        <Spacer />
+        <MaterialTextInput
+          label="Destination Name"
+          inputRef={props.refs.destinationName}
+          style={{ width: "100%" }}
+          required
+        />
+      </SectionContainer>
       <SectionContainer>
         <MaterialDatePicker
           inputRef={props.refs.pickupDate}
@@ -88,42 +100,70 @@ const CharterForm = (props) => {
           required
         />
         <Spacer />
+
         <MaterialDatePicker
-          inputRef={props.refs.secondDate}
-          label="Second Date (optional)"
+          inputRef={props.refs.returnDate}
+          label="Return Date"
           style={{ width: "100%" }}
+          required
+        />
+      </SectionContainer>
+      <SectionContainer>
+        <MaterialDatePicker
+          inputRef={props.refs.alternatePickupDate}
+          label="Alternate Pickup Date"
+          style={{ width: "100%" }}
+          subText="If buses are unavailable on first choice dates"
+        />
+        <Spacer />
+        <MaterialDatePicker
+          inputRef={props.refs.alternateReturnDate}
+          label="Alternate Return Date"
+          style={{ width: "100%" }}
+          subText="If buses are unavailable on first choice dates"
         />
       </SectionContainer>
       <SectionContainer>
         <MaterialTimePicker
-          inputRef={props.refs.pickupTime}
-          label="Pickup Time"
+          inputRef={props.refs.leavingDepartureTime}
+          label="Leaving Departure Time"
           style={{ width: "100%" }}
           required
+          subText={"Leaving trip departure time from pickup address."}
         />
         <Spacer />
         <MaterialTimePicker
-          inputRef={props.refs.returnTime}
-          label="Return Time"
+          inputRef={props.refs.returnDepartureTime}
+          label="Return Departure Time"
           style={{ width: "100%" }}
           required
+          subText={"Return trip departure time from destination address."}
         />
         <Spacer />
-        <MaterialTextInput
-          label="Luggage Bays?"
-          inputRef={props.refs.luggage}
+        <MaterialTimePicker
+          inputRef={props.refs.returnArrivalTime}
+          label="Return Arrival Time"
           style={{ width: "100%" }}
           required
+          subText={"Return trip arrival time back at pickup address."}
         />
       </SectionContainer>
+      <BusCalculator formRefs={props.refs} theme={busCalcTheme} />
+
+      <MaterialCheckbox
+        label="Luggage Bays"
+        subLabel="Small backpacks/daypacks do no require luggage bays"
+        inputRef={props.refs.luggage}
+        required
+      />
       <DetailsTextarea
         inputRef={props.refs.details}
         placeholder={
           "Please provide a name and number for the main trip contact (if applicable), as well as any additional trip details."
         }
-        headerText={"Additional Details *"}
+        headerText={"Additional Details"}
         textareaKey={"details"}
-        rows={"7"}
+        rows={"4"}
       />
     </React.Fragment>
   );

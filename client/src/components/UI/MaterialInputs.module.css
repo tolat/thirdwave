@@ -1,5 +1,34 @@
 .inputWrapper {
-  margin: 0.5rem 0 0.5rem 0;
+  margin: 0 0 0.5rem 0;
   width: 100%;
   box-sizing: border-box;
+}
+
+.inputSubtext {
+  font-size: 0.7rem;
+  color: grey;
+}
+
+.checkboxWrapper {
+  display: flex;
+}
+
+.checkBoxInput {
+  margin-right: 0.4rem;
+  zoom: 1.4;
+}
+
+.checkboxInputContainer {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 0.25rem;
+}
+
+.checkboxLabel {
+  font-weight: bold;
+}
+
+.checkboxSubLabel {
+  font-size: 0.7rem;
+  color: grey;
 }

@@ -4,7 +4,6 @@ import { MaterialTextInput } from "../UI/MaterialInputs";
 import { useState } from "react";
 import { responsive } from "../../utils";
 import { useWindowSize } from "usehooks-ts";
-import { Spacer } from "../Modals/FormUtils";
 
 const BusCalculator = (props) => {
   const { width } = useWindowSize();
@@ -64,7 +63,7 @@ const BusCalculator = (props) => {
     <div className={props.className}>
       <div className={styles.inputsContainer}>
         <MaterialTextInput
-          label="Adults (10+ yrs)"
+          label="Adults"
           type="number"
           onChange={updateCalculator}
           inputRef={props.formRefs.numAdults}
@@ -73,11 +72,12 @@ const BusCalculator = (props) => {
             width: "100%",
           }}
           required
+          subText="10+ yrs or Grade 5+"
         />
         <div style={{ width: "2rem" }}></div>
         <div className={materialStyles.formSpacer} />
         <MaterialTextInput
-          label="Children (0-10 yrs)"
+          label="Children"
           type="number"
           onChange={updateCalculator}
           inputRef={props.formRefs.numChildren}
@@ -86,10 +86,11 @@ const BusCalculator = (props) => {
             width: "100%",
           }}
           required
+          subText="0-10 yrs or Grade K-5"
         />
       </div>
 
-      <div className={styles.calculatorOutputContainer}>
+      <div>
         <div className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
           {[
             {
@@ -112,6 +113,7 @@ const BusCalculator = (props) => {
               qty: numLargeBuses,
               children: busCapacities.large.children,
               adults: busCapacities.large.adults,
+              additionalSubtext: "(Limited Availability)",
             },
           ].map((outputItem) => (
             <div
@@ -125,7 +127,9 @@ const BusCalculator = (props) => {
                 </div>
               </div>
               <div className={styles.outputItemCapacities}>
-                {outputItem.children} Children or {outputItem.adults} Adults
+                {outputItem.children} Children or {outputItem.adults} Adults{" "}
+                <br />
+                {outputItem.additionalSubtext}
               </div>
             </div>
           ))}

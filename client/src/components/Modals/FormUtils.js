@@ -37,11 +37,15 @@ export const DetailsTextarea = (props) => {
   );
 };
 
-export const Spacer = () => {
+export const Spacer = (props) => {
   const { width } = useWindowSize();
   const spacerDisplay = utils.responsive(width, "none");
 
-  return <div className={styles.spacer} style={{ display: spacerDisplay }} />;
+  return (
+    <div className={styles.spacer} style={{ display: spacerDisplay }}>
+      {props.children}
+    </div>
+  );
 };
 
 export const SectionContainer = (props) => {

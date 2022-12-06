@@ -107,7 +107,7 @@ const ContactDetails = (props) => {
         <b>Owner:</b> Murray Nicholl
         <br />
         <div style={{ marginTop: "0.5rem" }}>
-          <i>120-1355 RICHMOND, BC</i>
+          <i>13551 Verdun Place, Richmond BC</i>
         </div>
         <br />
         <b>
@@ -129,9 +129,11 @@ const ContactDetails = (props) => {
         <br />
         <b>Manager: </b> David Davenport
         <br />
+        victoriamanager@thirdwavebus.com
         <div style={{ marginTop: "0.5rem" }}>
           <i>482 CECILIA RD, VICTORIA, BC</i>
         </div>
+        <br />
         <br />
       </div>
     </div>

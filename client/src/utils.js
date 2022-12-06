@@ -193,7 +193,11 @@ export const formSubmit = (
   const formData = {};
   for (let field of formFields) {
     if (formRefs[field].current) {
-      formData[field] = formRefs[field].current.value;
+      formData[field] = formRefs[field].current.value
+        ? formRefs[field].current.value
+        : formRefs[field].current.checked
+        ? "Yes"
+        : "No";
     }
   }
   formData.type = formType;

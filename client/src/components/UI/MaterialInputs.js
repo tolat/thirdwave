@@ -6,6 +6,8 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import styles from "./MaterialInputs.module.css";
+import { Checkbox } from "@mui/material";
+import FormControlLabel from "@mui/material/FormControlLabel";
 
 export const MaterialDatePicker = (props) => {
   const [value, setValue] = React.useState(null);
@@ -29,7 +31,9 @@ export const MaterialDatePicker = (props) => {
               style={props.style}
               {...required}
               {...params}
+              size="small"
             />
+            <div className={styles.inputSubtext}>{props.subText}</div>
           </div>
         )}
       />
@@ -50,7 +54,9 @@ export const MaterialTextInput = (props) => {
         onChange={props.onChange}
         variant="standard"
         {...required}
+        size="small"
       />
+      <div className={styles.inputSubtext}>{props.subText}</div>
     </div>
   );
 };
@@ -69,7 +75,7 @@ export const MaterialTimePicker = (props) => {
         }}
         inputRef={props.inputRef}
         style={props.style}
-        renderInput={(params, inputRef, style) => (
+        renderInput={(params, inputRef) => (
           <div className={styles.inputWrapper}>
             <TextField
               variant="standard"
@@ -77,10 +83,34 @@ export const MaterialTimePicker = (props) => {
               style={props.style}
               {...required}
               {...params}
+              size="small"
             />
+            <div className={styles.inputSubtext}>{props.subText}</div>
           </div>
         )}
       />
     </LocalizationProvider>
+  );
+};
+
+export const MaterialCheckbox = (props) => {
+  return (
+    <div className={styles.inputWrapper}>
+      <div className={styles.checkboxWrapper}>
+        <div className={styles.checkboxInputContainer}>
+          <input
+            className={styles.checkBoxInput}
+            style={props.style}
+            ref={props.inputRef}
+            type="checkbox"
+          />
+        </div>
+
+        <div>
+          <div className={styles.checkboxLabel}> {props.label}</div>
+          <div className={styles.checkboxSubLabel}> {props.subLabel}</div>
+        </div>
+      </div>
+    </div>
   );
 };
