@@ -16,7 +16,7 @@ const Modal = (props) => {
         opacity: props.modalVis.o,
         visibility: props.modalVis.v,
       }}>
-      <div className={styles.blackout}></div>
+      <div className={styles.blackout} id="modal-blackout"></div>
       <div
         className={`${styles.modal} noscroll`}
         style={{
