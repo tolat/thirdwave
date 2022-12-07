@@ -3,7 +3,7 @@ import Charters from "./Charters";
 import HeroContent from "./HeroContent";
 import SchoolRoutes from "./SchoolRoutes";
 import ServiceRegions from "./ServiceRegions";
-import ShopRental from "./ShopRental";
+import ShopServices from "./ShopServices";
 import UsedBusSales from "./UsedBusSales";
 
 const SERVICES = (props) => {
@@ -24,7 +24,7 @@ const SERVICES = (props) => {
         setQuoteModalVis={props.setQuoteModalVis}
         viewportWidth={width}
       />
-      <ShopRental
+      <ShopServices
         setQuoteModalVis={props.setQuoteModalVis}
         viewportWidth={width}
       />
