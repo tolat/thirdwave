@@ -88,10 +88,14 @@ const UsedBusSales = (props) => {
       inquireOnClick={inquireClickHandler}>
       <div className={styles.container}>
         <div className={sectionStyles.textContainer}>
-          <div className={sectionStyles.text}>
+          <div
+            style={{ fontSize: props.fontSize }}
+            className={sectionStyles.text}>
             See our available stock below.
           </div>
-          <div className={sectionStyles.contactInfo}>
+          <div
+            style={{ fontSize: props.fontSize }}
+            className={sectionStyles.contactInfo}>
             <b>Main Contact:</b> Murray Nicholl - murrayn@thirdwavebus.com{" "}
           </div>
         </div>

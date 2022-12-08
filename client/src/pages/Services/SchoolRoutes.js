@@ -64,21 +64,29 @@ const SchoolRoutes = (props) => {
         </div>
       </div>
       <div className={sectionStyles.textContainer}>
-        <div className={sectionStyles.text}>
+        <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.text}>
           Thirdwave Bus services offers full school route servicing in our
           principal areas:
         </div>
         <div>
-          <li>Greater Vancouver / Lower Mainlad</li>
-          <li>South Vancouver Island</li>
-          <li>The Sunshine Coast</li>
+          <li style={{ fontSize: props.fontSize }}>
+            Greater Vancouver / Lower Mainlad
+          </li>
+          <li style={{ fontSize: props.fontSize }}>South Vancouver Island</li>
+          <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
         </div>
-        <div className={sectionStyles.text}>
+        <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.text}>
           To inquire about school route services, please contact us through the
           "Contact" button in the navigation bar, or send an email to the main
           Contact as listed below.
         </div>
-        <div className={sectionStyles.contactInfo}>
+        <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.contactInfo}>
           <b>Main Contact:</b> Marcus Nicholl - marcusn@thirdwavebus.com{" "}
         </div>
         <div className={sectionStyles.contactInfo}>

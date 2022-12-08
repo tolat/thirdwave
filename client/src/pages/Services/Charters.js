@@ -24,7 +24,9 @@ const Charters = (props) => {
       viewportWidth={width}
       inquireOnClick={inquireClickHandler}>
       <div className={sectionStyles.textContainer}>
-        <div className={sectionStyles.text}>
+        <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.text}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -33,7 +35,9 @@ const Charters = (props) => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </div>
-        <div className={sectionStyles.contactInfo}>
+        <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.contactInfo}>
           <b>Main Contact:</b> Darelene Mikitka - darlenem@thirdwavebus.com{" "}
         </div>
       </div>

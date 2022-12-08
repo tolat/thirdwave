@@ -29,14 +29,16 @@ const ServiceRegions = (props) => {
         className={styles.container}
         style={{ flexDirection: contentFlexDirection }}>
         <div className={styles.textContainer}>
-          <div className={styles.text}>
+          <div style={{ fontSize: props.fontSize }} className={styles.text}>
             Our principle locations for regular routes are:
           </div>
-          <li>Greater Vancouver / The Lower Mainlad</li>
-          <li>South Vancouver Island</li>
-          <li>The Sunshine Coast</li>
-          <li>Squamish + Whistler</li>
-          <div className={styles.text}>
+          <li style={{ fontSize: props.fontSize }}>
+            Greater Vancouver / The Lower Mainlad
+          </li>
+          <li style={{ fontSize: props.fontSize }}>South Vancouver Island</li>
+          <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
+          <li style={{ fontSize: props.fontSize }}>Squamish + Whistler</li>
+          <div style={{ fontSize: props.fontSize }} className={styles.text}>
             We also service charters and field trips all across British
             Columbia, and in the past we have had buses travel into the United
             Staes as well. If youre area is not mantioned here, please inquire
