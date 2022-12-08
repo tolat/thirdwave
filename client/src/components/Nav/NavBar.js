@@ -14,6 +14,7 @@ const NavBar = (props) => {
   const horizontalButtonsDisplay = responsive(w, "none");
   const burgerMenuDisplay = responsive(w, "flex");
   const reduceNavbarHeigthOnScroll = 2;
+  const initalBarHeight = responsive(w, "3rem", "5rem");
 
   function convertRemToPixels(rem) {
     return (

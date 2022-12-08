@@ -19,13 +19,13 @@ import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const heroZoom = responsive(w, "0.65");
-  const heroMarginTop = responsive(w, "15rem", "14rem");
+  const heroZoom = responsive(w, "0.65", "0.8");
+  const heroMarginTop = responsive(w, "", "20rem");
   const heroBorderBottom = responsive(w, "1px solid white");
-  const heroFontSize = responsive(w, "2.3rem");
+  const heroFontSize = responsive(w, "1.9rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
-  const iconsContainerZoom = responsive(w, "0.8");
+  const iconsContainerZoom = responsive(w, "0.65", "0.8");
   const servicesDisplay = responsive(w, "none");
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
@@ -38,6 +38,7 @@ const HeroContent = (props) => {
     "1.4rem"
   );
   const subHeroBulletsDotMargin = responsive(w, "", "-3.6rem", "", "");
+  const justifyCentralContent = responsive(w, "center");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -47,7 +48,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["30rem", "45rem", "45rem", "55rem"],
+    ["100vh", "45rem", "45rem", "55rem"],
     useEffect,
     props.setHeroProps
   );
@@ -68,7 +69,11 @@ const HeroContent = (props) => {
       <CentralSection>
         <div
           className={styles.centralContainer}
-          style={{ transition: contentTransition, opacity: contentOpacity }}>
+          style={{
+            justifyContent: justifyCentralContent,
+            transition: contentTransition,
+            opacity: contentOpacity,
+          }}>
           <div
             className={styles.heroContainer}
             style={{
@@ -127,7 +132,7 @@ const HeroContent = (props) => {
               </div>
             </div>
           </div>
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div className={styles.submainContainer}>
             <div
               className={styles.iconsContainer}
               style={{

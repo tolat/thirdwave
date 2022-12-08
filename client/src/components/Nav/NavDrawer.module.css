@@ -1,12 +1,23 @@
 .container {
   position: fixed;
-  height: 100%;
+  height: 100vh;
   width: 20rem;
   right: -30rem;
   background-color: rgb(41, 41, 41);
   z-index: 11;
   transition: all 0.3s ease-in;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-  padding: 10rem 0 0 1rem;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdownButtons {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropdownButtons button {
+  height: unset;
 }

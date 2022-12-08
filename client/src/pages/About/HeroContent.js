@@ -15,6 +15,7 @@ const HeroContent = (props) => {
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
   const headerMarginTop = responsive(width, "6rem");
+  const justifyCentralContent = responsive(width, "center");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -33,7 +34,11 @@ const HeroContent = (props) => {
     <DOMReadyPortal portal={document.getElementById("hero-content")}>
       <CentralSection>
         <div
-          style={{ transition: contentTransition, opacity: contentOpacity }}
+          style={{
+            justifyContent: justifyCentralContent,
+            transition: contentTransition,
+            opacity: contentOpacity,
+          }}
           className={styles.container}>
           <div className={styles.header} style={{ marginTop: headerMarginTop }}>
             About / FAQ

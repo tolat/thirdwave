@@ -2,6 +2,7 @@ import styles from "./NavDrawer.module.css";
 import NavButton from "./NavButton";
 import { toggleModal, clickBurgerMenuIcon } from "../../utils";
 import { NavLink } from "react-router-dom";
+import { style } from "@mui/system";
 
 const NavDrawer = (props) => {
   const onContactButtonClick = () => {
@@ -22,7 +23,7 @@ const NavDrawer = (props) => {
     <div id="navDrawer" className={styles.container}>
       <div className={styles.dropdownButtons}>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>
+          <NavButton classname={styles.button}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
               to="/home"
@@ -32,7 +33,7 @@ const NavDrawer = (props) => {
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>
+          <NavButton classname={styles.button}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
               to="/about"
@@ -42,7 +43,7 @@ const NavDrawer = (props) => {
           </NavButton>
         </div>
         <div>
-          <NavButton style={{ fontSize: "1.3rem" }}>
+          <NavButton classname={styles.button}>
             <NavLink
               className={(navData) => (navData.isActive ? "bold" : "")}
               to="/services"
@@ -52,16 +53,12 @@ const NavDrawer = (props) => {
           </NavButton>
         </div>
         <div>
-          <NavButton
-            style={{ fontSize: "1.3rem" }}
-            onClick={onContactButtonClick}>
+          <NavButton classname={styles.button} onClick={onContactButtonClick}>
             Contact
           </NavButton>
         </div>
         <div>
-          <NavButton
-            style={{ fontSize: "1.3rem" }}
-            onClick={onQuoteButtonClick}>
+          <NavButton classname={styles.button} onClick={onQuoteButtonClick}>
             Get Quote
           </NavButton>
         </div>

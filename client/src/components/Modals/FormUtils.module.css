@@ -40,8 +40,7 @@ textarea {
 
 .selectInput {
   width: 100%;
-  border: 1px solid transparent;
-  border-right: 0.8rem solid transparent;
+  border: 2px solid transparent;
   padding: 0.8rem;
   border-radius: 2px;
   margin-top: 0.5rem;
