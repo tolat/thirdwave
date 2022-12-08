@@ -20,7 +20,7 @@ const AboutSection = (props) => {
   const textImgMargin = responsive(width, "0 0 4rem 0");
   const innerTextContainerMargin = responsive(
     width,
-    "none",
+    "0",
     "0 2rem 0rem 0",
     "0 2rem 0rem 0",
     "0 2rem 0rem 0"
