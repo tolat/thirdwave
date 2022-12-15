@@ -5,11 +5,11 @@ import {
   responsive,
   updateHeroResponsiveHeights,
   handleHeroFadeTransitions,
-  scrollToId,
+  scrollToOffset,
+  convertRemToPixels,
 } from "../../utils";
 import React, { useEffect, useState } from "react";
 
-import expand from "../../images/icons/expand.svg";
 import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
@@ -19,6 +19,7 @@ const HeroContent = (props) => {
     useState("opacity 1s ease-in");
   const headerMarginTop = responsive(width, "6rem");
   const justifyCentralContent = responsive(width, "center");
+  const heroZoom = responsive(width, "0.8");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -33,6 +34,11 @@ const HeroContent = (props) => {
     props.setHeroProps
   );
 
+  useEffect(() => {
+    width < process.env.REACT_APP_BREAKPOINT_T &&
+      scrollToOffset(convertRemToPixels(17));
+  }, []);
+
   return (
     <DOMReadyPortal portal={document.getElementById("hero-content")}>
       <CentralSection>
@@ -43,7 +49,9 @@ const HeroContent = (props) => {
             opacity: contentOpacity,
           }}
           className={styles.container}>
-          <div className={styles.header} style={{ marginTop: headerMarginTop }}>
+          <div
+            className={styles.header}
+            style={{ zoom: heroZoom, marginTop: headerMarginTop }}>
             Services
           </div>
           <ExpandButton scrollToId="SchoolRoutes" />

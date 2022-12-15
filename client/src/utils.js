@@ -260,3 +260,7 @@ export const clearForm = (formFields, formRefs) => {
     formRefs[field].current.value = "";
   }
 };
+
+export const convertRemToPixels = (rem) => {
+  return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+};

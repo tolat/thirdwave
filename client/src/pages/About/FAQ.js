@@ -2,6 +2,7 @@ import CentralSection from "../../components/UI/CentralSection";
 import styles from "./FAQ.module.css";
 import { responsive } from "../../utils";
 import { useState } from "react";
+import { useWindowSize } from "usehooks-ts";
 
 const faqData = [
   {
@@ -51,6 +52,7 @@ const FAQ = (props) => {
 
   const [filteredData, setFilteredData] = useState(faqData);
   const [nothingFoundDisplay, setNothingFoundDisplay] = useState("none");
+  const padding = responsive(w, "1rem");
 
   const handleFilter = (e) => {
     const searchValue = e.target.value;
@@ -92,7 +94,10 @@ const FAQ = (props) => {
           className={styles.faqContainer}
           style={{ gridTemplateColumns: templateCols }}>
           {filteredData.map((item) => (
-            <div key={item.key} className={styles.qnaContainer}>
+            <div
+              key={item.key}
+              style={{ padding: padding }}
+              className={styles.qnaContainer}>
               <QnaCard question={item.q} answer={item.a} />
             </div>
           ))}
@@ -108,15 +113,21 @@ const FAQ = (props) => {
 };
 
 const QnaCard = (props) => {
+  const { width } = useWindowSize();
+  const fontSize = responsive(width, "1rem");
   return (
     <div className={styles.qOutercontainer} style={props.style}>
       <div className={styles.qContainer}>
         <div className={styles.q}>Q:</div>
-        <div className={styles.question}>{props.question}</div>
+        <div style={{ fontSize: fontSize }} className={styles.question}>
+          {props.question}
+        </div>
       </div>
       <div className={styles.aContainer}>
         <div className={styles.a}>A:</div>
-        <div className={styles.answer}>{props.answer}</div>
+        <div style={{ fontSize: fontSize }} className={styles.answer}>
+          {props.answer}
+        </div>
       </div>
     </div>
   );

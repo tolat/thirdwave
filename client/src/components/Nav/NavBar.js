@@ -1,7 +1,12 @@
 import styles from "./NavBar.module.css";
 import logo from "../../images/logo4.png";
 import React, { useState } from "react";
-import { responsive, useScrollPosition, toggleModal } from "../../utils";
+import {
+  responsive,
+  useScrollPosition,
+  toggleModal,
+  convertRemToPixels,
+} from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
 import NavButton from "./NavButton";
@@ -15,12 +20,6 @@ const NavBar = (props) => {
   const burgerMenuDisplay = responsive(w, "flex");
   const reduceNavbarHeigthOnScroll = 2;
   const initalBarHeight = responsive(w, "3rem", "5rem");
-
-  function convertRemToPixels(rem) {
-    return (
-      rem * parseFloat(getComputedStyle(document.documentElement).fontSize)
-    );
-  }
 
   function capNumber(num, cap) {
     return num > cap ? cap : num;
@@ -42,6 +41,10 @@ const NavBar = (props) => {
   const buttonBackgroundImage =
     scrollPosition > convertRemToPixels(10) ? "none" : "";
 
+  const logoMarginTop = `${
+    0.8 - capNumber((0.8 * scrollPosition) / convertRemToPixels(10), 0.8)
+  }rem`;
+
   const onContactButtonClick = () => {
     toggleModal(props.setContactModalVis);
   };
@@ -49,10 +52,6 @@ const NavBar = (props) => {
   const onQuoteButtonClick = () => {
     toggleModal(props.setQuoteModalVis);
   };
-
-  const logoMarginTop = `${
-    0.8 - capNumber((0.8 * scrollPosition) / convertRemToPixels(10), 0.8)
-  }rem`;
 
   return (
     <React.Fragment>

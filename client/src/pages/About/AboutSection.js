@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import CentralSection from "../../components/UI/CentralSection";
 import styles from "./AboutSection.module.css";
 
