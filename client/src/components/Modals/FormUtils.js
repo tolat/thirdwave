@@ -89,7 +89,7 @@ export const SelectField = (props) => {
 };
 
 export const NonButtonContainer = (props) => {
-  return <div className={`${styles.nonButtonContainer}`}>{props.children}</div>;
+  return <div className={`${styles.nonButtonContainer} noscroll`}>{props.children}</div>;
 };
 
 export const SubmitButton = (props) => {
