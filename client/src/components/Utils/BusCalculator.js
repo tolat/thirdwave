@@ -11,7 +11,8 @@ const BusCalculator = (props) => {
   const [numSmallBuses, setNumSmallBuses] = useState("0");
   const [numMediumBuses, setNumMediumBuses] = useState("0");
   const [numLargeBuses, setNumLargeBuses] = useState("0");
-  const scaleCalcOutputs = responsive(width, "0.8", "1", "1", "1");
+  const outputFlexDirection = responsive(width, "column")
+  const outputPadding = responsive(width, "0.1rem 0 0.5rem 0")
 
   const busCapacities = {
     small: { adults: 20, children: 29 },
@@ -91,7 +92,7 @@ const BusCalculator = (props) => {
       </div>
 
       <div>
-        <div className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
+        <div style={{flexDirection: outputFlexDirection}} className={`${styles.calculatorOutput} ${themeStylesClasses}`}>
           {[
             {
               key: Math.random(),
@@ -119,7 +120,7 @@ const BusCalculator = (props) => {
             <div
               key={outputItem.key}
               className={styles.outputItemOuterContainer}
-              style={{ transform: `scale(${scaleCalcOutputs})` }}>
+              style={{padding: outputPadding}}>
               <div className={styles.outputItemContainer}>
                 <div className={styles.outputItemLabel}>{outputItem.label}</div>
                 <div className={styles.outputItemQuantity}>
