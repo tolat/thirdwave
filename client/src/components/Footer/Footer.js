@@ -69,7 +69,7 @@ const Footer = (props) => {
                 alt="facebook link"
               />
             </div>
-            <div className={styles.socialIconContainer}>
+           {/*  <div className={styles.socialIconContainer}>
               <img
                 className={styles.socialIcon}
                 src={instagram}
@@ -90,7 +90,7 @@ const Footer = (props) => {
                 src={linkedin}
                 alt="linkedin link"
               />
-            </div>
+            </div> */}
           </div>
           <div className={styles.footerLogo}>
             <img

@@ -29,21 +29,21 @@ const SERVICES = (props) => {
         viewportWidth={width}
         fontSize={fontSize}
       />
-      <ShopServices
+      {/* <ShopServices
         setQuoteModalVis={props.setQuoteModalVis}
         viewportWidth={width}
         fontSize={fontSize}
-      />
+      /> */}
       <ServiceRegions
         setQuoteModalVis={props.setQuoteModalVis}
         viewportWidth={width}
         fontSize={fontSize}
       />
-      <UsedBusSales
+     {/*  <UsedBusSales
         setQuoteModalVis={props.setQuoteModalVis}
         viewportWidth={width}
         fontSize={fontSize}
-      />
+      /> */}
     </React.Fragment>
   );
 };

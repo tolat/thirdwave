@@ -73,6 +73,7 @@ const HeroContent = (props) => {
             justifyContent: justifyCentralContent,
             transition: contentTransition,
             opacity: contentOpacity,
+            maxHeight: "100vh"
           }}>
           <div
             className={styles.heroContainer}

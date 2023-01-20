@@ -10,7 +10,7 @@ import SimpleMap from "../../components/Utils/SimpleMap";
 const ServiceRegions = (props) => {
   const width = props.viewportWidth;
   const contentFlexDirection = responsive(width, "column", "column");
-  const headerJustify = responsive(width, "start", "end", "end", "end");
+  const headerJustify = responsive(width, "start", "start", "start", "start");
   const inquireClickHandler = () => {
     toggleModal(props.setQuoteModalVis, "Service Regions");
   };
@@ -22,12 +22,15 @@ const ServiceRegions = (props) => {
       iconAlt="service regions icon"
       headerText="Regions"
       viewportWidth={width}
-      backgroundColor="rgb(251,251,251)"
+      backgroundColor="rgb(255,255,255)"
       justifyHeader={headerJustify}
       inquireOnClick={inquireClickHandler}>
       <div
         className={styles.container}
         style={{ flexDirection: contentFlexDirection }}>
+          <div className={styles.imageContainer}>
+          <SimpleMap />
+        </div>
         <div className={styles.textContainer}>
           <div style={{ fontSize: props.fontSize }} className={styles.text}>
             Our principle locations for regular routes are:
@@ -39,15 +42,16 @@ const ServiceRegions = (props) => {
           <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
           <li style={{ fontSize: props.fontSize }}>Squamish + Whistler</li>
           <div style={{ fontSize: props.fontSize }} className={styles.text}>
-            We also service charters and field trips all across British
-            Columbia, and in the past we have had buses travel into the United
-            Staes as well. If youre area is not mantioned here, please inquire
-            with our head office.
+            If youre area is not mantioned here, please inquire
+            with our head office using the email below.
           </div>
+          <div
+          style={{ fontSize: props.fontSize }}
+          className={sectionStyles.contactInfo}>
+          <b>Dispatch:</b> dispatch@thirdwavebus.com{" "}
         </div>
-        <div className={styles.imageContainer}>
-          <SimpleMap />
         </div>
+        
       </div>
 
       <div></div>

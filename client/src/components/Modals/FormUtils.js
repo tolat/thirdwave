@@ -8,14 +8,13 @@ import { useState } from "react";
 import sendmail_icon from "../../images/icons/sendmail_icon.png";
 
 import msg_icon from "../../images/icons/message_icon.png";
-import { margin } from "@mui/system";
 
 export const DetailsTextarea = (props) => {
   const { width } = useWindowSize();
   const textAreaBottMarg = utils.responsive(width, "10rem");
 
   return (
-    <div style={{ marginBottom: textAreaBottMarg, marginTop: "1rem" }}>
+    <div style={{ marginBottom: textAreaBottMarg, marginTop: "1rem", display: "flex", flexDirection: "column", flexGrow: "1" }}>
       <div className={modalStyles.sectionHeader}>
         <div style={{ display: "flex" }}>
           <img
@@ -30,7 +29,6 @@ export const DetailsTextarea = (props) => {
       <textarea
         ref={props.inputRef}
         className={styles.textArea}
-        rows={props.rows}
         required
         placeholder={props.placeholder}
       />
@@ -57,7 +55,8 @@ export const SectionContainer = (props) => {
   return (
     <div
       className={styles.sectionSubContainer}
-      style={{ flexDirection: inputDisplay }}>
+      style={{ flexDirection: inputDisplay }}
+    >
       {props.children}
     </div>
   );
@@ -71,7 +70,8 @@ export const SelectField = (props) => {
         onChange={props.onChange}
         ref={props.inputRef}
         className={styles.selectInput}
-        value={props.formState.type}>
+        value={props.formState.type}
+      >
         {[
           /* { key: Math.random(), value: "-" },
           { key: Math.random(), value: "School Routes" }, */
@@ -89,7 +89,11 @@ export const SelectField = (props) => {
 };
 
 export const NonButtonContainer = (props) => {
-  return <div className={`${styles.nonButtonContainer} noscroll`}>{props.children}</div>;
+  return (
+    <div className={`${styles.nonButtonContainer} noscroll`}>
+      {props.children}
+    </div>
+  );
 };
 
 export const SubmitButton = (props) => {
@@ -111,7 +115,8 @@ export const SubmitButton = (props) => {
           !formTypeRef.current || formTypeRef.current.value == "-"
             ? "none"
             : "",
-      }}>
+      }}
+    >
       <div style={{ fontSize: buttonFontSize }}>{props.buttonText}</div>
 
       <img
@@ -125,7 +130,8 @@ export const SubmitButton = (props) => {
       />
       <div
         id="quoteModalSpinner"
-        style={{ marginLeft: "2rem", display: props.spinnerDisplay }}>
+        style={{ marginLeft: "2rem", display: props.spinnerDisplay }}
+      >
         <Spinner animation="border" role="status" />
       </div>
     </GeneralButton>

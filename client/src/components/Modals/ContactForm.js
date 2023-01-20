@@ -34,7 +34,7 @@ const ContactForm = (props) => {
         placeholder={""}
         headerText={"Message *"}
         textareaKey={"details"}
-        rows={"10"}
+        rows={"fill"}
       />
     </React.Fragment>
   );

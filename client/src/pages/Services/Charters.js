@@ -27,13 +27,8 @@ const Charters = (props) => {
         <div
           style={{ fontSize: props.fontSize }}
           className={sectionStyles.text}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          School bus charters can be a much more cost effective way of getting large groups form A to B. We offer professional charter services for anything from weddings, to business events, to sports shuttles. Whatever your needs, our buses will deliver you safely, and on time. Inquire about our rates using the email below, or 
+          <a>{" click here to request a quote now."}</a>
         </div>
         <div
           style={{ fontSize: props.fontSize }}

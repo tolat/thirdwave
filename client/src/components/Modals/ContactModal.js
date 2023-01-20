@@ -78,8 +78,8 @@ const ContactDetails = (props) => {
   const { w } = useWindowSize();
 
   return (
-    <div className={`${props.className}`}>
-      <div className={styles.sidepanelHeader}>
+<React.Fragment>      
+  <div className={styles.sidepanelHeader}>
         <div className={modalStyles.sectionHeader}>
           <img
             className={`${modalStyles.inputIcon} invertFilter`}
@@ -89,7 +89,7 @@ const ContactDetails = (props) => {
           <div style={{ color: "white" }}>Contact Us</div>
         </div>
       </div>
-      <div className={styles.sidepanelText}>
+      <div className={styles.sidepanelText + ' noscroll'}>
         <b>DISPATCH:</b>
         <br />
         dispatch@thirdawavebus.com
@@ -136,7 +136,7 @@ const ContactDetails = (props) => {
         <br />
         <br />
       </div>
-    </div>
+      </React.Fragment>      
   );
 };
 

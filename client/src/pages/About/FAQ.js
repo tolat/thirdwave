@@ -118,13 +118,13 @@ const QnaCard = (props) => {
   return (
     <div className={styles.qOutercontainer} style={props.style}>
       <div className={styles.qContainer}>
-        <div className={styles.q}>Q:</div>
+        {/* <div className={styles.q}>Q:</div> */}
         <div style={{ fontSize: fontSize }} className={styles.question}>
           {props.question}
         </div>
       </div>
       <div className={styles.aContainer}>
-        <div className={styles.a}>A:</div>
+       {/*  <div className={styles.a}>A:</div> */}
         <div style={{ fontSize: fontSize }} className={styles.answer}>
           {props.answer}
         </div>

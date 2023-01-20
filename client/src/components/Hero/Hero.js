@@ -22,7 +22,7 @@ const Hero = (props) => {
       <div
         id="hero-content"
         className={styles.container}
-        style={{ minHeight: containerMinHeight }}>
+        style={{ minHeight: containerMinHeight}}>
         {props.children}
       </div>
     </BlackFade>

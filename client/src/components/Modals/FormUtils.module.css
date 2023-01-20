@@ -27,6 +27,11 @@
   font-size: 0.9rem;
   line-height: 1.1rem;
   box-sizing: border-box;
+  height: 100%;
+}
+
+.textareaContainer{
+  display: flex;
 }
 
 .textArea:focus {
@@ -62,9 +67,12 @@ textarea {
   ); */
   padding: 2rem;
   margin: 2rem 0 1rem 0;
-  background-color: rgb(249, 249, 249);
+  /* background-color: rgb(249, 249, 249); */
   border-radius: 5px;
   border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .sendButton {

@@ -81,7 +81,7 @@ const AboutSection = (props) => {
             />
           </div>
         </div>
-        <div
+        {/* <div
           className={styles.aboutOwnersContainer}
           style={{ flexDirection: ownerContainerFlexDisplay }}>
           <div
@@ -118,7 +118,7 @@ const AboutSection = (props) => {
               alt="owner signature"
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </CentralSection>
   );
