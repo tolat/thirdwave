@@ -6,7 +6,6 @@ import Modal from "./Modal";
 import phone_icon from "../../images/icons/phone1.svg";
 import { SubmitButton, NonButtonContainer } from "./FormUtils";
 import ContactForm from "./ContactForm";
-import { useWindowSize } from "usehooks-ts";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
@@ -16,6 +15,7 @@ const ContactModal = (props) => {
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
   const mobileDetailsDisplay = utils.responsive(w, "block");
+  const mobileInvertFilter = utils.responsive(w,"invertFilter", "", "", "")
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
@@ -49,12 +49,13 @@ const ContactModal = (props) => {
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
+          
+          <ContactForm refs={formRefs} />
           <div
-            className={styles.detailsForMobile}
+            className={styles.detailsForMobile + ` ${mobileInvertFilter}`}
             style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
             <ContactDetails className="invertFilter" />
           </div>
-          <ContactForm refs={formRefs} />
         </NonButtonContainer>
         <SubmitButton
           iconDisplay={iconDisplay}
@@ -75,7 +76,6 @@ const ContactSidepanel = (props) => {
 };
 
 const ContactDetails = (props) => {
-  const { w } = useWindowSize();
 
   return (
 <React.Fragment>      

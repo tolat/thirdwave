@@ -11,7 +11,7 @@ import msg_icon from "../../images/icons/message_icon.png";
 
 export const DetailsTextarea = (props) => {
   const { width } = useWindowSize();
-  const textAreaBottMarg = utils.responsive(width, "10rem");
+  const textAreaBottMarg = utils.responsive(width, "2rem");
 
   return (
     <div style={{ marginBottom: textAreaBottMarg, marginTop: "1rem", display: "flex", flexDirection: "column", flexGrow: "1" }}>

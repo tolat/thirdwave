@@ -7,8 +7,8 @@ import { useWindowSize } from "usehooks-ts";
 const faqData = [
   {
     key: "faq1",
-    q: "Is it sunny enough in Vancouver and BC generally for solar to be worth it?",
-    a: "Yes! It is a common misconception that British Columbia is too rainy or overcast for solar, specifically Vancouver and Victoria. In fact, BC receives the same amount of annual energy from the sun as Germany, a global leader in solar energy.",
+    q: "Why do some buses not have seat belts? ",
+    a: "Buses are typically larger and heavier than other automobiles, which makes them less likely to sustain damage in a collision. In addition, seats in a bus are typically installed equidistant from each other, which creates “compartments” that help to absorb the impact of a collision or sudden stop.",
   },
   {
     key: "faq2",

@@ -3,6 +3,7 @@ import styles from "./ThirdwaveBlurb.module.css";
 import { responsive } from "../../utils";
 
 import img from "../../images/under_grouse.jpeg";
+import { fontSize } from "@mui/system";
 
 const ThirdwaveBlurb = (props) => {
   const w = props.viewportWidth;
@@ -20,12 +21,16 @@ const ThirdwaveBlurb = (props) => {
   const textImageContainerJustifyContent = responsive(w, "center", "", "", "");
   const textFontSize = responsive(w, "1.1rem");
   const textLineHeight = responsive(w, "1.4rem");
-  const textAlign = responsive(w);
+  const textAlign = responsive(w, "left");
+  const headerFontSize = responsive(w, "1.5rem")
+  const headerMargin = responsive(w, "3rem 0.5rem 0rem 0.5rem")
+  const headerTextAlign = responsive(w, "left")
+  const imgDisplay = responsive(w, "none")
 
   return (
     <CentralSection backgroundColor={"white"}>
       <div id="ThirdwaveBlurb" className={styles.container}>
-        <div className={styles.header}>
+        <div className={styles.header} style={{fontSize: headerFontSize, margin: headerMargin, textAlign: headerTextAlign}}>
           Custom Schoolbus Services For the lower mainland and beyond.{" "}
         </div>
         <div
@@ -42,6 +47,7 @@ const ThirdwaveBlurb = (props) => {
             }}>
             <img
               className={styles.textImage}
+              style={{display: imgDisplay}}
               src={img}
               alt="bus-under-grouse"
             />

@@ -1,6 +1,7 @@
 import styles from "./BlackFade.module.css";
 
 const BlackFade = (props) => {
+  
   return (
     <div className={styles.container} style={props.containerStyle}>
       <div
@@ -8,8 +9,8 @@ const BlackFade = (props) => {
         style={{
           backgroundImage: `url(".${props.backgroundImage}")`,
           opacity: props.backgroundOpacity,
-          backgroundAttachment: props.backgroundAttachment || "local",
-          backgroundSize: props.backgroundSize || "cover",
+          backgroundAttachment: props.backgroundAttachment, 
+          backgroundSize: props.backgroundSize, 
           backgroundPosition: props.backgroundPosition,
         }}
       />
