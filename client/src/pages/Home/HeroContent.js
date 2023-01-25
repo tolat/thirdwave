@@ -17,29 +17,31 @@ import map from "../../images/icons/map.svg";
 import family from "../../images/icons/fieldtrip.svg";
 import tag from "../../images/icons/tag.svg";
 import ExpandButton from "../../components/UI/ExpandButton";
+import { useWindowSize } from "usehooks-ts";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const heroZoom = responsive(w, "0.45", "0.8");
   const heroMarginTop = responsive(w, "", "20rem");
   const heroBorderBottom = responsive(w, "1px solid white");
-  const heroFontSize = responsive(w, "1.9rem", "2.3rem");
+  const heroFontSize = responsive(w, "1.3rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
-  const iconsContainerZoom = responsive(w, "0.30", "0.8");
   const servicesDisplay = responsive(w, "none");
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
   const subHeroBulletsFontSize = responsive(
     w,
-    "",
+    "0.7rem",
     "1.1rem",
     "1.4rem",
     "1.4rem"
   );
   const subHeroBulletsDotMargin = responsive(w, "", "-3.6rem", "", "");
   const justifyCentralContent = responsive(w, "center");
+  const canadianOwnedImgStyle = responsive(w, {maxWidth: "5rem", height: "5rem"})
+  const headerContainerMaxWidth = responsive(w, "40vw")
+
 
   handleHeroFadeTransitions(
     useEffect,
@@ -85,16 +87,16 @@ const HeroContent = (props) => {
           <div
             className={styles.heroContainer}
             style={{
-              zoom: heroZoom,
               marginTop: heroMarginTop,
               borderBottom: heroBorderBottom,
             }}>
             <img
               className={styles.canadianOwnedImg}
               src={maple_leaf}
+              style={canadianOwnedImgStyle}
               alt="canadian owned"
             />
-            <div className={styles.headerContainer}>
+            <div className={styles.headerContainer} style={{maxWidth: headerContainerMaxWidth}}>
               <div
                 className={styles.header1}
                 style={{ fontSize: heroFontSize }}>
@@ -145,7 +147,6 @@ const HeroContent = (props) => {
               className={styles.iconsContainer}
               style={{
                 width: iconsContainerWidth,
-                zoom: iconsContainerZoom,
               }}>
               <ServicesIcon
                 onClick={servicesIconClickHandler}
@@ -187,9 +188,16 @@ const HeroContent = (props) => {
 };
 
 const ServicesIcon = (props) => {
+  const {width} = useWindowSize()
   const clickContainer = () => {
     document.getElementById(`${props.text}_linkid`).click();
   };
+
+  const imgStyle = responsive(width, {width: "1.5rem", height: "1.5rem"})
+  const fontSize = responsive(width, "0.6rem")
+
+  console.log(fontSize)
+
   return (
     <div
       id={`${props.text}_linkid`}
@@ -200,8 +208,9 @@ const ServicesIcon = (props) => {
         src={props.imgUrl}
         alt={props.alt}
         onClick={clickContainer}
+        style= {imgStyle}
       />
-      <div className={styles.iconText}>{props.text}</div>
+      <div className={styles.iconText} style={{fontSize: fontSize}}>{props.text}</div>
     </div>
   );
 };
