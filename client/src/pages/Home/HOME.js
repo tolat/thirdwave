@@ -13,10 +13,11 @@ const HOME = (props) => {
         heroProps={props.heroProps}
         setHeroProps={props.setHeroProps}
         viewportWidth={width}
+        setContactModalVis={props.setContactModalVis}
       />
       <ThirdwaveBlurb viewportWidth={width} />
       <Partners viewportWidth={width} />
-      <Testimonials viewportWidth={width} />
+     {/*  <Testimonials viewportWidth={width} /> */}
     </React.Fragment>
   );
 };

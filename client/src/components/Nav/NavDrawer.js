@@ -6,6 +6,7 @@ import { style } from "@mui/system";
 
 const NavDrawer = (props) => {
   const onContactButtonClick = () => {
+    props.setContactModaltextareaPlaceholder(false)
     toggleModal(props.setContactModalVis);
     clickBurgerMenuIcon(true);
   };

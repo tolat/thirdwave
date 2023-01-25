@@ -1,9 +1,8 @@
 import styles from "./Modal.module.css";
-import { responsive, toggleModal } from "../../utils";
+import { toggleModal } from "../../utils";
 import closeButton from "../../images/close_button.png";
 
 const Modal = (props) => {
-  const w = props.viewportWidth;
 
   const onToggleModal = () => {
     toggleModal(props.setModalVis);

@@ -15,18 +15,22 @@ import Hero from "./components/Hero/Hero";
 import HOME from "./pages/Home/HOME";
 import SERVICES from "./pages/Services/SERVICES";
 import ABOUT from "./pages/About/ABOUT";
+import { responsive } from "./utils";
 
 function App() {
   const initModalVis = { o: "0", v: "hidden" };
   const { width } = useWindowSize();
   const [contactModalVis, setContactModalVis] = useState(initModalVis);
+  const [contactModaltextareaPlaceholder, setContactModaltextareaPlaceholder] = useState(false)
   const [quoteModalVis, setQuoteModalVis] = useState(initModalVis);
+  const bgAttachment = responsive(width, "scroll", "fixed", "fixed", "fixed")
 
   const [heroProps, setHeroProps] = useState({
-    containerMinHeight: ["40rem", "45rem", "45rem", "45rem"],
-    bgAttachment: "fixed",
+    containerMinHeight: ["40rem", "45rem", "65rem", "65rem"],
+    bgAttachment: bgAttachment,
     bgSize: "cover",
     bgOpacity: "0.8",
+    setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder
   });
 
   return (
@@ -36,6 +40,7 @@ function App() {
         viewportWidth={width}
         modalVis={contactModalVis}
         setModalVis={setContactModalVis}
+        contactModaltextareaPlaceholder={contactModaltextareaPlaceholder}
       />
       <QuoteModal
         viewportWidth={width}
@@ -45,11 +50,13 @@ function App() {
       <NavDrawer
         setContactModalVis={setContactModalVis}
         setQuoteModalVis={setQuoteModalVis}
+        setContactModaltextareaPlaceholder= {setContactModaltextareaPlaceholder}
       />
       <NavBar
         viewportWidth={width}
         setContactModalVis={setContactModalVis}
         setQuoteModalVis={setQuoteModalVis}
+        setContactModaltextareaPlaceholder= {setContactModaltextareaPlaceholder}
       />
       <Hero heroProps={heroProps} viewportWidth={width} />
       <Routes>
@@ -61,6 +68,7 @@ function App() {
               setHeroProps={setHeroProps}
               heroProps={heroProps}
               viewportWidth={width}
+              setContactModalVis={setContactModalVis}
             />
           }
         />

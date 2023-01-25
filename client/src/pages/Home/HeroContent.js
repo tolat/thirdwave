@@ -6,6 +6,7 @@ import {
   responsive,
   scrollToId,
   updateHeroResponsiveHeights,
+  toggleModal
 } from "../../utils";
 import React, { useEffect, useState } from "react";
 
@@ -56,7 +57,13 @@ const HeroContent = (props) => {
   const servicesIconClickHandler = (e) => {
     const innerText = e.target.innerText;
     if (innerText) {
-      document.getElementById("servicesButton").click();
+      if(innerText === "Shop Services" || innerText === "Used Bus Sales"){
+        props.heroProps.setContactModaltextareaPlaceholder(`Enter your ${innerText} inquiry here.`)
+        toggleModal(props.setContactModalVis)
+      }else{
+        document.getElementById("servicesButton").click();
+      }
+     
     }
 
     setTimeout(() => {
@@ -144,26 +151,31 @@ const HeroContent = (props) => {
                 onClick={servicesIconClickHandler}
                 text="School Routes"
                 imgUrl={family}
+                setContactModalVis={props.setContactModalVis}
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
                 text="Charters"
                 imgUrl={bus}
+                setContactModalVis={props.setContactModalVis}
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
                 text="Shop Services"
                 imgUrl={wrench}
+                setContactModalVis={props.setContactModalVis}
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
                 text="Regions"
                 imgUrl={map}
+                setContactModalVis={props.setContactModalVis}
               />
               <ServicesIcon
                 onClick={servicesIconClickHandler}
                 text="Used Bus Sales"
                 imgUrl={tag}
+                setContactModalVis={props.setContactModalVis}
               />
             </div>
             <ExpandButton scrollToId="ThirdwaveBlurb" />

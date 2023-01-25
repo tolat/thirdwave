@@ -38,6 +38,10 @@
   position: static;
 }
 
+.logo:hover{
+  cursor: pointer;
+}
+
 .buttons {
   margin: 1rem;
   display: flex;

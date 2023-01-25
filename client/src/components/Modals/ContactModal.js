@@ -49,8 +49,7 @@ const ContactModal = (props) => {
       sidepanelDisplay={sidepanelDisplay}>
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
-          
-          <ContactForm refs={formRefs} />
+          <ContactForm refs={formRefs} contactModaltextareaPlaceholder={props.contactModaltextareaPlaceholder}/>
           <div
             className={styles.detailsForMobile + ` ${mobileInvertFilter}`}
             style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>

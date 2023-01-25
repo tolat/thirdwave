@@ -46,12 +46,17 @@ const NavBar = (props) => {
   }rem`;
 
   const onContactButtonClick = () => {
+    props.setContactModaltextareaPlaceholder(false)
     toggleModal(props.setContactModalVis);
   };
 
   const onQuoteButtonClick = () => {
     toggleModal(props.setQuoteModalVis);
   };
+
+  const handleLogoClick = () =>{
+    document.getElementById("homeButton").click()
+  }
 
   return (
     <React.Fragment>
@@ -65,7 +70,8 @@ const NavBar = (props) => {
             style={{
               backgroundImage: `url("${logo}")`,
               marginTop: logoMarginTop,
-            }}></div>
+            }}
+            onClick={handleLogoClick}/>
           <div
             className={styles.buttons}
             style={{ display: horizontalButtonsDisplay }}>
@@ -76,7 +82,8 @@ const NavBar = (props) => {
               }}>
               <NavLink
                 className={(navData) => (navData.isActive ? "activePage" : "")}
-                to="/home">
+                to="/home"
+                id="homeButton">
                 Home
               </NavLink>
             </NavButton>

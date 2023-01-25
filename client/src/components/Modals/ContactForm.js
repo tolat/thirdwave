@@ -4,6 +4,7 @@ import { MaterialTextInput } from "../UI/MaterialInputs";
 import React from "react";
 
 const ContactForm = (props) => {
+  console.log(props.contactModaltextareaPlaceholder)
   return (
     <React.Fragment>
       <SectionContainer>
@@ -31,7 +32,7 @@ const ContactForm = (props) => {
       </SectionContainer>
       <DetailsTextarea
         inputRef={props.refs.message}
-        placeholder={""}
+        placeholder={props.contactModaltextareaPlaceholder || "Type your message here!"}
         headerText={"Message *"}
         textareaKey={"details"}
         rows={"fill"}
