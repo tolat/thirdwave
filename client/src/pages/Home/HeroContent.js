@@ -20,13 +20,13 @@ import ExpandButton from "../../components/UI/ExpandButton";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const heroZoom = responsive(w, "0.65", "0.8");
+  const heroZoom = responsive(w, "0.45", "0.8");
   const heroMarginTop = responsive(w, "", "20rem");
   const heroBorderBottom = responsive(w, "1px solid white");
   const heroFontSize = responsive(w, "1.9rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
-  const iconsContainerZoom = responsive(w, "0.50", "0.8");
+  const iconsContainerZoom = responsive(w, "0.30", "0.8");
   const servicesDisplay = responsive(w, "none");
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
@@ -49,7 +49,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "45rem", "45rem", "65rem"],
+    ["100vh", "45rem", "55rem", "55rem"],
     useEffect,
     props.setHeroProps
   );
@@ -182,7 +182,6 @@ const HeroContent = (props) => {
           </div>
         </div>
       </CentralSection>
-      ,
     </DOMReadyPortal>
   );
 };

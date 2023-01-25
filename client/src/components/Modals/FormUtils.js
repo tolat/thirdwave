@@ -89,8 +89,12 @@ export const SelectField = (props) => {
 };
 
 export const NonButtonContainer = (props) => {
+  const {width} = useWindowSize()
+  const nbContainerPadding = utils.responsive(width, "0")
+  const nbContainerMargin = utils.responsive(width, "3rem 0 0 0")
+
   return (
-    <div className={`${styles.nonButtonContainer} noscroll`}>
+    <div className={`${styles.nonButtonContainer} noscroll`} style={{padding: nbContainerPadding, margin: nbContainerMargin}}>
       {props.children}
     </div>
   );

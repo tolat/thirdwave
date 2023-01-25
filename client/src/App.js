@@ -23,11 +23,10 @@ function App() {
   const [contactModalVis, setContactModalVis] = useState(initModalVis);
   const [contactModaltextareaPlaceholder, setContactModaltextareaPlaceholder] = useState(false)
   const [quoteModalVis, setQuoteModalVis] = useState(initModalVis);
-  const bgAttachment = responsive(width, "scroll", "fixed", "fixed", "fixed")
 
   const [heroProps, setHeroProps] = useState({
     containerMinHeight: ["40rem", "45rem", "65rem", "65rem"],
-    bgAttachment: bgAttachment,
+    bgAttachment: "scroll",
     bgSize: "cover",
     bgOpacity: "0.8",
     setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder
