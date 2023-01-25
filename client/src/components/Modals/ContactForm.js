@@ -4,7 +4,6 @@ import { MaterialTextInput } from "../UI/MaterialInputs";
 import React from "react";
 
 const ContactForm = (props) => {
-  console.log(props.contactModaltextareaPlaceholder)
   return (
     <React.Fragment>
       <SectionContainer>

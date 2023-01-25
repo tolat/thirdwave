@@ -160,7 +160,7 @@ export const handleHeroFadeTransitions = (
 
 export const scrollToId = (Id) => {
   if (!document.getElementById(Id)) {
-    console.log("id not found");
+    console.log(`id ${Id} not found`);
     return;
   }
   let offset = document.getElementById(Id).getBoundingClientRect().top;

@@ -26,7 +26,7 @@ const HeroContent = (props) => {
   const heroFontSize = responsive(w, "1.9rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
-  const iconsContainerZoom = responsive(w, "0.65", "0.8");
+  const iconsContainerZoom = responsive(w, "0.50", "0.8");
   const servicesDisplay = responsive(w, "none");
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
@@ -49,7 +49,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "45rem", "45rem", "55rem"],
+    ["100vh", "45rem", "45rem", "65rem"],
     useEffect,
     props.setHeroProps
   );
