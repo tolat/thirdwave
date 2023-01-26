@@ -41,12 +41,14 @@ const NavBar = (props) => {
   const buttonBackgroundImage =
     scrollPosition > convertRemToPixels(10) ? "none" : "";
 
+    const quoteButtonBorder =`2px solid rgb(250,250,250,${1-capNumber(scrollPosition/convertRemToPixels(4),1)})`;
+
   const logoMarginTop = `${
     0.8 - capNumber((0.8 * scrollPosition) / convertRemToPixels(10), 0.8)
   }rem`;
 
   const onContactButtonClick = () => {
-    props.setContactModaltextareaPlaceholder(false)
+    props.setContactModaltextareaPlaceholder(false);
     toggleModal(props.setContactModalVis);
   };
 
@@ -54,15 +56,16 @@ const NavBar = (props) => {
     toggleModal(props.setQuoteModalVis);
   };
 
-  const handleLogoClick = () =>{
-    document.getElementById("homeButton").click()
-  }
+  const handleLogoClick = () => {
+    document.getElementById("homeButton").click();
+  };
 
   return (
     <React.Fragment>
       <div
         className={styles.background}
-        style={{ opacity: bgOpacity, height: barHeight }}></div>
+        style={{ opacity: bgOpacity, height: barHeight }}
+      ></div>
       <div className={styles.container} style={{ height: barHeight }}>
         <div className={styles.innerContainer}>
           <div
@@ -71,19 +74,23 @@ const NavBar = (props) => {
               backgroundImage: `url("${logo}")`,
               marginTop: logoMarginTop,
             }}
-            onClick={handleLogoClick}/>
+            onClick={handleLogoClick}
+          />
           <div
             className={styles.buttons}
-            style={{ display: horizontalButtonsDisplay }}>
+            style={{ display: horizontalButtonsDisplay }}
+          >
             <NavButton
               style={{
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
-              }}>
+              }}
+            >
               <NavLink
                 className={(navData) => (navData.isActive ? "activePage" : "")}
                 to="/home"
-                id="homeButton">
+                id="homeButton"
+              >
                 Home
               </NavLink>
             </NavButton>
@@ -91,11 +98,13 @@ const NavBar = (props) => {
               style={{
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
-              }}>
+              }}
+            >
               <NavLink
                 id="aboutButton"
                 className={(navData) => (navData.isActive ? "activePage" : "")}
-                to="/about">
+                to="/about"
+              >
                 About / FAQ
               </NavLink>
             </NavButton>
@@ -103,11 +112,13 @@ const NavBar = (props) => {
               style={{
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
-              }}>
+              }}
+            >
               <NavLink
                 id="servicesButton"
                 className={(navData) => (navData.isActive ? "activePage" : "")}
-                to="/services">
+                to="/services"
+              >
                 Services
               </NavLink>
             </NavButton>
@@ -116,16 +127,20 @@ const NavBar = (props) => {
                 backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
               }}
-              onClick={onContactButtonClick}>
+              onClick={onContactButtonClick}
+            >
               Contact
             </NavButton>
             <NavButton
+              className={styles.quoteButton}
               style={{
-                backgroundImage: buttonBackgroundImage,
                 height: buttonHeight,
+                backgroundImage: "none",
+                border: quoteButtonBorder
               }}
-              onClick={onQuoteButtonClick}>
-              GET QUOTE
+              onClick={onQuoteButtonClick}
+            >
+              Get Quote
             </NavButton>
           </div>
         </div>
@@ -134,7 +149,8 @@ const NavBar = (props) => {
         className={`${styles.burgerButton} invertFilter`}
         style={{ height: barHeight, display: burgerMenuDisplay }}
         onClick={toggleNavDrawer}
-        id="burgerMenu">
+        id="burgerMenu"
+      >
         <Hamburger toggled={isOpen} toggle={setOpen} />
       </div>
     </React.Fragment>

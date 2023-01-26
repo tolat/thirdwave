@@ -20,14 +20,14 @@ const Footer = (props) => {
           <div className={styles.footerContactContainer}>
             <div className={styles.footerContactText}>
               <b>
-                <u>Dispatch</u>
+                Dispatch
               </b>
               <br />
               dispatch@thirdawavebus.com
               <br />
               <br />
               <b>
-                <u>Lower Mainland</u>
+                Lower Mainland
               </b>
               <br />
               <b>Office:</b> (604) 274-1221 <br />
@@ -39,7 +39,7 @@ const Footer = (props) => {
               </div>
               <br />
               <b>
-                <u>Sunshine Coast</u>
+                Sunshine Coast
               </b>
               <br />
               <b>Office:</b> (604) 855-1260 <br />
@@ -49,7 +49,7 @@ const Footer = (props) => {
               </div>
               <br />
               <b>
-                <u>Victoria</u>
+                Victoria
               </b>
               <br />
               <b>Office:</b> 1 (250) 382-4333
@@ -63,11 +63,13 @@ const Footer = (props) => {
           </div>
           <div className={styles.socialIconsContainer}>
             <div className={styles.socialIconContainer}>
+            <a href="https://www.facebook.com/ThirdwaveBusServices/">
               <img
                 className={styles.socialIcon}
                 src={facebook}
                 alt="facebook link"
               />
+              </a>
             </div>
            {/*  <div className={styles.socialIconContainer}>
               <img
@@ -97,6 +99,7 @@ const Footer = (props) => {
               className={styles.footerLogoImg}
               style={{ maxWidth: "20rem", alignSelf: "center" }}
               src={logo}
+            
               alt="company logo"
             />
           </div>

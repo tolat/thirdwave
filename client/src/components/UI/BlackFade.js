@@ -2,8 +2,6 @@ import styles from "./BlackFade.module.css";
 
 const BlackFade = (props) => {
   
-  console.log(props.backgroundAttachment)
-  
   return (
     <div className={styles.container} style={props.containerStyle}>
       <div

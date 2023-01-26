@@ -21,7 +21,7 @@ import { useWindowSize } from "usehooks-ts";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const heroMarginTop = responsive(w, "", "20rem");
+  const heroMarginTop = responsive(w, "", "18rem");
   const heroBorderBottom = responsive(w, "1px solid white");
   const heroFontSize = responsive(w, "1.3rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
@@ -41,6 +41,7 @@ const HeroContent = (props) => {
   const justifyCentralContent = responsive(w, "center");
   const canadianOwnedImgStyle = responsive(w, {maxWidth: "5rem", height: "5rem"})
   const headerContainerMaxWidth = responsive(w, "40vw")
+  const iconsContainerMarginTop = responsive(w, "","5rem", "5rem","5rem")
 
 
   handleHeroFadeTransitions(
@@ -51,10 +52,11 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "45rem", "55rem", "55rem"],
+    ["100vh", "45rem", "45rem", "50rem"],
     useEffect,
     props.setHeroProps
   );
+
 
   const servicesIconClickHandler = (e) => {
     const innerText = e.target.innerText;
@@ -147,6 +149,7 @@ const HeroContent = (props) => {
               className={styles.iconsContainer}
               style={{
                 width: iconsContainerWidth,
+                marginTop: iconsContainerMarginTop
               }}>
               <ServicesIcon
                 onClick={servicesIconClickHandler}
@@ -193,10 +196,8 @@ const ServicesIcon = (props) => {
     document.getElementById(`${props.text}_linkid`).click();
   };
 
-  const imgStyle = responsive(width, {width: "1.5rem", height: "1.5rem"})
-  const fontSize = responsive(width, "0.6rem")
-
-  console.log(fontSize)
+  const imgStyle = responsive(width, {width: "1.5rem", height: "1.5rem"},{width: "2rem", height: "2rem"})
+  const fontSize = responsive(width, "0.6rem", "1rem")
 
   return (
     <div

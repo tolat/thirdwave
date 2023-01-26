@@ -1,7 +1,7 @@
 import "./App.css";
 import { useWindowSize } from "usehooks-ts";
 import { Route, Routes, Navigate } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 
 import Flash from "./components/Flash/Flash";
@@ -23,14 +23,21 @@ function App() {
   const [contactModalVis, setContactModalVis] = useState(initModalVis);
   const [contactModaltextareaPlaceholder, setContactModaltextareaPlaceholder] = useState(false)
   const [quoteModalVis, setQuoteModalVis] = useState(initModalVis);
+  const bgAttachment = responsive(width, "scroll", "fixed","fixed", "fixed")
+  
 
   const [heroProps, setHeroProps] = useState({
-    containerMinHeight: ["40rem", "45rem", "65rem", "65rem"],
-    bgAttachment: "scroll",
+    containerMinHeight: ["40rem", "40rem", "55rem", "55rem"],
+    bgAttachment: bgAttachment,
     bgSize: "cover",
     bgOpacity: "0.8",
     setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder
   });
+
+  useEffect(()=>{setHeroProps(prevState=>{
+    prevState.bgAttachment = bgAttachment
+    return prevState
+  })},[bgAttachment])
 
   return (
     <React.Fragment>

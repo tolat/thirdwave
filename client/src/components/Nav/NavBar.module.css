@@ -38,7 +38,7 @@
   position: static;
 }
 
-.logo:hover{
+.logo:hover {
   cursor: pointer;
 }
 
@@ -64,4 +64,13 @@ a {
 
 a:hover {
   color: white;
+}
+
+.quoteButton {
+  padding: 0 1rem 0 1rem;
+  border-radius: 3px;
+}
+
+.quoteButton:active{
+  opacity: 0.7;
 }
