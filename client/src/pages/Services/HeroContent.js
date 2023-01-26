@@ -19,7 +19,7 @@ const HeroContent = (props) => {
     useState("opacity 1s ease-in");
   const headerMarginTop = responsive(width, "6rem");
   const justifyCentralContent = responsive(width, "center");
-  const heroZoom = responsive(width, "0.8");
+  const heroFontSize = responsive(width, "1.5rem", "2.1rem");
 
   handleHeroFadeTransitions(
     useEffect,
@@ -34,11 +34,11 @@ const HeroContent = (props) => {
     props.setHeroProps
   );
 
-  useEffect(() => {
+  /* useEffect(() => {
     width < process.env.REACT_APP_BREAKPOINT_T &&
       scrollToOffset(convertRemToPixels(17));
   }, []);
-
+ */
   return (
     <DOMReadyPortal portal={document.getElementById("hero-content")}>
       <CentralSection>
@@ -51,7 +51,7 @@ const HeroContent = (props) => {
           className={styles.container}>
           <div
             className={styles.header}
-            style={{ zoom: heroZoom, marginTop: headerMarginTop }}>
+            style={{ fontSize:heroFontSize, marginTop: headerMarginTop }}>
             Services
           </div>
           <ExpandButton scrollToId="SchoolRoutes" />

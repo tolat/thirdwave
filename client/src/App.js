@@ -19,25 +19,33 @@ import { responsive } from "./utils";
 
 function App() {
   const initModalVis = { o: "0", v: "hidden" };
-  const { width } = useWindowSize();
+  const { width, height } = useWindowSize();
   const [contactModalVis, setContactModalVis] = useState(initModalVis);
-  const [contactModaltextareaPlaceholder, setContactModaltextareaPlaceholder] = useState(false)
+  const [contactModaltextareaPlaceholder, setContactModaltextareaPlaceholder] =
+    useState(false);
   const [quoteModalVis, setQuoteModalVis] = useState(initModalVis);
-  const bgAttachment = responsive(width, "scroll", "fixed","fixed", "fixed")
-  
+  const bgAttachment = responsive(
+    width,
+    "scroll",
+    `${height > 0.7 * width ? "scroll" : "fixed"}`,
+    `${height > 0.7 * width ? "scroll" : "fixed"}`,
+    "fixed"
+  );
 
   const [heroProps, setHeroProps] = useState({
     containerMinHeight: ["40rem", "40rem", "55rem", "55rem"],
     bgAttachment: bgAttachment,
     bgSize: "cover",
     bgOpacity: "0.8",
-    setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder
+    setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder,
   });
 
-  useEffect(()=>{setHeroProps(prevState=>{
-    prevState.bgAttachment = bgAttachment
-    return prevState
-  })},[bgAttachment])
+  useEffect(() => {
+    setHeroProps((prevState) => {
+      prevState.bgAttachment = bgAttachment;
+      return prevState;
+    });
+  }, [bgAttachment]);
 
   return (
     <React.Fragment>
@@ -56,13 +64,13 @@ function App() {
       <NavDrawer
         setContactModalVis={setContactModalVis}
         setQuoteModalVis={setQuoteModalVis}
-        setContactModaltextareaPlaceholder= {setContactModaltextareaPlaceholder}
+        setContactModaltextareaPlaceholder={setContactModaltextareaPlaceholder}
       />
       <NavBar
         viewportWidth={width}
         setContactModalVis={setContactModalVis}
         setQuoteModalVis={setQuoteModalVis}
-        setContactModaltextareaPlaceholder= {setContactModaltextareaPlaceholder}
+        setContactModaltextareaPlaceholder={setContactModaltextareaPlaceholder}
       />
       <Hero heroProps={heroProps} viewportWidth={width} />
       <Routes>
