@@ -16,7 +16,7 @@ export const DetailsTextarea = (props) => {
   return (
     <div style={{ marginBottom: textAreaBottMarg, marginTop: "1rem", display: "flex", flexDirection: "column", flexGrow: "1" }}>
       <div className={modalStyles.sectionHeader}>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", width: "100%" }}>
           <img
             className={modalStyles.inputIcon}
             src={msg_icon}
@@ -123,7 +123,7 @@ export const SubmitButton = (props) => {
             margin: buttonMargin
       }}
     >
-      <div style={{ fontSize: buttonFontSize }}>{props.buttonText}</div>
+      <div style={{ fontSize: buttonFontSize, color: "black" }}>{props.buttonText}</div>
 
       <img
         style={{
