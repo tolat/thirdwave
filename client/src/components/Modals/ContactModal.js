@@ -82,7 +82,7 @@ const ContactModal = (props) => {
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
           buttonText={"Send Message"}
-          buttonMargin={utils.responsive(w, "0 2rem 3rem 0")}
+          buttonMargin={utils.responsive(w, "0 2rem 5rem 0")}
         />
       </form>
     </Modal>
