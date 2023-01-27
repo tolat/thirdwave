@@ -37,7 +37,7 @@ app.post("/message", async (req, res) => {
     req,
     res,
     `Message from thirdwavebus.com`,
-    "thirdwavebus@gmail.com",
+    "dispatch@thirdwavebus.com",
     transporter
   );
 });
@@ -48,7 +48,7 @@ app.post("/quote", async (req, res) => {
     req,
     res,
     `${req.body.type} quote request from thirdwavebus.com`,
-    "thirdwavebus@gmail.com",
+    "darlenem@thirdwavebus.com",
     transporter
   );
 });

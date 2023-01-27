@@ -87,11 +87,11 @@ const SchoolRoutes = (props) => {
         <div
           style={{ fontSize: props.fontSize }}
           className={sectionStyles.contactInfo}>
-          <b>Main Contact:</b> Marcus Nicholl - marcusn@thirdwavebus.com{" "}
+          <b>Main Contact:</b> Murray Nicholl - murrayn@thirdwavebus.com{" "}
         </div>
-        <div className={sectionStyles.contactInfo}>
+        {/* <div className={sectionStyles.contactInfo}>
           <b>Dispatch:</b> dispatch@thirdawavebus.com
-        </div>
+        </div> */}
       </div>
     </ServiceSection>
   );

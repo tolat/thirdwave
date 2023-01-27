@@ -55,11 +55,13 @@ function App() {
         modalVis={contactModalVis}
         setModalVis={setContactModalVis}
         contactModaltextareaPlaceholder={contactModaltextareaPlaceholder}
+        style={{padding: responsive(width, "1rem", ),marginTop: "-2rem"}}
       />
       <QuoteModal
         viewportWidth={width}
         modalVis={quoteModalVis}
         setModalVis={setQuoteModalVis}
+        style={{padding: responsive(width, "1rem"),marginTop: "-2rem"}}
       />
       <NavDrawer
         setContactModalVis={setContactModalVis}

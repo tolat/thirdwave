@@ -6,10 +6,11 @@ import { responsive } from "../../utils";
 const ServiceSection = (props) => {
   const w = props.viewportWidth;
   const contentFlexDirection = responsive(w, "column", "column");
+  const containerPadding = responsive(w, "1rem")
 
   return (
     <CentralSection backgroundColor={props.backgroundColor}>
-      <div id={props.id} className={styles.container}>
+      <div id={props.id} className={styles.container} style={{padding: containerPadding}}>
         <div
           className={styles.header}
           style={{ justifyContent: props.justifyHeader }}>

@@ -6,6 +6,8 @@ import Modal from "./Modal";
 import phone_icon from "../../images/icons/phone1.svg";
 import { SubmitButton, NonButtonContainer } from "./FormUtils";
 import ContactForm from "./ContactForm";
+import ContactDetails from "../Utils/ContactDetails";
+import { useWindowSize } from "usehooks-ts";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
@@ -15,7 +17,7 @@ const ContactModal = (props) => {
   const quoteModalMaxHeight = utils.responsive(w, "", "80%", "80%", "80%");
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
   const mobileDetailsDisplay = utils.responsive(w, "block");
-  const mobileInvertFilter = utils.responsive(w,"invertFilter", "", "", "")
+  const mobileInvertFilter = utils.responsive(w, "invertFilter", "", "", "");
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
@@ -46,20 +48,41 @@ const ContactModal = (props) => {
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
       sidepanel={<ContactSidepanel />}
-      sidepanelDisplay={sidepanelDisplay}>
+      sidepanelDisplay={sidepanelDisplay}
+    >
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <NonButtonContainer>
-          <ContactForm refs={formRefs} contactModaltextareaPlaceholder={props.contactModaltextareaPlaceholder}/>
+          <ContactForm
+            refs={formRefs}
+            contactModaltextareaPlaceholder={
+              props.contactModaltextareaPlaceholder
+            }
+          />
           <div
             className={styles.detailsForMobile + ` ${mobileInvertFilter}`}
-            style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}>
-            <ContactDetails className="invertFilter" />
+            style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}
+          >
+            <div className={styles.sidepanelHeader}>
+              <div className={modalStyles.sectionHeader}>
+                <img
+                  className={`${modalStyles.inputIcon} invertFilter`}
+                  src={phone_icon}
+                  alt="phone icon"
+                />{" "}
+                <div style={{ color: "white" }}>Contact Us</div>
+              </div>
+            </div>
+            <ContactDetails
+              containerStyle={{ padding: "0", overflowY: "scroll" }}
+              textStyle={{ fontSize: "0.8rem", color: "white", width: "95%" }}
+            />
           </div>
         </NonButtonContainer>
         <SubmitButton
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
           buttonText={"Send Message"}
+          buttonMargin={utils.responsive(w, "0 2rem 3rem 0")}
         />
       </form>
     </Modal>
@@ -69,16 +92,7 @@ const ContactModal = (props) => {
 const ContactSidepanel = (props) => {
   return (
     <div className={styles.sidepanelContainer}>
-      <ContactDetails />
-    </div>
-  );
-};
-
-const ContactDetails = (props) => {
-
-  return (
-<React.Fragment>      
-  <div className={styles.sidepanelHeader}>
+      <div className={styles.sidepanelHeader}>
         <div className={modalStyles.sectionHeader}>
           <img
             className={`${modalStyles.inputIcon} invertFilter`}
@@ -88,54 +102,11 @@ const ContactDetails = (props) => {
           <div style={{ color: "white" }}>Contact Us</div>
         </div>
       </div>
-      <div className={styles.sidepanelText + ' noscroll'}>
-        <b>DISPATCH:</b>
-        <br />
-        dispatch@thirdawavebus.com
-        <br />
-        <br />
-        <b>
-          <u>Lower Mainland</u>
-        </b>
-        <br />
-        <b>Phone:</b> (604) 274-1221 <br />
-        <b>Fax: </b>(604) 247-1222 <br />
-        <b>Shop:</b> (604) 247-1253 <br />
-        <b>Emergency:</b> (604)-768-3787
-        <br />
-        <b>Owner:</b> Murray Nicholl
-        <br />
-        <div style={{ marginTop: "0.5rem" }}>
-          <i>13551 VERDUN PLACE, RICHMOND BC</i>
-        </div>
-        <br />
-        <b>
-          <u>Sunshine Coast</u>
-        </b>
-        <br />
-        <b>Office:</b> (604) 855-1260 <br />
-        <b>Manager: </b>Randy Gould <br /> (604) 989-9670 <br />
-        <div style={{ marginTop: "0.5rem" }}>
-          <i>4373 SOLAR RD, SECHELT, BC</i>
-        </div>
-        <br />
-        <b>
-          <u>Victoria</u>
-        </b>
-        <br />
-        <b>Office:</b> 1 (250) 382-4333 <br />
-        <b>Fax: </b>1 (250) 382-4336
-        <br />
-        <b>Manager: </b> David Davenport
-        <br />
-        victoriamanager@thirdwavebus.com
-        <div style={{ marginTop: "0.5rem" }}>
-          <i>482 CECILIA RD, VICTORIA, BC</i>
-        </div>
-        <br />
-        <br />
-      </div>
-      </React.Fragment>      
+      <ContactDetails
+        containerStyle={{ padding: "0", overflowY: "scroll" }}
+        textStyle={{ fontSize: "0.8rem", color: "white", width: "65%" }}
+      />
+    </div>
   );
 };
 

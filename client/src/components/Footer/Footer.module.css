@@ -37,27 +37,6 @@
   align-items: center;
 }
 
-.footerContactContainer {
-  display: flex;
-  flex-direction: column;
-  padding: 3rem;
-  width: 30%;
-  box-sizing: border-box;
-  min-width: 20rem;
-}
-
-.footerContactHeader {
-  font-size: 1.1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.footerContactText {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-
 .footerLogo {
   padding: 3rem;
   box-sizing: border-box;

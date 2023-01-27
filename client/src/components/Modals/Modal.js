@@ -1,8 +1,11 @@
 import styles from "./Modal.module.css";
-import { toggleModal } from "../../utils";
+import { responsive, toggleModal } from "../../utils";
 import closeButton from "../../images/close_button.png";
+import { useWindowSize } from "usehooks-ts";
 
 const Modal = (props) => {
+  const {width} = useWindowSize()
+  const closeButtonMargin = responsive(width, "1rem 1rem 0 0")
 
   const onToggleModal = () => {
     toggleModal(props.setModalVis);
@@ -38,6 +41,7 @@ const Modal = (props) => {
               className={styles.closeModalButton}
               alt="exit modal button"
               onClick={onToggleModal}
+              style={{margin: closeButtonMargin}}
             />
           </div>
           {props.children}

@@ -25,10 +25,11 @@ const SimpleMap = () => {
 
   const { width } = useWindowSize();
   const imageMaxHeight = responsive(width, "17rem");
+  const mapMargin = responsive(width,"0")
 
   try {
     return (
-      <div className={styles.container}>
+      <div className={styles.container} style={{margin: mapMargin}}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: "AIzaSyBDmVfnf67kwRkhrf6sLOCDo7avem9USvU" }}
           defaultCenter={defaultProps.center}

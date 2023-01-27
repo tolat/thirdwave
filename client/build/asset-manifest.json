@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.3d282052.css",
-    "main.js": "/static/js/main.b11744b1.js",
+    "main.css": "/static/css/main.144f8ff5.css",
+    "main.js": "/static/js/main.1e000946.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/regions.jpg": "/static/media/regions.e233bae5b48134f55f97.jpg",
     "static/media/bus7.jpeg": "/static/media/bus7.9367fc2dd6754ebd8b15.jpeg",
@@ -25,6 +25,7 @@
     "static/media/yale.png": "/static/media/yale.58e4dd5e9f4762251e63.png",
     "static/media/pindrop.png": "/static/media/pindrop.d1cc0f0869812817a67b.png",
     "static/media/facebook.png": "/static/media/facebook.48b34a7ea437b75636d6.png",
+    "static/media/sd61.png": "/static/media/sd61.e54a22ce52bab9136d17.png",
     "static/media/fraseracademy.png": "/static/media/fraseracademy.3e9cd30403b308da011e.png",
     "static/media/youtube.png": "/static/media/youtube.dfe28b08488abdc73149.png",
     "static/media/phone1.svg": "/static/media/phone1.684438702b1a465f85e63f4fc840d40d.svg",
@@ -36,12 +37,12 @@
     "static/media/quote.svg": "/static/media/quote.4c88efed5edacd95571b9024fd7b3dd7.svg",
     "static/media/map.svg": "/static/media/map.14c9502058d9d59a242c9833c5887836.svg",
     "static/media/expand.svg": "/static/media/expand.45a1a7112bf6255f362b38eaa86ac6de.svg",
-    "main.3d282052.css.map": "/static/css/main.3d282052.css.map",
-    "main.b11744b1.js.map": "/static/js/main.b11744b1.js.map",
+    "main.144f8ff5.css.map": "/static/css/main.144f8ff5.css.map",
+    "main.1e000946.js.map": "/static/js/main.1e000946.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3d282052.css",
-    "static/js/main.b11744b1.js"
+    "static/css/main.144f8ff5.css",
+    "static/js/main.1e000946.js"
   ]
 }

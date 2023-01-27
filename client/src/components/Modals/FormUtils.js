@@ -91,7 +91,7 @@ export const SelectField = (props) => {
 export const NonButtonContainer = (props) => {
   const {width} = useWindowSize()
   const nbContainerPadding = utils.responsive(width, "0")
-  const nbContainerMargin = utils.responsive(width, "3rem 0 0 0")
+  const nbContainerMargin = utils.responsive(width, "1rem 0 0 0")
 
   return (
     <div className={`${styles.nonButtonContainer} noscroll`} style={{padding: nbContainerPadding, margin: nbContainerMargin}}>
@@ -103,7 +103,7 @@ export const NonButtonContainer = (props) => {
 export const SubmitButton = (props) => {
   const { width } = useWindowSize();
   const buttonFontSize = utils.responsive(width, "1.4rem");
-  const buttonMargin = utils.responsive(width, "0 0 2rem 0")
+  
 
   let formTypeRef = props.formTypeRef;
 
@@ -120,7 +120,7 @@ export const SubmitButton = (props) => {
           !formTypeRef.current || formTypeRef.current.value == "-"
             ? "none"
             : "",
-            margin: buttonMargin
+            margin: props.buttonMargin
       }}
     >
       <div style={{ fontSize: buttonFontSize, color: "black" }}>{props.buttonText}</div>

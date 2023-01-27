@@ -103,6 +103,7 @@ const QuoteModal = (props) => {
             iconDisplay={iconDisplay}
             spinnerDisplay={spinnerDisplay}
             buttonText={"Request Quote"}
+            buttonMargin={utils.responsive(w, "0 2rem 3rem 0")}
           />
         </div>
       </form>

@@ -13,15 +13,17 @@ import kingdavid from "../../images/partner_icons/kingdavid.png";
 import rcs from "../../images/partner_icons/rcs.png";
 import sarah from "../../images/partner_icons/sarah.png";
 import yale from "../../images/partner_icons/yale.png";
+import victoria from "../../images/partner_icons/sd61.png"
 
 import { responsive } from "../../utils";
 
 const imageLinks = [
   mapleridge,
-  sunshinecoast,
+  victoria,
   stgeorges,
   kingdavid,
   sarah,
+  sunshinecoast,
   talmud,
   pgatour,
   fraser,
