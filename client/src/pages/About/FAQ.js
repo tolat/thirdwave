@@ -3,6 +3,7 @@ import styles from "./FAQ.module.css";
 import { responsive } from "../../utils";
 import { useState } from "react";
 import { useWindowSize } from "usehooks-ts";
+import React from "react";
 
 const faqData = [
   {
@@ -23,7 +24,7 @@ const faqData = [
   {
     key: "faq4",
     q: "Can I get a quote online?",
-    a: `Yes! Thirdwave now has a quote form on our website. You can get a quote by clicking HERE`,
+    a: `Yes! Thirdwave now has a quote form on our website. You can get a quote by clicking clickforquote`,
   },
   {
     key: "faq5",
@@ -105,6 +106,24 @@ const FAQ = (props) => {
 const QnaCard = (props) => {
   const { width } = useWindowSize();
   const fontSize = responsive(width, "1rem");
+
+  const insertQuoteLink = (str) =>{
+    const linkIndex = str.indexOf("clickforquote")
+
+    const clickQuoteButton = ()=>{
+      document.getElementById("quoteButton").click()
+    }
+
+    if(linkIndex > -1){
+      return(<React.Fragment>
+        {str.slice(0,linkIndex)} <span className={styles.link} onClick={clickQuoteButton}>here.</span>
+       
+      </React.Fragment>)
+    } else{
+      return(str)
+    }
+  }
+
   return (
     <div className={styles.qOutercontainer} style={props.style}>
       <div className={styles.qContainer}>
@@ -116,7 +135,7 @@ const QnaCard = (props) => {
       <div className={styles.aContainer}>
        {/*  <div className={styles.a}>A:</div> */}
         <div style={{ fontSize: fontSize }} className={styles.answer}>
-          {props.answer}
+         {insertQuoteLink(props.answer)}
         </div>
       </div>
     </div>

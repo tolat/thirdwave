@@ -133,6 +133,7 @@ const NavBar = (props) => {
             </NavButton>
             <NavButton
               className={styles.quoteButton}
+              id="quoteButton"
               style={{
                 height: buttonHeight,
                 backgroundImage: "none",
