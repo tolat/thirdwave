@@ -101,9 +101,11 @@ export const toggleNavDrawer = () => {
   // eslint-disable-next-line
   if (navDrawer.style.right != "0px") {
     navDrawer.style.right = "0px";
+    document.body.style.overflowY = "hidden";
     //navDrawerBlackout.style.display = "block";
   } else {
     navDrawer.style.right = "-30rem";
+    document.body.style.overflowY = "";
     //navDrawerBlackout.style.display = "none";
   }
 };
