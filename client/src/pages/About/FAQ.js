@@ -14,7 +14,7 @@ const faqData = [
   {
     key: "faq2",
     q: "What do I need to book a bus?",
-    a: "In BC, the average cost of a solar system to offset the yearly energy usage of a home is $20,000 to $30,000 (not including battery backup). The payback period is highly dependent on site conditions, shading, roof angle, and region, but is typially between 10-15 years (standard system lifespan is 25-35 years).",
+    a: "You will need a major credit card to reserve a bus. However, your card will not be charged until the day of the trip. In certain cases we also accept cheques that can be mailed to our office or given to driver on the day of the trip.",
   },
   {
     key: "faq3",

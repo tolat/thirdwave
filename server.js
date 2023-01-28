@@ -33,8 +33,6 @@ app.use((req, res, next) => {
 
 // POST route for sending emailed message from the Contact form
 app.post("/message", async (req, res) => {
-  console.log("received request for message!!")
-  console.log("server is: " + process.env.SERVER)
   utils.sendMail(
     req,
     res,
