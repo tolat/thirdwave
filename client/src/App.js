@@ -46,6 +46,8 @@ function App() {
       return prevState;
     });
   }, [bgAttachment]);
+  
+  console.log(process.env)
 
   return (
     <React.Fragment>

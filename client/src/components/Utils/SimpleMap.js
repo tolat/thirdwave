@@ -31,7 +31,7 @@ const SimpleMap = () => {
     return (
       <div className={styles.container} style={{margin: mapMargin}}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyBDmVfnf67kwRkhrf6sLOCDo7avem9USvU" }}
+          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}>
           <Marker lat={49.193980300332264} lng={-123.07466601572757} />
