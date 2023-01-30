@@ -21,12 +21,13 @@ import { useWindowSize } from "usehooks-ts";
 
 const HeroContent = (props) => {
   const w = props.viewportWidth;
-  const heroMarginTop = responsive(w, "", "18rem");
+  const heroMarginTop = responsive(w, "", "18rem", "16rem", "20rem");
   const heroBorderBottom = responsive(w, "1px solid white");
   const heroFontSize = responsive(w, "1.3rem", "2.3rem");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
   const servicesDisplay = responsive(w, "none");
+  const subMainContainerMarginBottom = responsive(w, "", "1rem", "2rem","5rem")
   const [contentOpacity, setContentOpacity] = useState("0");
   const [contentTransition, setContentTransition] =
     useState("opacity 1s ease-in");
@@ -52,7 +53,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "45rem", "45rem", "50rem"],
+    ["100vh", "45rem", "45rem", "65rem"],
     useEffect,
     props.setHeroProps
   );
@@ -144,7 +145,7 @@ const HeroContent = (props) => {
               </div>
             </div>
           </div>
-          <div className={styles.submainContainer}>
+          <div className={styles.submainContainer} style={{marginBottom: subMainContainerMarginBottom}}>
             <div
               className={styles.iconsContainer}
               style={{

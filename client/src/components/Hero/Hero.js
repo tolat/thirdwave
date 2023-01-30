@@ -1,18 +1,20 @@
 import BlackFade from "../UI/BlackFade";
-import { responsive } from "../../utils";
+import { convertRemToPixels, responsive } from "../../utils";
 
 import styles from "./Hero.module.css";
 import bg from "../../images/bus5.jpeg";
 import bg_l from "../../images/bus5_large.jpeg";
 import bg_s from "../../images/under_grouse.jpeg";
+import { useWindowSize } from "usehooks-ts";
 
 const Hero = (props) => {
-  const w = props.viewportWidth;
+  const {width, height} = useWindowSize()
   const containerMinHeight = responsive(
-    w,
+    width,
     ...props.heroProps.containerMinHeight
   );
-  const background = responsive(w, bg_s, bg, bg_l, bg_l);
+  const background = responsive(width, bg_s, bg, bg_l, bg_l);
+  const heightAttribute = height < convertRemToPixels(45)? "minHeight":"height"
 
   return (
     <BlackFade
@@ -23,7 +25,7 @@ const Hero = (props) => {
       <div
         id="hero-content"
         className={styles.container}
-        style={{ minHeight: containerMinHeight}}>
+        style={{ [`${heightAttribute}`]: containerMinHeight, maxHeight: "100vh"}}>
         {props.children}
       </div>
     </BlackFade>

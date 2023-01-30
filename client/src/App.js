@@ -27,9 +27,9 @@ function App() {
   const bgAttachment = responsive(
     width,
     "scroll",
-    `${height > 0.7 * width ? "scroll" : "fixed"}`,
-    `${height > 0.7 * width ? "scroll" : "fixed"}`,
-    "fixed"
+    `${height > 0.6 * width ? "scroll" : "fixed"}`,
+    `${height > 0.6 * width ? "scroll" : "fixed"}`,
+    `${height > 0.6 * width ? "scroll" : "fixed"}`
   );
 
   const [heroProps, setHeroProps] = useState({
