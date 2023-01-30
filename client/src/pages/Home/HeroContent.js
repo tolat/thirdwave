@@ -23,7 +23,7 @@ const HeroContent = (props) => {
   const w = props.viewportWidth;
   const heroMarginTop = responsive(w, "", "18rem", "16rem", "20rem");
   const heroBorderBottom = responsive(w, "1px solid white");
-  const heroFontSize = responsive(w, "1.3rem", "2.3rem");
+  const heroFontSize = responsive(w, "1.3rem", "2.3rem", "2.3rem", "");
   const header2BorderBottom = responsive(w, "none");
   const iconsContainerWidth = responsive(w, "unset");
   const servicesDisplay = responsive(w, "none");
@@ -42,7 +42,7 @@ const HeroContent = (props) => {
   const justifyCentralContent = responsive(w, "center");
   const canadianOwnedImgStyle = responsive(w, {maxWidth: "5rem", height: "5rem"})
   const headerContainerMaxWidth = responsive(w, "40vw")
-  const iconsContainerMarginTop = responsive(w, "","5rem", "5rem","5rem")
+  const iconsContainerMarginTop = responsive(w, "","3rem", "2rem","5rem")
 
 
   handleHeroFadeTransitions(
@@ -53,7 +53,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "45rem", "45rem", "65rem"],
+    ["100vh", "40rem", "40rem", "65rem"],
     useEffect,
     props.setHeroProps
   );
@@ -197,8 +197,8 @@ const ServicesIcon = (props) => {
     document.getElementById(`${props.text}_linkid`).click();
   };
 
-  const imgStyle = responsive(width, {width: "1.5rem", height: "1.5rem"},{width: "2rem", height: "2rem"})
-  const fontSize = responsive(width, "0.6rem", "1rem")
+  const imgStyle = responsive(width, {width: "1.5rem", height: "1.5rem"},{width: "2rem", height: "2rem"},{width: "2rem", height: "2rem"},null)
+  const fontSize = responsive(width, "0.6rem", "1rem", "1rem", "")
 
   return (
     <div
