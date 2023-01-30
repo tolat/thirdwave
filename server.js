@@ -38,7 +38,7 @@ app.post("/message", async (req, res) => {
     res,
     `Message from thirdwavebus.com`,
     "dispatch@thirdwavebus.com",
-    //"torin.olapolort456ggt@gmail.com",
+    //"torin.olat@gmail.com",
     transporter
   );
 });

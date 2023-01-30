@@ -266,3 +266,7 @@ export const clearForm = (formFields, formRefs) => {
 export const convertRemToPixels = (rem) => {
   return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 };
+
+export const isMobile = (width) =>{
+  return width < process.env.REACT_APP_BREAKPOINT_T
+}

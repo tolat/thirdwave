@@ -6,6 +6,7 @@ import {
   useScrollPosition,
   toggleModal,
   convertRemToPixels,
+  isMobile
 } from "../../utils";
 import { Turn as Hamburger } from "hamburger-react";
 import { toggleNavDrawer } from "../../utils";
@@ -20,15 +21,16 @@ const NavBar = (props) => {
   const burgerMenuDisplay = responsive(w, "flex");
   const reduceNavbarHeigthOnScroll = 2;
   const initalBarHeight = responsive(w, "3rem", "5rem");
+  const navItemPosition = responsive(w, "absolute")
 
   function capNumber(num, cap) {
     return num > cap ? cap : num;
   }
 
-  const bgOpacity = capNumber(scrollPosition / convertRemToPixels(10), 1);
+  const bgOpacity = isMobile(w)?0:capNumber(scrollPosition / convertRemToPixels(10), 1);
 
-  const barHeight = `${
-    5 -
+  const barHeight = isMobile(w)?"5rem":`${
+    5 - 
     capNumber(
       (reduceNavbarHeigthOnScroll * scrollPosition) / convertRemToPixels(10),
       reduceNavbarHeigthOnScroll
@@ -64,9 +66,9 @@ const NavBar = (props) => {
     <React.Fragment>
       <div
         className={styles.background}
-        style={{ opacity: bgOpacity, height: barHeight }}
+        style={{ opacity: bgOpacity, height: barHeight, position: navItemPosition }}
       ></div>
-      <div className={styles.container} style={{ height: barHeight }}>
+      <div className={styles.container} style={{ height: barHeight, position: navItemPosition  }}>
         <div className={styles.innerContainer}>
           <div
             className={styles.logo}
@@ -148,7 +150,7 @@ const NavBar = (props) => {
       </div>
       <div
         className={`${styles.burgerButton} invertFilter`}
-        style={{ height: barHeight, display: burgerMenuDisplay }}
+        style={{ height: barHeight, display: burgerMenuDisplay, position: navItemPosition  }}
         onClick={toggleNavDrawer}
         id="burgerMenu"
       >

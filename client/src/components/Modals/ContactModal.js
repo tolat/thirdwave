@@ -58,6 +58,12 @@ const ContactModal = (props) => {
               props.contactModaltextareaPlaceholder
             }
           />
+          {utils.isMobile(w)?<SubmitButton
+          iconDisplay={iconDisplay}
+          spinnerDisplay={spinnerDisplay}
+          buttonText={"Send Message"}
+          buttonMargin={utils.responsive(w, "0 2rem 0rem 0")}
+        />:null}
           <div
             className={styles.detailsForMobile + ` ${mobileInvertFilter}`}
             style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}
@@ -72,18 +78,20 @@ const ContactModal = (props) => {
                 <div style={{ color: "white" }}>Contact Us</div>
               </div>
             </div>
+            
             <ContactDetails
               containerStyle={{ padding: "0", overflowY: "scroll" }}
               textStyle={{ fontSize: "0.8rem", color: "white", width: "95%" }}
             />
           </div>
+          
         </NonButtonContainer>
-        <SubmitButton
+        {utils.isMobile(w)?null:<SubmitButton
           iconDisplay={iconDisplay}
           spinnerDisplay={spinnerDisplay}
           buttonText={"Send Message"}
           buttonMargin={utils.responsive(w, "0 2rem 5rem 0")}
-        />
+        />}
       </form>
     </Modal>
   );

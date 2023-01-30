@@ -88,7 +88,8 @@ const QuoteModal = (props) => {
       modalHeight={quoteModalHeight}
       modalMaxHeight={quoteModalMaxHeight}
       sidepanel={<Sidepanel />}
-      sidepanelDisplay={sidepanelDisplay}>
+      sidepanelDisplay={sidepanelDisplay}
+    >
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
         <SelectField
           className={styles.selectInput}
@@ -96,15 +97,27 @@ const QuoteModal = (props) => {
           onChange={onFormTypeChange}
           formState={formState}
         />
-        <NonButtonContainer>{content}</NonButtonContainer>
+        <NonButtonContainer>
+          {content}
+          {utils.isMobile(w) ? (
+            <SubmitButton
+              iconDisplay={iconDisplay}
+              spinnerDisplay={spinnerDisplay}
+              buttonText={"Send Message"}
+              buttonMargin={utils.responsive(w, "0 2rem 6rem 0")}
+            />
+          ) : null}
+        </NonButtonContainer>
         <div className={styles.submitButtonContainer}>
-          <SubmitButton
-            formTypeRef={formTypeRef}
-            iconDisplay={iconDisplay}
-            spinnerDisplay={spinnerDisplay}
-            buttonText={"Request Quote"}
-            buttonMargin={utils.responsive(w, "0 2rem 3rem 0")}
-          />
+          {utils.isMobile(w) ? null : (
+            <SubmitButton
+              formTypeRef={formTypeRef}
+              iconDisplay={iconDisplay}
+              spinnerDisplay={spinnerDisplay}
+              buttonText={"Request Quote"}
+              buttonMargin={utils.responsive(w, "0 2rem 3rem 0")}
+            />
+          )}
         </div>
       </form>
     </Modal>
