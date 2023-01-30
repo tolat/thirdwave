@@ -33,12 +33,14 @@ app.use((req, res, next) => {
 
 // POST route for sending emailed message from the Contact form
 app.post("/message", async (req, res) => {
+
+  console.log("sending message...")
   utils.sendMail(
     req,
     res,
     `Message from thirdwavebus.com`,
-    "dispatch@thirdwavebus.com",
-    //"torin.olat@gmail.com",
+    //"dispatch@thirdwavebus.com",
+    "torin.olat@gmail.com",
     transporter
   );
 });
@@ -49,8 +51,8 @@ app.post("/quote", async (req, res) => {
     req,
     res,
     `${req.body.type} quote request from thirdwavebus.com`,
-    "darlenem@thirdwavebus.com",
-    //"torin.olat@gmail.com",
+    //"darlenem@thirdwavebus.com",
+    "torin.olat@gmail.com",
     transporter
   );
 });
