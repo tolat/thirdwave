@@ -218,8 +218,8 @@ export const submitToServer = (
   }
 };
 
-export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage, clearForm)=> {
-  if(clearForm){clearForm(formFields, formRefs)}
+export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage, resetForm)=> {
+  if(resetForm){clearForm(formFields, formRefs)}
   setSpinnerDisplay("none");
   setIconDisplay("block");
   showFlash(
@@ -235,7 +235,7 @@ export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDis
   }, 20000);
 }
 
-export const submitToEmailJS = async (event, formRefs, formFields, setSpinnerDisplay,setIconDisplay, headerTitle, headerMessage, templateID, formType=false, clearForm=true) => {
+export const submitToEmailJS = async (event, formRefs, formFields, setSpinnerDisplay,setIconDisplay, headerTitle, headerMessage, templateID, formType=false, resetForm=true) => {
   event.preventDefault()
 
   let data = {type: formType||null}
@@ -259,7 +259,7 @@ export const submitToEmailJS = async (event, formRefs, formFields, setSpinnerDis
             setIconDisplay,
             headerTitle,
             headerMessage,
-            clearForm
+            resetForm
           );
       },
       function (error) {
