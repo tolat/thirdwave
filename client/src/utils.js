@@ -218,7 +218,7 @@ export const submitToServer = (
   }
 };
 
-export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage, resetForm)=> {
+export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage, resetForm=true)=> {
   if(resetForm){clearForm(formFields, formRefs)}
   setSpinnerDisplay("none");
   setIconDisplay("block");
