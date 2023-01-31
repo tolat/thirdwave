@@ -37,18 +37,41 @@ const QuoteModal = (props) => {
 
   // Submit the form with the correct refs and type
   const handleSubmit = (event) => {
-    utils.formSubmit(
-      event,
-      formState.fields,
-      formState.refs,
-      setSpinnerDisplay,
-      setIconDisplay,
-      utils.clearForm,
-      "/quote",
-      "Quote request sent successfully!",
-      "Thank you for your request. We will get in touch with you if we have any questions, otherwise you can expect a quote within 3 business days.",
-      formTypeRef.current.value
-    );
+    const flashData = {
+      title: "Quote Request Sent Successfully!",
+      message:
+        "Thanks for getting in touch. We will respond to your quote request as soon as possible.",
+    };
+
+    if (document.getElementById("quoteModalSpinner").style.display == "block") {
+      return;
+    }
+    setSpinnerDisplay("block");
+    setIconDisplay("none");
+
+    process.env.REACT_APP_USING_BACKEND == "TRUE"
+      ? utils.submitToServer(
+          event,
+          formState.fields,
+          formState.refs,
+          setSpinnerDisplay,
+          setIconDisplay,
+          "/message",
+          flashData.title,
+          flashData.message
+        )
+      : utils.submitToEmailJS(
+          event,
+          formState.refs,
+          formState.fields,
+          setSpinnerDisplay,
+          setIconDisplay,
+          flashData.title,
+          flashData.message,
+          process.env.REACT_APP_EMAILJS_QUOTE_TEMPLATE_ID,
+          formState.type,
+          false
+        );
   };
 
   // Switch between sub-forms based on the value of the select quote type field

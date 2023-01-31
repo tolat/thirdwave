@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-
 import React from "react";
 import ReactDOM from "react-dom";
 import Form from "react-bootstrap/Form";
+import emailjs from "@emailjs/browser";
 
 // function to select from
 export const responsive = (width, mobile, sml, med, lrg) => {
@@ -179,13 +179,12 @@ export const scrollToOffset = (offset) => {
   });
 };
 
-export const formSubmit = (
+export const submitToServer = (
   event,
   formFields,
   formRefs,
   setSpinnerDisplay,
   setIconDisplay,
-  clearForm,
   path,
   successHeader,
   successMessage,
@@ -209,43 +208,76 @@ export const formSubmit = (
   }
   formData.type = formType;
 
-  function resetSuccess() {
-    clearForm(formFields, formRefs);
-    setSpinnerDisplay("none");
-    setIconDisplay("block");
-    showFlash(
-      "appFlash",
-      successHeader,
-      successMessage,
-      "rgb(55,55,55)",
-      "white",
-      "white"
-    );
-    setTimeout(() => {
-      closeFlash("appFlash");
-    }, 20000);
-  }
-
-  const resetFailure = (error) => {
-    setSpinnerDisplay("none");
-    setIconDisplay("block");
-
-    showFlash(
-      "appFlash",
-      "There was an error sending your request.",
-      error.message,
-      "rgb(231,164,164)"
-    );
-  };
-
   setSpinnerDisplay("block");
   setIconDisplay("none");
 
   try {
-    sendMessage(formData, path, resetSuccess, resetFailure);
+    sendMessage(formData, path, resetSuccess(formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage), resetFailure);
   } catch (e) {
-    resetFailure(e);
+    resetFailure(e, setSpinnerDisplay, setIconDisplay);
   }
+};
+
+export const resetSuccess = (formFields, formRefs, setSpinnerDisplay, setIconDisplay, successHeader, successMessage, clearForm)=> {
+  if(clearForm){clearForm(formFields, formRefs)}
+  setSpinnerDisplay("none");
+  setIconDisplay("block");
+  showFlash(
+    "appFlash",
+    successHeader,
+    successMessage,
+    "rgb(55,55,55)",
+    "white",
+    "white"
+  );
+  setTimeout(() => {
+    closeFlash("appFlash");
+  }, 20000);
+}
+
+export const submitToEmailJS = async (event, formRefs, formFields, setSpinnerDisplay,setIconDisplay, headerTitle, headerMessage, templateID, formType=false, clearForm=true) => {
+  event.preventDefault()
+
+  let data = {type: formType||null}
+  for(let ref in formRefs){
+    data[ref] = formRefs[ref].current.value
+  }
+
+  emailjs
+    .send(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      templateID,
+      data,
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+    )
+    .then(
+      function (response) {
+          resetSuccess(
+            formFields,
+            formRefs,
+            setSpinnerDisplay,
+            setIconDisplay,
+            headerTitle,
+            headerMessage,
+            clearForm
+          );
+      },
+      function (error) {
+        resetFailure(error, setSpinnerDisplay, setIconDisplay)
+      }
+    );
+};
+
+export const resetFailure = (error, setSpinnerDisplay, setIconDisplay) => {
+  setSpinnerDisplay("none");
+  setIconDisplay("block");
+
+  showFlash(
+    "appFlash",
+    "There was an error sending your request.",
+    error.message,
+    "rgb(231,164,164)"
+  );
 };
 
 export const generateRefsFromStrings = (formFields, uRef) => {
@@ -270,3 +302,4 @@ export const convertRemToPixels = (rem) => {
 export const isMobile = (width) =>{
   return width < process.env.REACT_APP_BREAKPOINT_T
 }
+

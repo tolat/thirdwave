@@ -32,6 +32,7 @@ function App() {
     `${height > 0.6 * width ? "scroll" : "fixed"}`
   );
 
+  // Set default props for Hero section
   const [heroProps, setHeroProps] = useState({
     containerMinHeight: ["40rem", "40rem", "55rem", "55rem"],
     bgAttachment: bgAttachment,
@@ -40,14 +41,14 @@ function App() {
     setContactModaltextareaPlaceholder: setContactModaltextareaPlaceholder,
   });
 
+  // Effect that updates the hero background attachment when
+  // the window width or height changes
   useEffect(() => {
     setHeroProps((prevState) => {
       prevState.bgAttachment = bgAttachment;
       return prevState;
     });
   }, [bgAttachment]);
-  
-  console.log(process.env)
 
   return (
     <React.Fragment>

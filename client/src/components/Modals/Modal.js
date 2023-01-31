@@ -3,6 +3,7 @@ import { responsive, toggleModal } from "../../utils";
 import closeButton from "../../images/close_button.png";
 import { useWindowSize } from "usehooks-ts";
 
+
 const Modal = (props) => {
   const {width} = useWindowSize()
   const closeButtonMargin = responsive(width, "1rem 1rem 0 0")

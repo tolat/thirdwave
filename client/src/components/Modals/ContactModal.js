@@ -7,7 +7,6 @@ import phone_icon from "../../images/icons/phone1.svg";
 import { SubmitButton, NonButtonContainer } from "./FormUtils";
 import ContactForm from "./ContactForm";
 import ContactDetails from "../Utils/ContactDetails";
-import { useWindowSize } from "usehooks-ts";
 
 const ContactModal = (props) => {
   const w = props.viewportWidth;
@@ -26,17 +25,39 @@ const ContactModal = (props) => {
   const formRefs = utils.generateRefsFromStrings(formFields, useRef);
 
   const handleSubmit = (event) => {
-    utils.formSubmit(
-      event,
-      formFields,
-      formRefs,
-      setSpinnerDisplay,
-      setIconDisplay,
-      utils.clearForm,
-      "/message",
-      "Message Sent Successfully!",
-      "Thanks for getting in touch. We will do our best to respond to all questions within 3 business days."
-    );
+    const flashData = {
+      title: "Message Sent Successfully!",
+      message:
+        "Thanks for getting in touch. We will respond to your inquiry as soon as possible.",
+    };
+
+    if (document.getElementById("quoteModalSpinner").style.display == "block") {
+      return;
+    }
+    setSpinnerDisplay("block");
+    setIconDisplay("none");
+
+    process.env.REACT_APP_USING_BACKEND == "TRUE"
+      ? utils.submitToServer(
+          event,
+          formFields,
+          formRefs,
+          setSpinnerDisplay,
+          setIconDisplay,
+          "/message",
+          flashData.title,
+          flashData.message
+        )
+      : utils.submitToEmailJS(
+          event,
+          formRefs,
+          formFields,
+          setSpinnerDisplay,
+          setIconDisplay,
+          flashData.title,
+          flashData.message,
+          process.env.REACT_APP_EMAILJS_CONTACT_TEMPLATE_ID
+        );
   };
 
   return (
@@ -58,12 +79,14 @@ const ContactModal = (props) => {
               props.contactModaltextareaPlaceholder
             }
           />
-          {utils.isMobile(w)?<SubmitButton
-          iconDisplay={iconDisplay}
-          spinnerDisplay={spinnerDisplay}
-          buttonText={"Send Message"}
-          buttonMargin={utils.responsive(w, "0 2rem 0rem 0")}
-        />:null}
+          {utils.isMobile(w) ? (
+            <SubmitButton
+              iconDisplay={iconDisplay}
+              spinnerDisplay={spinnerDisplay}
+              buttonText={"Send Message"}
+              buttonMargin={utils.responsive(w, "0 2rem 0rem 0")}
+            />
+          ) : null}
           <div
             className={styles.detailsForMobile + ` ${mobileInvertFilter}`}
             style={{ display: mobileDetailsDisplay, margin: "0 0 2rem 0" }}
@@ -78,20 +101,21 @@ const ContactModal = (props) => {
                 <div style={{ color: "white" }}>Contact Us</div>
               </div>
             </div>
-            
+
             <ContactDetails
               containerStyle={{ padding: "0", overflowY: "scroll" }}
               textStyle={{ fontSize: "0.8rem", color: "white", width: "95%" }}
             />
           </div>
-          
         </NonButtonContainer>
-        {utils.isMobile(w)?null:<SubmitButton
-          iconDisplay={iconDisplay}
-          spinnerDisplay={spinnerDisplay}
-          buttonText={"Send Message"}
-          buttonMargin={utils.responsive(w, "0 2rem 5rem 0")}
-        />}
+        {utils.isMobile(w) ? null : (
+          <SubmitButton
+            iconDisplay={iconDisplay}
+            spinnerDisplay={spinnerDisplay}
+            buttonText={"Send Message"}
+            buttonMargin={utils.responsive(w, "0 2rem 5rem 0")}
+          />
+        )}
       </form>
     </Modal>
   );
