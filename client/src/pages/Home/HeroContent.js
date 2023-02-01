@@ -53,7 +53,7 @@ const HeroContent = (props) => {
   );
 
   updateHeroResponsiveHeights(
-    ["100vh", "35rem", "40rem", "50rem", "60rem"],
+    ["100vh", "35rem", "40rem", "50rem", "65rem"],
     useEffect,
     props.setHeroProps
   );

@@ -73,7 +73,7 @@ const ContactModal = (props) => {
       sidepanelDisplay={sidepanelDisplay}
     >
       <form className={styles.form} style={props.style} onSubmit={handleSubmit}>
-        <NonButtonContainer>
+        <NonButtonContainer nbContainerMargin = {utils.responsive(w,"2rem 0 0 0","3rem 0 0 0","3rem 0 0 0","3rem 0 0 0" )}>
           <ContactForm
             refs={formRefs}
             contactModaltextareaPlaceholder={

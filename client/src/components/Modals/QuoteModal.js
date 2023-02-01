@@ -27,7 +27,7 @@ const QuoteModal = (props) => {
   const [content, setContent] = useState(emptyFormContent);
   const formTypeRef = useRef();
 
-  // Defalt form state **** SET TO EMPTY WHEN OTHER FORMAS ADDED ****
+  // Defalt form state **** SET TO EMPTY WHEN OTHER FORMS ADDED ****
   const defaultFormState = {
     fields: [charterFields],
     refs: [charterRefs],
@@ -120,7 +120,7 @@ const QuoteModal = (props) => {
           onChange={onFormTypeChange}
           formState={formState}
         />
-        <NonButtonContainer>
+        <NonButtonContainer nbContainerMargin = {""}>
           {content}
           {utils.isMobile(w) ? (
             <SubmitButton
