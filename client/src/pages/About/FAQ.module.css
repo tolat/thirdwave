@@ -102,8 +102,9 @@
 }
 
 .link{
-  color: blue;
-  text-decoration: underline;
+  color: rgb(54, 113, 186);
+    text-decoration: underline;
+    font-weight: bold;
   width: 4rem;
 }
 

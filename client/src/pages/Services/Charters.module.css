@@ -1,0 +1,14 @@
+.link{
+    color: rgb(54, 113, 186);
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.link:hover{
+    cursor: pointer;
+}
+
+.container{
+display: flex;
+flex-direction: column;
+}

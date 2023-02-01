@@ -68,9 +68,9 @@ const FAQ = (props) => {
 
   const templateCols = responsive(w, "100%", "100%", "50% 50%", "50% 50%");
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={props.style}>
       <div className={styles.mainHeaderContainer}>
-        <div className={styles.mainHeader}>FAQ</div>
+        {props.hideHeader?null:<div className={styles.mainHeader}>FAQ</div>}
       </div>
       {/* <div className={styles.filterContainer}>
         <input
@@ -83,7 +83,7 @@ const FAQ = (props) => {
       <CentralSection>
         <div
           className={styles.faqContainer}
-          style={{ gridTemplateColumns: templateCols }}>
+          style={{ gridTemplateColumns: props.templateCols||templateCols }}>
           {filteredData.map((item) => (
             <div
               key={item.key}

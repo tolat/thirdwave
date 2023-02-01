@@ -25,7 +25,7 @@ const Hero = (props) => {
       <div
         id="hero-content"
         className={styles.container}
-        style={{ [`${heightAttribute}`]: containerMinHeight, maxHeight: "100vh"}}>
+        style={{[`${heightAttribute}`]: containerMinHeight, maxHeight: "100vh"}}>
         {props.children}
       </div>
     </BlackFade>
