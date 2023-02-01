@@ -31,6 +31,7 @@ function App() {
     `${height > 0.6 * width ? "scroll" : "fixed"}`,
     `${height > 0.6 * width ? "scroll" : "fixed"}`
   );
+  const quoteModalMarginTop = responsive(width, "-2rem")
 
   // Set default props for Hero section
   const [heroProps, setHeroProps] = useState({
@@ -58,13 +59,13 @@ function App() {
         modalVis={contactModalVis}
         setModalVis={setContactModalVis}
         contactModaltextareaPlaceholder={contactModaltextareaPlaceholder}
-        style={{padding: responsive(width, "1rem", ),marginTop: "-2rem"}}
+        style={{padding: responsive(width, "1rem", ),marginTop: quoteModalMarginTop}}
       />
       <QuoteModal
         viewportWidth={width}
         modalVis={quoteModalVis}
         setModalVis={setQuoteModalVis}
-        style={{padding: responsive(width, "1rem"),marginTop: "-2rem"}}
+        style={{padding: responsive(width, "1rem"),marginTop: quoteModalMarginTop}}
       />
       <NavDrawer
         setContactModalVis={setContactModalVis}

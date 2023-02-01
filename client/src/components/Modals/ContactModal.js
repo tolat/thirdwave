@@ -17,6 +17,7 @@ const ContactModal = (props) => {
   const sidepanelDisplay = utils.responsive(w, "none", "flex", "flex", "flex");
   const mobileDetailsDisplay = utils.responsive(w, "block");
   const mobileInvertFilter = utils.responsive(w, "invertFilter", "", "", "");
+  const containerOverflowY = utils.responsive(w,"none", "scroll", "scroll", "scroll")
 
   const [spinnerDisplay, setSpinnerDisplay] = useState("none");
   const [iconDisplay, setIconDisplay] = useState("block");
@@ -103,7 +104,7 @@ const ContactModal = (props) => {
             </div>
 
             <ContactDetails
-              containerStyle={{ padding: "0", overflowY: "scroll" }}
+              containerStyle={{ padding: "0", overflowY: containerOverflowY }}
               textStyle={{ fontSize: "0.8rem", color: "white", width: "95%" }}
             />
           </div>
