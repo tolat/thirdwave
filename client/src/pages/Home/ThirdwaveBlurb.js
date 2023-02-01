@@ -19,13 +19,14 @@ const ThirdwaveBlurb = (props) => {
   const textContainerMargin = responsive(w, "0", "", "", "");
   const textImageContainerMargin = responsive(w, "0 0 3rem 0", "", "", "");
   const textImageContainerJustifyContent = responsive(w, "center", "", "", "");
-  const textFontSize = responsive(w, "1.1rem");
+  const textFontSize = responsive(w, "1.1rem", "1.1rem", "1.2rem");
   const textLineHeight = responsive(w, "1.4rem");
   const textAlign = responsive(w, "left");
   const headerFontSize = responsive(w, "1.5rem")
   const headerMargin = responsive(w, "3rem 0.5rem 0rem 0.5rem")
   const headerTextAlign = responsive(w, "left")
   const imgDisplay = responsive(w, "none")
+  const imgHeight = responsive(w, "", "18rem", "19rem")
 
   return (
     <CentralSection backgroundColor={"white"}>
@@ -47,7 +48,7 @@ const ThirdwaveBlurb = (props) => {
             }}>
             <img
               className={styles.textImage}
-              style={{display: imgDisplay}}
+              style={{display: imgDisplay, height: imgHeight}}
               src={img}
               alt="bus-under-grouse"
             />

@@ -13,7 +13,7 @@ const Hero = (props) => {
     width,
     ...props.heroProps.containerMinHeight
   );
-  const background = responsive(width, bg_s, bg, bg_l, bg_l);
+  const background = responsive(width, bg_s, bg_l, bg_l, bg_l, bg_l);
   const heightAttribute = height < convertRemToPixels(45)? "minHeight":"height"
 
   return (
@@ -25,7 +25,7 @@ const Hero = (props) => {
       <div
         id="hero-content"
         className={styles.container}
-        style={{[`${heightAttribute}`]: containerMinHeight, maxHeight: "100vh"}}>
+        style={{minHeight: containerMinHeight, maxHeight: "100vh"}}>
         {props.children}
       </div>
     </BlackFade>

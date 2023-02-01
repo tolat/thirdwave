@@ -8,10 +8,6 @@
   box-sizing: border-box;
   flex-direction: column;
   transition: all 0.3s ease-in-out;
+  height: 0rem;
 }
 
-@media (min-width: 900px){
-  .container{
-    height: 40rem;
-  }
-}

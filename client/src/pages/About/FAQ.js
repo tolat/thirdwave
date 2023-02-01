@@ -87,7 +87,7 @@ const FAQ = (props) => {
           {filteredData.map((item) => (
             <div
               key={item.key}
-              style={{ padding: padding }}
+              style={{ padding: props.qnaContainerPadding || padding }}
               className={styles.qnaContainer}>
               <QnaCard question={item.q} answer={item.a} />
             </div>

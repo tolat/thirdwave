@@ -22,3 +22,10 @@
   cursor: pointer;
   background-size: 100% 0.12em;
 }
+
+@media (max-width: 1600px){
+.navButton{
+  font-size: 1rem;
+}
+}
+

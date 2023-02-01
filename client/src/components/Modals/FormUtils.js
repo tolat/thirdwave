@@ -94,7 +94,7 @@ export const NonButtonContainer = (props) => {
   const nbContainerMargin = utils.responsive(width, "1rem 0 0 0")
 
   return (
-    <div className={`${styles.nonButtonContainer} noscroll`} style={{padding: nbContainerPadding, margin: nbContainerMargin}}>
+    <div className={`${styles.nonButtonContainer}`} style={{padding: nbContainerPadding, margin: nbContainerMargin}}>
       {props.children}
     </div>
   );

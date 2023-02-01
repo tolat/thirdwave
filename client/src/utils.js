@@ -5,14 +5,15 @@ import Form from "react-bootstrap/Form";
 import emailjs from "@emailjs/browser";
 
 // function to select from
-export const responsive = (width, mobile, sml, med, lrg) => {
+export const responsive = (width, mobile, sml, med, lrg, xlg=false) => {
   return width < process.env.REACT_APP_BREAKPOINT_T
     ? mobile
     : width < process.env.REACT_APP_BREAKPOINT_S
     ? sml
     : width < process.env.REACT_APP_BREAKPOINT_L
     ? med
-    : lrg;
+    : width < process.env.REACT_APP_BREAKPOINT_XL?
+    lrg: xlg? xlg:lrg
 };
 
 export const toggleModal = (setModalVisFunction, setQuoteType = false) => {

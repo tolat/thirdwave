@@ -42,7 +42,7 @@ const Charters = (props) => {
           className={sectionStyles.contactInfo}>
           <b>Main Contact:</b> Darelene Mikitka - darlenem@thirdwavebus.com{" "}
         </div>
-        <FAQ style={{border: "1px solid black", marginTop: "3rem", backgroundColor:"rgb(239,242,247)", borderRadius: "3px"}} hideHeader="true" templateCols={faqTemplateCols}/>
+        <FAQ style={{border: "1px solid black", marginTop: "3rem", backgroundColor:"rgb(239,242,247)", borderRadius: "3px"}} hideHeader="true" templateCols={faqTemplateCols} qnaContainerPadding="1rem"/>
         </div>
       </div>
       
