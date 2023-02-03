@@ -1,25 +1,27 @@
 import * as React from "react";
 
+import 'dayjs/locale/en-gb';
 import TextField from "@mui/material/TextField";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import styles from "./MaterialInputs.module.css";
-import { Checkbox } from "@mui/material";
-import FormControlLabel from "@mui/material/FormControlLabel";
+
 
 export const MaterialDatePicker = (props) => {
-  const [value, setValue] = React.useState(null);
   const required = { required: props.required };
 
+  const [locale, setLocale] = React.useState('en-gb');
+  const [datePickerValue, setDatePickerValue] = React.useState(null);
+
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={locale}>
       <DatePicker
         label={props.label}
-        value={value}
+        value={datePickerValue}
         onChange={(newValue) => {
-          setValue(newValue);
+          setDatePickerValue(newValue);
         }}
         inputRef={props.inputRef}
         style={props.style}

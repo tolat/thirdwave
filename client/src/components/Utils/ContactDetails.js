@@ -20,7 +20,7 @@ const ContactDetails = props =>{
           <b>Emergency:</b> (604)-768-3787
           <br />
           <div style={{ marginTop: "0.5rem" }}>
-            <i>13551 VERDUN PLACE, RICHMOND BC</i>
+            <i>120 - 13551 VERDUN PLACE, RICHMOND BC</i>
           </div>
           <br />
           <b>
@@ -42,7 +42,7 @@ const ContactDetails = props =>{
           <b>Manager: </b>Dave Davenport <br />
           victoriamanager@thirdwavebus.com
           <div style={{ marginTop: "0.5rem" }}>
-            <i>482 CECILIA RD, VICTORIA, BC</i>
+            <i>482 CECELIA RD, VICTORIA, BC</i>
           </div>
           <br />
         </div>

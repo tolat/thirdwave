@@ -70,7 +70,7 @@ const QuoteModal = (props) => {
           flashData.message,
           process.env.REACT_APP_EMAILJS_QUOTE_TEMPLATE_ID,
           formState.type,
-          //false
+          false
         );
   };
 
