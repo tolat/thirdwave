@@ -124,9 +124,10 @@ const QuoteModal = (props) => {
           {content}
           {utils.isMobile(w) ? (
             <SubmitButton
+            formTypeRef={formTypeRef}
               iconDisplay={iconDisplay}
               spinnerDisplay={spinnerDisplay}
-              buttonText={"Send Message"}
+              buttonText={"Request Quote"}
               buttonMargin={utils.responsive(w, "0 2rem 6rem 0")}
             />
           ) : null}

@@ -64,7 +64,7 @@ const BusCalculator = (props) => {
     <div className={props.className}>
       <div className={styles.inputsContainer}>
         <MaterialTextInput
-          label="Adults"
+          label="Adults (Age 10+)"
           type="number"
           onChange={updateCalculator}
           inputRef={props.formRefs.numAdults}
@@ -74,11 +74,12 @@ const BusCalculator = (props) => {
           }}
           required
           subText="10+ yrs or Grade 5+"
+          subTextStyle={{fontWeight: "bold", textTransform: "uppercase"}}
         />
         <div style={{ width: "2rem" }}></div>
         <div className={materialStyles.formSpacer} />
         <MaterialTextInput
-          label="Children"
+          label="Children (Age 0-9)"
           type="number"
           onChange={updateCalculator}
           inputRef={props.formRefs.numChildren}
@@ -87,7 +88,8 @@ const BusCalculator = (props) => {
             width: "100%",
           }}
           required
-          subText="0-10 yrs or Grade K-5"
+          subText="0-9 yrs or Grade K-4"
+          subTextStyle={{fontWeight: "bold", textTransform: "uppercase"}}
         />
       </div>
 

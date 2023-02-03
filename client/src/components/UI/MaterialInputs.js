@@ -58,7 +58,7 @@ export const MaterialTextInput = (props) => {
         {...required}
         size="small"
       />
-      <div className={styles.inputSubtext}>{props.subText}</div>
+      <div className={styles.inputSubtext} style={props.subTextStyle}>{props.subText}</div>
     </div>
   );
 };

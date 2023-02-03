@@ -7,6 +7,7 @@
 .inputSubtext {
   font-size: 0.65rem;
   color: rgb(80, 80, 80);
+  font-weight: bold;
 }
 
 .checkboxWrapper {
