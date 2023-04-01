@@ -1,6 +1,7 @@
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import CentralSection from "../../components/UI/CentralSection";
+import React from "react";
 
 import fraser from "../../images/partner_icons/fraseracademy.png";
 import mapleridge from "../../images/partner_icons/mapleridge.png";
@@ -32,7 +33,7 @@ const imageLinks = [
   greaterheights,
 ];
 
-const Partners = (props) => {
+const Partners = React.memo((props) => {
   const w = props.viewportWidth;
   return (
     <CentralSection style={{ flexDirection: "column" }} backgroundColor="white">
@@ -41,11 +42,10 @@ const Partners = (props) => {
       </div>
     </CentralSection>
   );
-};
+});
 
-const Carousel = (props) => {
-  const w = props.viewportWidth;
-  const partnerLogoHeight = responsive(w, "70rem", "90rem", "110rem", "110rem");
+const Carousel = React.memo((props) => {
+  const partnerLogoHeight = responsive(props.viewportWidth, "70rem", "90rem", "110rem", "110rem");
   // Alice carousel for products
   const handleDragStart = (e) => e.preventDefault();
   const productCrouselItems = imageLinks.map((l) => (
@@ -74,6 +74,6 @@ const Carousel = (props) => {
       }}
     />
   );
-};
+});
 
 export default Partners;
