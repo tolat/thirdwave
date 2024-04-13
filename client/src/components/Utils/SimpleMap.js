@@ -5,6 +5,7 @@ import { responsive } from "../../utils";
 import { useWindowSize } from "usehooks-ts";
 import styles from "./SimpleMap.module.css";
 import pindrop from "../../images/icons/pindrop.png";
+import mapImg from "../../images/map.png";
 
 const Marker = (props) => {
   return (
@@ -25,19 +26,16 @@ const SimpleMap = () => {
 
   const { width } = useWindowSize();
   const imageMaxHeight = responsive(width, "17rem");
-  const mapMargin = responsive(width,"0")
+  const mapMargin = responsive(width, "0");
 
   try {
     return (
-      <div className={styles.container} style={{margin: mapMargin}}>
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}>
-          <Marker lat={49.193980300332264} lng={-123.07466601572757} />
-          <Marker lat={49.45305677049311} lng={-123.71170810493598} />
-          <Marker lat={48.44424484650976} lng={-123.37689530818076} />
-        </GoogleMapReact>
+      <div className={styles.container} style={{ margin: mapMargin }}>
+        <img
+          src={mapImg}
+          alt="map"
+          style={{ width: "100%", height: "100%" }}
+        ></img>
       </div>
     );
   } catch (error) {

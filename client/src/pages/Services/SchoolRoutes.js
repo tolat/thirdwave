@@ -4,8 +4,8 @@ import sectionStyles from "./ServiceSection.module.css";
 
 import mapleridge from "../../images/partner_icons/mapleridge.png";
 import fraser from "../../images/partner_icons/fraseracademy.png";
-import sunshinecoast from "../../images/partner_icons/sunshinecoast.png";
-import kingdavid from "../../images/partner_icons/kingdavid.png";
+import victoria from "../../images/partner_icons/sd61.png";
+import stgeorges from "../../images/partner_icons/stgeorges.png";
 import family from "../../images/icons/fieldtrip.svg";
 import ServiceSection from "./ServiceSection";
 import { responsive, toggleModal } from "../../utils";
@@ -28,7 +28,8 @@ const SchoolRoutes = (props) => {
       headerText="School Routes"
       justifyHeader="start"
       viewportWidth={width}
-      inquireOnClick={inquireClickHandler}>
+      inquireOnClick={inquireClickHandler}
+    >
       <div className={styles.iconsContainer}>
         <div className={styles.iconContainer}>
           <img
@@ -42,7 +43,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={sunshinecoast}
+            src={victoria}
             alt="northvan"
           />
         </div>
@@ -50,7 +51,7 @@ const SchoolRoutes = (props) => {
           <img
             style={{ height: iconHeight, padding: iconPadding }}
             className={styles.iconImg}
-            src={kingdavid}
+            src={stgeorges}
             alt="surrey"
           />
         </div>
@@ -66,7 +67,8 @@ const SchoolRoutes = (props) => {
       <div className={sectionStyles.textContainer}>
         <div
           style={{ fontSize: props.fontSize }}
-          className={sectionStyles.text}>
+          className={sectionStyles.text}
+        >
           Thirdwave Bus services offers full school route servicing in our
           principal areas:
         </div>
@@ -75,18 +77,21 @@ const SchoolRoutes = (props) => {
             Greater Vancouver / Lower Mainlad
           </li>
           <li style={{ fontSize: props.fontSize }}>South Vancouver Island</li>
-          <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
+          {/*           <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
+           */}{" "}
         </div>
         <div
           style={{ fontSize: props.fontSize }}
-          className={sectionStyles.text}>
+          className={sectionStyles.text}
+        >
           To inquire about school route services, please contact us through the
           "Contact" button in the navigation bar, or send an email to the main
           Contact as listed below.
         </div>
         <div
           style={{ fontSize: props.fontSize }}
-          className={sectionStyles.contactInfo}>
+          className={sectionStyles.contactInfo}
+        >
           <b>Main Contact:</b> Murray Nicholl - murrayn@thirdwavebus.com{" "}
         </div>
         {/* <div className={sectionStyles.contactInfo}>

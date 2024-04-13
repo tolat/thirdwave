@@ -24,7 +24,7 @@ const imageLinks = [
   stgeorges,
   kingdavid,
   sarah,
-  sunshinecoast,
+  // sunshinecoast,
   talmud,
   pgatour,
   fraser,

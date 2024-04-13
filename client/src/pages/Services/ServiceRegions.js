@@ -14,7 +14,7 @@ const ServiceRegions = (props) => {
   const inquireClickHandler = () => {
     toggleModal(props.setQuoteModalVis, "Service Regions");
   };
-  const textContainerPadding  =responsive(width,"1rem")
+  const textContainerPadding = responsive(width, "1rem");
 
   return (
     <ServiceSection
@@ -25,14 +25,19 @@ const ServiceRegions = (props) => {
       viewportWidth={width}
       backgroundColor="rgb(255,255,255)"
       justifyHeader={headerJustify}
-      inquireOnClick={inquireClickHandler}>
+      inquireOnClick={inquireClickHandler}
+    >
       <div
         className={styles.container}
-        style={{ flexDirection: contentFlexDirection }}>
+        style={{ flexDirection: contentFlexDirection }}
+      >
         <div className={styles.imageContainer}>
           <SimpleMap />
         </div>
-        <div className={styles.textContainer} style={{padding: textContainerPadding}}>
+        <div
+          className={styles.textContainer}
+          style={{ padding: textContainerPadding }}
+        >
           <div style={{ fontSize: props.fontSize }} className={styles.text}>
             Our principle locations for regular routes are:
           </div>
@@ -40,19 +45,19 @@ const ServiceRegions = (props) => {
             Greater Vancouver / The Lower Mainlad
           </li>
           <li style={{ fontSize: props.fontSize }}>South Vancouver Island</li>
-          <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
-          <li style={{ fontSize: props.fontSize }}>Squamish + Whistler</li>
+          {/* <li style={{ fontSize: props.fontSize }}>The Sunshine Coast</li>
+          <li style={{ fontSize: props.fontSize }}>Squamish + Whistler</li> */}
           <div style={{ fontSize: props.fontSize }} className={styles.text}>
-            If youre area is not mantioned here, please inquire
-            with our head office using the email below.
+            If youre area is not mantioned here, please inquire with our head
+            office using the email below.
           </div>
           <div
             style={{ fontSize: props.fontSize }}
-            className={sectionStyles.contactInfo}>
+            className={sectionStyles.contactInfo}
+          >
             <b>Dispatch:</b> dispatch@thirdwavebus.com{" "}
           </div>
         </div>
-
       </div>
 
       <div></div>

@@ -23,7 +23,7 @@ const ContactDetails = props =>{
             <i>120 - 13551 VERDUN PLACE, RICHMOND BC V6V 1W5</i>
           </div>
           <br />
-          <b>
+          {/* <b>
             Sunshine Coast
           </b>
           <br />
@@ -32,7 +32,7 @@ const ContactDetails = props =>{
           <div style={{ marginTop: "0.5rem" }}>
             <i>4373 SOLAR RD, SECHELT, BC V0N 3A1</i>
           </div>
-          <br />
+          <br /> */}
           <b>
             Victoria
           </b>
