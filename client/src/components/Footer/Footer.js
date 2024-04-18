@@ -4,9 +4,9 @@ import { responsive } from "../../utils";
 
 import logo from "../../images/logo4.png";
 import facebook from "../../images/icons/facebook.png";
-import instagram from "../../images/icons/instagram.png";
+/* import instagram from "../../images/icons/instagram.png";
 import youtube from "../../images/icons/youtube.png";
-import linkedin from "../../images/icons/linkedin.png";
+import linkedin from "../../images/icons/linkedin.png"; */
 import ContactDetails from "../Utils/ContactDetails";
 
 const Footer = (props) => {

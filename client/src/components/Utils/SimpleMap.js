@@ -3,9 +3,9 @@ import regions from "../../images/regions.jpg";
 import { responsive } from "../../utils";
 import { useWindowSize } from "usehooks-ts";
 import styles from "./SimpleMap.module.css";
-import pindrop from "../../images/icons/pindrop.png";
 import mapImg from "../../images/map.png";
 
+const SimpleMap = () => {
   const { width } = useWindowSize();
   const imageMaxHeight = responsive(width, "17rem");
   const mapMargin = responsive(width, "0");
