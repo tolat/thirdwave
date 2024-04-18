@@ -7,7 +7,6 @@ import fraser from "../../images/partner_icons/fraseracademy.png";
 import mapleridge from "../../images/partner_icons/mapleridge.png";
 import stgeorges from "../../images/partner_icons/stgeorges.png";
 import pgatour from "../../images/partner_icons/pgatour.png";
-import sunshinecoast from "../../images/partner_icons/sunshinecoast.png";
 import greaterheights from "../../images/partner_icons/greaterheights.png";
 import talmud from "../../images/partner_icons/talmud.png";
 import kingdavid from "../../images/partner_icons/kingdavid.png";

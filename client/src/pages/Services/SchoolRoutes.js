@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./SchoolRoutes.module.css";
 import sectionStyles from "./ServiceSection.module.css";
 
